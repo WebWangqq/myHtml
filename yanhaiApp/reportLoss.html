@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>挂失</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="bankCardManage1.html">返回</a>
+    <p>挂失</p>
+</div>
+<div id="container">
+	<ul class="formInfo">
+		<li>
+			<label>请选择账号</label>
+			<div class="info colorGray" id="cardNum">请选择账号</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li>
+			<label>开户网点</label>
+			<div class="info">营口分行大石桥支行</div>
+		</li>
+		<li>
+			<label>交易密码</label>
+			<div class="info"><input class="field" type="password" placeholder="请输入交易密码 " /></div>
+		</li>
+	</ul>
+	<a class="btnMain" href="operateSuccess.html">确&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+	<div class="agreementTip">
+		<p class="colorMain">说明：</p>
+		<p>1.请注意您的个人密码保护。</p>
+		<p>2.取款密码遗失，请您凭本人身份证及银行卡及时前往开户行所在地任一网点办理密码重置手续。</p>
+	</div>
+</div>
+<!--//container end-->
+
+
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li>6225 **** **** 4608</li>
+		<li>6225 **** **** 4601</li>
+		<li>6225 **** **** 4602</li>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#overlay").bind("touchend",function(){
+	setTimeout(function(){$('#overlay').hide()},200);
+	$(".selectBox").hide();
+	$('body').unbind("touchmove");
+})
+$("#cardNum").bind("touchend",function(){
+	showLight("cardNumBox");
+})
+$("#cardNumBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardNumBox");
+	$("#cardNum").text($(this).text()).removeClass("colorGray")
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>预约注册</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/set.css">
+</head>
+<body ontouchstart>
+
+<img class="appointmentRegisterBg" src="images/bg.jpg">
+<div class="appointmentRegisterWrap">
+	<img class="appointment" src="images/advantageImg.png">
+	<div class="appointmentCon">
+		<div class="tip"><span>请留下您的姓名和联系方式，<br/>随后将有专属理财经理为您服务</span></div>
+		<ul class="infoCon">
+			<li>
+				<label>姓名</label>
+				<div class="info"><input id="name" class="field" type="text" placeholder="请输入您的姓名" /></div>
+			</li>
+			<li>
+				<label>手机号</label>
+				<div class="info"><input id="telphone" class="field" type="tel" placeholder="请输入手机号码" maxlength="11" /></div>
+			</li>
+		</ul>
+		<a class="btn" href="##" onclick="appointment()">现在预约</a>
+	</div>
+	<div class="appointmentBtn clearfix">
+		<a class="left" href="register.html">我已拥有VIP邀请码<br/>现在注册</a>
+		<a class="right" href="login.html">我已经是VIP客户<br/>现在登录</a>
+	</div>
+</div>  
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var appointment=function(){
+	var phone=$("#telphone").val();
+	if($("#name").val()==""){
+		showTipBox("请输入您的姓名");
+	}
+	else if(!isMobile(phone)){ 
+		showTipBox("请输入正确手机号");
+	}
+	else{
+		showTipBox("预约成功");
+	}
+}
+</script>
+</body>
+</html>

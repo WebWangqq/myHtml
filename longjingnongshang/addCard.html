@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>添加银行卡</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="container">
+	<ul class="formInfo">
+		<li>
+			<label>卡号</label>
+			<div class="info"><input id="cardNum" class="field mustFill" type="tel" placeholder="请输入银行卡号" /></div>
+			<span class="icoCamera"></span>
+		</li>
+		<li>
+			<label>所属银行</label>
+			<div class="info"><img class="bankLogo" src="images/bankLogo/zhongguo.png"><span>中国银行</span></div>
+		</li>
+		<li>
+			<label>预留手机号</label>
+			<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="请输入手机号" maxlength="11" /></div>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input id="yzm" class="field mustFill" type="tel" placeholder="请输入验证码" /></div>
+			<span id="yzmBtn" class="yzm colorMain colorGray" onclick="sendCode($(this))">发送验证码</span>
+		</li>
+	</ul>
+	<div class="agreementTip">
+		<a class="colorGray textUnder seeBank" href="bankList.html">查看支持的银行</a>
+	</div>
+	<a class="btnMain btnGray" onclick="next()">确认</a>
+	
+</div>
+<!--//container end-->
+
+
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<script>
+
+/*填手机号验证码颜色变化*/
+$("#telphone").bind('input propertychange',function(){
+	if(isMobile($("#telphone").val())){
+		$(".yzm").removeClass("colorGray")
+	}
+})
+
+var countdown=60;
+var timer=null;
+function run() {
+	countdown--;
+	if(countdown==0){
+		$("#yzmBtn").attr("disabled", false);
+	    $("#yzmBtn").html('获取验证码');
+	    $("#yzmBtn").removeClass("colorGray");
+	    countdown = 60;
+	    window.clearInterval(timer);
+	    timer = null;
+	    $("#yzmBtn").attr("onclick", "sendCode($(this))");
+	}
+	else{
+		$("#yzmBtn").html("重新发送(" +formatNumber(countdown)+ ")");
+	}
+}
+function runbanktime(val) {
+	val.attr("disabled", true);
+	val.addClass("colorGray");
+	val.html('重新发送(' + countdown + ')');
+	timer = window.setInterval("run();", 1000);
+	$("#yzmBtn").removeAttr("onclick");
+}
+
+var sendCode=function(val){
+	if(isMobile($("#telphone").val())){
+		countdown = 60;
+        runbanktime(val);
+	}
+	else{
+		showTipBox("请输入正确手机号")
+	}
+
+}
+var next=function(){
+	if($("#cardNum").val()==""){
+		showTipBox("请输入银行卡号")
+	}
+	else if(!isMobile($("#telphone").val())){
+		showTipBox("请输入正确的手机号！");
+	}
+	else if($("#yzm").val()==""){
+		showTipBox("请输入验证码！");
+	}
+	else{
+		showTipBox("银行卡添加成功")
+	}
+}
+</script>
+</body>
+</html>

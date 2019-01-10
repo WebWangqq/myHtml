@@ -1,0 +1,31 @@
+@charset "utf-8";
+img{max-width: 100%}
+.resetCellPhoneWrap{margin-bottom:.3rem;padding-top:.3rem;text-align:center;background-color:#fff;}
+.resetCellPhoneWrap .colorGray{font-size:.32rem;margin-bottom:.3rem}
+.resetCellPhoneWrap .colorYellow{font-size:.22rem;margin-bottom:.2rem;}
+
+.identityCard{padding-bottom:.8rem;text-align:center;font-size:0}
+.identityCard li{display:inline-block;width:50%;}
+.identityCard li .img{position:relative;}
+.identityCard li .img img{display:block;width:2rem;height:1.2rem;margin:0 auto;border-radius:.1rem;}
+.identityCard li .img i{position:absolute;top:50%;left:50%;display:block;width:.6rem;height:.6rem;margin:-.3rem 0 0 -.3rem;background:url(../images/realNameAuthentication/icoVidicon.png) no-repeat;background-size:.6rem .6rem;}
+.identityCard li .text{margin-top:.2rem;color:#8e8e8e;font-size:.26rem;}
+
+.pictureRequire{padding-bottom:.4rem;margin-bottom:.3rem;background-color:#fff;}
+.pictureRequire .title{height:.9rem;padding-left:.3rem;line-height:.9rem;border-bottom:1px solid #eaeaea;}
+.pictureRequire .text{padding:.3rem;color:#8e8e8e;line-height:1.8}
+.pictureRequire .example{position:relative;padding:.5rem .1rem .1rem;margin:.2rem .3rem 0;border:1px solid #eaeaea;}
+.pictureRequire .example .exampleTitle{position:absolute;top:-.2rem;left:.55rem;display:inline-block;padding:0 .1rem;color:#8e8e8e;background-color:#fff;}
+.pictureRequire .example ul li{float:left;position:relative;width:25%;padding:0 .1rem;text-align:center;font-size:.24rem;box-sizing:border-box;}
+.pictureRequire .example ul li:after{content:'';position:absolute;top:.77rem;left:50%;width:.34rem;height:.34rem;margin-left:-.17rem;background:url(../images/realNameAuthentication/icoError.png) no-repeat;background-size:.34rem .34rem;}
+.pictureRequire .example ul li:nth-child(1):after{background-image:url(../images/realNameAuthentication/icoOk.png)}
+.pictureRequire .example ul li img{display:block;margin-bottom:.3rem;}
+.infoExamination{padding:0 .3rem .3rem;background-color:#fff;}
+.infoExamination .title{padding:.2rem 0;text-align:center;}
+.infoExamination .title span{position:relative;display:inline-block;color:#8e8e8e;font-size:.32rem;background-color:#fff;}
+.infoExamination .title span:before,.infoExamination .title span:after{content:'';position:absolute;top:50%;width:.65rem;height:0;border-top:1px solid #dbdbdb;}
+.infoExamination .title span:before{left:-.8rem;}
+.infoExamination .title span:after{right:-.8rem;}
+.infoExamination ul li{padding:.2rem 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.infoExamination ul li label{display:block;width:1.65rem;}
+.infoExamination ul li .info{color:#8e8e8e;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>支付</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+<style type="text/css">
+.formInfo{padding-left: 0}
+.formInfo li{padding-left: .3rem}
+</style>
+</head>
+
+<body ontouchstart style="padding-bottom:.5rem;">
+<div id="navBar">
+    <a class="goBack" href="productDetail.html">返回</a>
+    <p>支付</p>
+</div>
+<div id="container" style="margin-top:1rem">
+	<ul class="formInfo">
+		<li>
+			<label>买入金额</label>
+			<div class="info"><input class="field" type="text" placeholder="可用金额12536.23元" /></div>
+			<span class="colorYellow buy">全部购买</li>
+		</li>
+	</ul>
+	<ul class="formInfo">
+		<li>产品详情</li>
+		<li class="noBorder">产品名称：稳赢4号(138天)第1期</li>
+		<li class="noBorder">产品规则：100元起购 </li>
+	</ul>
+
+	<div class="transactionTime">
+		<div class="title">交易时间</div>
+		<div class="timeItem">
+			<ul class="progress4">
+				<li class="colorRed">
+					<span class="name">起购</span>
+					<span class="date">2016.12.17</span>
+				</li>
+				<li class="colorRed">
+					<span class="name">起息</span>
+					<span class="date">2016.12.17</span>
+				</li>
+				<li>
+					<span class="name">到期</span>
+					<span class="date">2016.12.17</span>
+				</li>
+				<li>
+					<span class="name">到账</span>
+					<span class="date">2016.12.17</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--//transactionTime end-->
+	<ul class="formInfo">
+		<li>
+			<label>交易密码</label>
+			<div class="info"><input class="field" type="password" placeholder="请输入交易密码" /></div>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input class="field" type="text" placeholder="请输入序号为11的验证码" /></div>
+			<span class="colorYellow buy">发送验证码</span>
+		</li>
+	</ul>
+
+	<div class="agreement agree">同意<a class="colorYellow" onclick="showAgreementBox('productAgreement');">《产品协议》</a></div>
+	<a class="btnMain" href="paySuccess.html">立即买入</a>
+</div>
+<!--//container end-->
+
+
+<!--//产品协议-->
+<div class="agreementBox" id="productAgreement">
+	<div class="content">
+		<div class="textCon">
+			<h2>产品协议</h2>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<a class="closeBtn" href="javascript:void(0)" onclick="hideLight('productAgreement')">关闭</a>
+</div>
+<!--//产品协议 end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<!-- <script type="text/javascript">
+$(".agreement").click(function(){
+	if($(this).hasClass("agree")){
+		$(this).removeClass("agree").addClass("noagree")
+	}
+	else{
+		$(this).addClass("agree").removeClass("noagree");
+	}
+})
+</script> -->
+</body>
+</html>

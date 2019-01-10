@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>身份验证</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="findPassword.html">返回</a>
+    <p>身份验证</p>
+</div>
+<div id="container">
+	<div class="findPasswordWrap">
+		<ul class="formInfo">
+			<li>
+				<label>真实姓名</label>
+				<div class="info"><input class="field mustFill" type="text" placeholder="请输入真实姓名" /></div>
+			</li>
+			<li style="padding-right:.7rem;">
+				<label>证件类型</label>
+				<div class="info" id="cardType">身份证</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>证件号码</label>
+				<div class="info"><input class="field mustFill" type="text" placeholder="请输入证件号码" maxlength="18" /></div>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain btnGray" href="cardSecurity.html">下一步</a>
+</div>
+<!--//container end-->
+
+<div class="selectBox" id="cardTypeBox">
+	<ul class="selectCon">
+		<li class="current">身份证</li>
+		<li>军官证</li>
+		<li>护照</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#cardType").bind("touchend",function(){
+	showLight("cardTypeBox");
+})
+$("#overlay").bind("touchend",function(){
+	hideLight("cardTypeBox");
+})
+$("#cardTypeBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardTypeBox");
+	$("#cardType").text($(this).text())
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+.loginWrap{background:url(../images/loginBg.jpg) left bottom no-repeat;background-size:cover;}
+.welcome{width:2.8rem;padding:1.1rem 0 .8rem;margin:0 auto;}
+.welcome img{max-width:100%;}
+.loginWrap .tab{position:relative;text-align:center;font-size:0}
+.loginWrap .tab li{position:relative;display:inline-block;width:2rem;height:.8rem;margin:0 .6rem;font-size:.32rem;text-align:center;line-height:.8rem;}
+.loginWrap .tab li.current{color:#31c27c}
+.loginWrap .tab li.current:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:0;border-bottom:2px solid #31c27c;}
+.loginWrap .loginItem{display:none;}
+.loginItem .loginInfo{margin:.7rem .45rem .8rem;background-color:#fff;}
+.loginItem .loginInfo li{height:.9rem;padding-left:.2rem;border-bottom:1px solid #efefef;line-height:.9rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.loginItem .loginInfo li:last-child{border-bottom:none;}
+.loginItem .loginInfo li .field{display:block;height:.9rem;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.loginItem .loginInfo li .yzm{display:block;height:.9rem;padding:0 .15rem;font-size:.24rem;}
+.skipItem{margin:.65rem .45rem 0;text-align:center;}
+.skipItem a{display:inline-block;margin:0 auto;font-size:.3rem;}
+
+.loginBox{display:none;position:fixed;top:50%;left:50%;width:5.1rem;padding:.5rem .5rem 0.4rem;margin-left:-3.05rem;background-color:#fff;border-radius:.1rem;z-index:9902}
+.loginBox .mascot{position:absolute;top:-1rem;left:50%;display:block;width:1.5rem;height:1.5rem;margin-left:-.75rem;border-radius:50%;}
+.loginBox .text{padding-left:.4rem;font-size:.24rem;}
+.loginBox .info{height:.6rem;margin:.4rem 0 .6rem;padding-left:.2rem;line-height:.6rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.loginBox .info .field{display:block;height:.6rem;padding-left:.2rem;font-size:.24rem;border:1px solid #cdcdcd;box-flex:1;-moz-box-flex:1; -webkit-box-flex:1;}
+.loginBox .info .pic{display:block;width:1.65rem;height:.6rem;margin-right:.2rem;}
+.loginBox .info .yzm{display:block;width:1.55rem;height:.6rem;margin-left:.2rem;text-align:center;line-height:.6rem;font-size:.24rem;color:#fff;background-color:#31c27c;}
+.loginBox .info .yzm.btnGray{background-color:#c2c2c2;}
+.loginBox .btnLoginBox{width:1.6rem;height:.52rem;margin:0 auto;line-height:.52rem;color:#fff;font-size:.25rem;border-radius:2px;
+-webkit-box-shadow:0;
+-moz-box-shadow:0 0 0;
+box-shadow:0 0 0;
+}

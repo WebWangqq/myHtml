@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>修改转账伙伴信息</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/transferAccounts.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>修改转账伙伴信息</p>
+	<a class="icoText">保存</a>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="formWrap">
+		<ul class="formInfo">
+			<li>
+				<label>户名</label>
+				<div class="info"><input class="field" type="text" value="林雅静" /></div>
+			</li>
+			<li>
+				<label>账号</label>
+				<div class="info"><input class="field" type="tel" value="623668063000037577" maxlength="19" /></div>
+			</li>
+			<li>
+				<label>银行</label>
+				<div class="info">
+					<select class="field">
+						<option selected>中国建设银行</option>
+						<option>中国银行</option>
+						<option>民生银行</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+		</ul>
+		
+		<ul class="formInfo">
+			<li>
+				<label>开户地</label>
+				<div class="info">
+					<select class="field">
+						<option selected>营口</option>
+						<option>中国银行</option>
+						<option>民生银行</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>分支行</label>
+				<div class="info">
+					<select class="field">
+						<option selected>股份有线公司营口和平支行</option>
+						<option>股份有线公司营口和平支行2</option>
+						<option>股份有线公司营口和平支行3</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>短信通知</label>
+				<div class="info"><input class="field" type="tel" placeholder="请输入对方手机号" maxlength="11" /></div>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain" href="javascript:void(0)">删除</a>
+</div>
+<!--//container end-->
+
+
+
+
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	btnFixedBottom()
+})
+</script>
+</body>
+</html>

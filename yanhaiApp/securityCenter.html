@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>安全中心</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="index.html">返回</a>
+	<p>安全中心</p>
+</div>
+<div id="container">
+	<ul class="formInfo formInfoA">
+		<a href="changeLoginTel.html"><li>修改登录手机号<i class="arrowRight"></i></li></a>
+		<a href="changeLoginPassword.html"><li>修改登录密码<i class="arrowRight"></i></li></a>
+	</ul>
+	<ul class="formInfo formInfoA">
+		<a href="changeTel.html"><li>变更手机号码<i class="arrowRight"></i></li></a>
+		<a href="logQuery.html"><li>日志查询<i class="arrowRight"></i></li></a>
+		<a href="cancelMobilebBankService.html"><li>注销手机银行<i class="arrowRight"></i></li></a>
+		<!-- <a href="javascript:void(0)" onclick="showLight('warmPromptBox')"><li>注销手机银行<i class="arrowRight"></i></li></a> -->
+	</ul>
+</div>
+<!--//container end-->
+
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您的Ⅱ类账户中尚有资产，请将全部在投资金及余额转出到一类账户后再进行此操作。</div>
+		<div class="btnCon">
+			<a  href="javascript:void(0)" onclick="hideLight('warmPromptBox')">确定</a>
+		</div>
+	</div>
+</div>
+
+<div class="warmPromptBox" id="verifyLoginPasswordBox">
+	<div class="content">
+		<div class="title colorMain">验证登录密码</div>
+		<div class="textCon"><input class="field" type="password" name="" placeholder="请输入登录密码" /></div>
+		<div class="btnCon">
+			<a  href="javascript:void(0)" onclick="hideLight('verifyLoginPasswordBox')">确定</a>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	//showLight("verifyLoginPasswordBox")
+})
+</script>
+</body>
+</html>

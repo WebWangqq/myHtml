@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转账</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/transferAccounts.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>转账</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="formWrap">
+		<div class="remittanceInfo">
+			<div class="con">
+				<img class="logo" src="images/bankLogo/yanhai.png" />
+				<div class="name"><span>林雅静</span><span class="bank">营口沿海银行 储蓄卡</span></div>
+				<div class="colorMain">6236608063000037577</div>
+			</div>
+		</div>
+		<ul class="formInfo">
+			<li style="padding-right:.7rem;">
+				<label>转出账号</label>
+				<div class="info" id="cardNum">6225********4608</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>余额</label>
+				<div class="info colorMain">10,050.07</div>
+			</li>
+			<li>
+				<label>转账金额</label>
+				<div class="info" id="period"><input class="field" type="text" placeholder="免手续费" /></div>
+			</li>
+			<li>
+				<label>验证码</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="请输入序号为10的验证码" /></div>
+				<span id="yzm" class="yzm colorYellow">发送验证码</span>
+			</li>
+		</ul>
+		<ul class="formInfo">
+			<li>
+				<label>短信通知</label>
+				<div class="info"><input class="field" type="tel" placeholder="可不填" maxlength="11" /></div>
+			</li>
+			<li>
+				<label>转账备注</label>
+				<div class="info"><input class="field" type="text" placeholder="转账" /></div>
+			</li>
+			<li style="padding-right:.2rem;">
+				<div class="info">预计<span class="colorYellow">实时</span>到账</div>
+				<span class="colorMain" id="setTime">更换到账时间</span>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain" href="javascript:void(0)" onclick="showPay()">下一步</a>
+</div>
+<!--//container end-->
+
+<!-- /*付款账号*/ -->
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li class="current">6225********4608</li>
+		<li>6225********4601</li>
+		<li>6225********4602</li>
+	</ul>
+</div>
+<!-- /*付款账号end*/ -->
+
+<!-- /*到账时间*/ -->
+<div class="selectBox" id="setTimeBox">
+	<ul class="selectCon">
+		<li>实时到账</li>
+		<li>普通到账</li>
+		<li>次日到账</li>
+	</ul>
+</div>
+<!-- /*到账时间end*/ -->
+
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您本次登录已向该账户操作同等金额的转账，请确认是否需要再次转账，或先查询上一笔入账情况以避免重复转账。</div>
+		<div class="btnCon">
+			<a class="seeList" href="javascript:void(0)">记录查询</a>
+			<a href="javascript:void(0)" onclick="hideLight('warmPromptBox');">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+
+<!--输入交易密码-->
+<div id="passwordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="closeBtn" onclick="hidePay();"></i>请输入交易密码</div>
+		<div class="text">将借记卡Ⅰ类(5896)转出<span class="colorYellow">￥50.00</span></div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--输入交易密码end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	btnFixedBottom();
+	//showLight('warmPromptBox');
+})
+$(".selectInfo .select").change(function(){
+	$(this).parent(".selectInfo").find("span").removeClass("colorGray").text($(this).children('option:selected').val())
+})
+
+$("#overlay").bind("touchend",function(){
+	setTimeout(function(){$('#overlay').hide()},200);
+	$(".selectBox").hide();
+	hideLight("warmPromptBox");
+	$('body').unbind("touchmove");
+})
+/*付款账号*/
+$("#cardNum").bind("click",function(){
+	showLight("cardNumBox");
+})
+$("#cardNumBox li").bind("click",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardNumBox");
+	$("#cardNum").text($(this).text())
+})
+/*到账时间*/
+$("#setTime").bind("click",function(){
+	showLight("setTimeBox");
+})
+$("#setTimeBox li").bind("click",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("setTimeBox");
+	$("#setTime").text($(this).text())
+})
+
+/*点击验证码*/
+var wait=60;//秒数
+var timeFlag=true;
+function waitF() {
+	if (wait == 0) {
+		timeFlag=true;
+		$("#yzm").html("重新发送").removeClass("colorGray");
+		wait = 60; 
+	}else { 
+		timeFlag=false;
+		$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+		wait--; 
+		setTimeout(function() { 
+			waitF();
+		},1000) 
+	}	
+} 
+function yzmF(){
+	if(!timeFlag) return false;
+	timeFlag=true;
+	waitF();
+}
+/*点击验证码end*/
+$("#yzm").bind("touchend",function(){
+	yzmF();
+})
+
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#passwordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"bottom":"0"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#passwordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"bottom":"-6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){window.location.href="remittanceSuccess.html"},1000)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("touchend",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

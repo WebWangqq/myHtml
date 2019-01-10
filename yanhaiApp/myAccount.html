@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>我的账户</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bank.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" class="greenBg">
+	<a class="goBack" href="bank.html">返回</a>
+	<p>我的账户</p>
+</div>
+<div id="container" class="myAccountWrap" style="margin-top:.8rem;">
+	<!--//myAccountNav-->
+	<div class="myAccountNav">
+		<div class="textCenter fsizeSmall">总资产(元)</div>
+		<div class="textCenter money">3000.00</div>
+		<div class="info">
+			<a class="item" href="myAccount2.html">
+				<p>昨日收益(元)</p>
+				<p>50.00</p>
+			</a>
+			<a class="item" href="javascript:void(0)">
+				<p>总负债(元)</p>
+				<p>128.25</p>
+			</a>
+		</div>
+	</div>
+	<!--//myAccountNav end-->
+	<ul class="myAccountInfo">
+		<li class="title"><img class="ico" src="images/investment/investmentNavIco1.png"><label>活期</label></li>
+		<li><a href="incomeAndExpenses.html"><label>人民币</label></a><span class="colorGray money">5.07</span><i class="arrowRight"></i></li>
+		<li onclick="showLight('entityCardBox');"><label>625 **** **** 4608</label><span class="colorGray money">5.07</span><i class="arrowRight"></i></li>
+		<li onclick="showLight('electronicCardBox');"><label>6251 **** **** 4223</label><div class="colorGray fsizeSmall">电子借记卡Ⅱ类</div><span class="colorGray money">5.07</span><i class="arrowRight"></i></li>
+	</ul>
+
+	<ul class="myAccountInfo">
+		<li class="title"><img class="ico" src="images/investment/investmentNavIco2.png"><label>投资</label></li>
+		<li><label>理财产品</label><span class="colorGray money">500,000.00</span><i class="arrowRight"></i></li>
+		<li><label>万能钱包001号</label><span class="colorGray money">500,000.00</span><i class="arrowRight"></i></li>
+		<li><label>薪添富</label><span class="colorGray money">500,000.00</span><i class="arrowRight"></i></li>
+		<li><label>625 **** **** 5992</label><span class="colorGray money">500,000.00</span><i class="arrowRight"></i></li>
+	</ul>
+	
+	<ul class="myAccountInfo">
+		<li class="title"><img class="ico" src="images/index/icoNav7.png"><label>贷款</label></li>
+		<li><label>轻松贷1号产品</label><span class="colorGray money">128.25</span><i class="arrowRight"></i></li>
+	</ul>
+	
+</div>
+<!--//container end-->
+
+<div class="selectBox" id="entityCardBox">
+	<ul class="selectCon">
+		<li><a href="transferAccounts.html">转账汇款</a></li>
+		<li><a href="detailEnquiry.html">明细查询</a></li>
+		<li><a href="financeZone.html">购买理财</a></li>
+	</ul>
+</div>
+
+<div class="selectBox" id="electronicCardBox">
+	<ul class="selectCon">
+		<li><a href="shiftTo.html">转入</a></li>
+		<li><a href="shiftOut.html">转出</a></li>
+		<li><a href="detailEnquiry.html">明细查询</a></li>
+		<li><a href="financeZone.html">购买理财</a></li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+
+</script>
+</body>
+</html>

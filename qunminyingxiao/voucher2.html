@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<div class="duihuanWrap">
+		<div class="title">洗车券</div>
+		<div class="title2">请输入客户手机号</div>
+		<div class="stub"></div>
+		<div class="content inputCon">
+			<div class="item">
+				<input id="telphone" class="field mustFill" type="tel" name="" placeholder="请输入手机号码"  maxlength="13" onkeyup="formatMobile(this)">
+			</div>
+			<div class="item">
+				<input id="yzm" class="field mustFill" type="tel" name="" placeholder="请输入验证码">
+				<span id="yzmBtn" class="colorMain" onclick="sendCode($(this))">获取验证码</span>
+			</div>
+		</div>
+	</div>
+	<div class="btnMain btnGray" onclick="next()">发放奖品</div>
+</div>
+
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+/*发送验证码*/
+var countdown = 60;
+var timer = null;
+function run() {
+    countdown--;
+    if (countdown == 0) {
+        $("#yzmBtn").attr("disabled", false);
+        $("#yzmBtn").html('重新发送');
+        $("#yzmBtn").removeClass("colorGray");
+        countdown = 60;
+        window.clearInterval(timer);
+        timer = null;
+        $("#yzmBtn").attr("onclick", "sendCode($(this))");
+    } else {
+        $("#yzmBtn").html(formatNumber(countdown)+'s后重新发送');
+    }
+}
+
+function runbanktime(string) {
+    string.attr("disabled", true);
+    string.addClass("colorGray");
+    string.html(countdown+'s后重新发送');
+    timer = window.setInterval("run();", 1000);
+    $("#yzmBtn").removeAttr("onclick");
+}
+/*发送验证码end*/
+
+
+var sendCode = function(string) {
+	$("#yzm").val("")
+	if (isMobile($("#telphone").val())) {
+		$("#yzm").attr("disabled", false)
+		runbanktime(string);
+	} else {
+		showTipBox("请输入正确手机号")
+	}
+}
+
+var next=function(){
+	if (!isMobile($("#telphone").val())) {
+		showTipBox("请输入正确的手机号！");
+	} else if ($("#yzm").val() == "") {
+		showTipBox("请输入验证码！");
+	} else {
+		showTipBox('验证成功')
+		// showTipBox('验证失败')
+	}
+}
+
+
+
+</script>
+</body>
+</html>

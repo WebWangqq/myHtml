@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>全员营销系统</title>
+    <link type="text/css" rel="stylesheet" href="css/layout.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+    <div id="wrap">
+        <div class="activityCon">
+            <img class="actiImg" src="">
+            <div class="btnCon clearfix">
+                <div class="item"><span onclick="toDetail()">微信营销</span></div>
+                <div class="item"><span onclick="showSaoma()">扫码营销</span></div>
+            </div>
+        </div>
+    </div>
+    <!-- 扫码营销 -->
+    <div class="saomaBoxOverlay" onclick="hideSaoma()"></div>
+    <div class="saomaBox">
+        <div class="content">
+            <i></i><i></i><i></i><i></i>
+            <div class="con">
+                <div class="title">助力龙井营销王</div>
+                <div class="text">我正在参加吉林龙井营销平台全员营销，<span>微信扫描我的二维码</span>，支持我一下，助我成为龙井营销王。</div>
+                <div class="img"><img id="codeImg" src=""></div>
+            </div>
+        </div>
+    </div>
+    <!-- 扫码营销 end-->
+    <div id="footerBar">
+        <a class="current" href="index.html"><i></i><span>全员营销</span></a>
+        <a href="operationManual.html"><i></i><span>操作手册</span></a>
+        <a href="myCenter.html"><i></i><span>个人中心</span></a>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript">
+    var apiUrl = getApiUrl();
+    var htmlUrl=getHtmlUrl();
+
+    var actid = getQueryString('actid');
+    var bhnsuserid = localStorage.getItem("bhnsuserid");
+    var token=localStorage.getItem("token");
+    var shareUrl;
+
+    $(document).ready(function() {
+        $('body').on('touchmove', function(event) { event.preventDefault(); });
+        if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+            location.href = "login.html";
+        } else {
+            loadDetail()
+        }
+    });
+
+    // 获取活动信息
+    function loadDetail() {
+        showLoadding()
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'Activity/getActivityById',
+            data: ajaxData("{\"activityId\":\"" + actid + "\",\"token\": \"login\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                hideLoadding();
+                console.log(msg)
+                if (msg.data.status == 1) {
+                    $('.actiImg').attr('src', msg.data.data.backgroundPicture);
+                    shareUrl = htmlUrl + 'activityDetail.html?actid=' + actid + '&frombhnsuid=' + bhnsuserid
+                }
+            }
+        })
+    }
+
+    function toDetail() {
+        window.location.href = 'activityDetail.html?actid=' + actid + '&frombhnsuid=' + bhnsuserid
+    }
+
+    function showSaoma() {
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'QRCode/getQRCode',
+            data: ajaxData("{\"size\":900,\"content\": \"" + shareUrl + "\",\"token\": \""+token+"\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                hideLoadding();
+                console.log(msg)
+                if (msg.data.status == 1) {
+                    $('#codeImg').attr('src', msg.data.data.qrcode);
+                    $('.saomaBoxOverlay').show();
+                    $('.saomaBox').show();
+                    $('body').css({ 'overflow': 'hidden' })
+                    $('body').on('touchmove', function(event) { event.preventDefault(); });
+                }
+            }
+        })
+
+    }
+
+    function hideSaoma() {
+        $('.saomaBoxOverlay').hide();
+        $('.saomaBox').hide();
+        $('body').unbind("touchmove");
+        $('body').css({ 'overflow': 'auto' })
+    }
+    </script>
+</body>
+
+</html>

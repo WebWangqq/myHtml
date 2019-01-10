@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+<body ontouchstart>
+
+<div class="indexWrap" style="padding-bottom:.9rem;">
+	<div class="banner">
+        <a href=""><img src="images/_temp/indexBanner.jpg" /></a>
+        <!-- <div class='swiper-container'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                    <a href=''><img src=''></a>
+                </div>
+            </div>
+            <div class='promotion-pagination'></div>
+        </div> -->
+    </div>
+
+    <div class="indexNews">
+        <span class="ico">新闻动态</span>
+        <div class="newsCon">
+            <div class="runCon" id="newsCon">
+                <div class="text" id="news1">
+                    <a href="##">南京大屠杀死难者国家公祭日</a>
+                    <a href="##">南京大屠杀死难者国家公祭日2</a>
+                </div>
+                <div class="text" id="news2"></div>
+            </div>
+        </div>
+        <a class="more" href="news.html">更多</a>
+    </div>
+	<div class="ouickAccess">
+		<div class="title">快捷功能</div>
+		<ul class="accessCon clearfix">
+			<li><a href="branch.html"><img src="images/indexIco1.png"><span>网点导航</span></a></li>
+			<li><a href="securityManual.html"><img src="images/indexIco2.png"><span>安全手册</span></a></li>
+			<li><a href="joinUs.html"><img src="images/indexIco3.png"><span>招聘信息</span></a></li>
+		</ul>
+	</div>
+	<!--//ouickAccess end-->
+	<div class="bankMien">
+        <div class="title">银行风采</div>
+        <div class="swiper-container imgCon">
+            <div class="swiper-wrapper">
+                <div class='swiper-slide'><img src='images/_temp/bankMien1.jpg' /></div>
+                <div class='swiper-slide'><img src='images/_temp/bankMien2.jpg' /></div>
+                <div class='swiper-slide'><img src='images/_temp/bankMien2.jpg' /></div>
+                <div class='swiper-slide'><img src='images/_temp/bankMien1.jpg' /></div>
+            </div>
+        </div>
+    </div>
+    <!--//bankMien end-->
+</div>
+
+<div id="footerBar">
+    <a class="current" href="index.html"><i></i>首页</a>
+    <a href="service.html"><i></i>服务</a>
+    <a href="VIP.html"><i></i>VIP专区</a>
+    <a href="my.html"><i></i>我的</a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+//showLoadding();
+//banner
+/*var bannerSwiper = new Swiper('.banner .swiper-container', {
+    pagination: '.promotion-pagination',
+    paginationType :'bullets',
+    loop: true,
+    autoplay: 3000,
+    grabCursor: true, 
+    paginationClickable: true,
+    autoplayDisableOnInteraction:false
+});
+bannerSwiper.update()*/
+
+//银行风采
+var bankMien = new Swiper('.imgCon', {
+        loop:'true',
+        autoplay: 3000,
+        autoplayDisableOnInteraction:false,
+        slidesPerView: 'auto',
+    });
+    bankMien.update()
+//滚动效果
+Scroll('newsCon',"news1","news2")
+function Scroll(con,div1,div2,myMar){
+    var speed=50; 
+    var runCon = document.getElementById(con); 
+    var text1 = document.getElementById(div1); 
+    var text2 = document.getElementById(div2); 
+    text2.innerHTML=text1.innerHTML; 
+    function Marquee(){ 
+        if(text2.offsetWidth-runCon.scrollLeft<=0) 
+            runCon.scrollLeft-=text1.offsetWidth; 
+        else 
+            runCon.scrollLeft++; 
+    }
+    myMar=setInterval(Marquee,speed);
+    runCon.ontouchstart=function(){clearInterval(myMar)}
+    runCon.ontouchend=function(){myMar=setInterval(Marquee,speed)}
+}
+
+</script>
+</body>
+</html>

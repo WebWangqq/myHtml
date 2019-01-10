@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>我的定制</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>我的定制</p>
+</div>
+<div id="container">
+	<ul class="myCustomWrap">
+		<li class="current"><img src="images/index/icoMyCustom1.png"><span>快捷转账</span></li>
+		<li><img src="images/index/icoMyCustom2.png"><span>话费充值</span></li>
+		<li class="current"><img src="images/index/icoMyCustom3.png"><span>网点服务</span></li>
+		<li><img src="images/index/icoMyCustom4.png"><span>产品推荐</span></li>
+		<li class="current"><img src="images/index/icoMyCustom5.png"><span>最近转账伙伴</span></li>
+		<li><img src="images/index/icoMyCustom6.png"><span>水费缴费</span></li>
+		<li class="current"><img src="images/index/icoMyCustom7.png"><span>数字电视缴费</span></li>
+	</ul>
+</div>
+<!--//container end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(".myCustomWrap li").bind("touchend",function(){
+	if($(this).hasClass("current")){
+		$(this).removeClass("current")
+	}
+	else{
+		$(this).addClass("current")
+	}
+})
+</script>
+</body>
+</html>

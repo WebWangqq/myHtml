@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>银行卡验证</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="authentication.html">返回</a>
+    <p>银行卡验证</p>
+</div>
+<div id="container">
+	<div class="findPasswordWrap">
+		<ul class="formInfo">
+			<li style="padding-right:.7rem;">
+				<label>互联网账户</label>
+				<div class="info" id="cardNum">平安银行互联网账户(7649)</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>交易密码</label>
+				<div class="info"><input class="field mustFill" type="password" placeholder="请输入交易密码"/></div>
+			<li>
+				<label>验证码</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="请输入序号为11的验证码" /></div>
+				<span id="yzm" class="yzm colorYellow" onclick="yzmF()">发送验证码</span>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain btnGray" href="setNewPassword.html">下一步</a>
+</div>
+<!--//container end-->
+
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li class="current">平安银行互联网账户(7649)</li>
+		<li>平安银行互联网账户(7641)</li>
+		<li>平安银行互联网账户(7642)</li>
+	</ul>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#cardNum").bind("touchend",function(){
+	showLight("cardNumBox");
+})
+$("#overlay").bind("touchend",function(){
+	hideLight("cardNumBox");
+})
+$("#cardNumBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardNumBox");
+	$("#cardNum").text($(this).text())
+})
+/*点击验证码*/
+var timeFlag=true;
+var wait=60;//秒数
+function waitF() {
+	if (wait == 0) {
+		timeFlag=true;
+		$("#yzm").html("重新发送").removeClass("colorGray");
+		wait = 60; 
+	}else { 
+		timeFlag=false;
+		$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+		wait--; 
+		setTimeout(function() { 
+			waitF();
+		},1000) 
+	}	
+} 
+function yzmF(){
+	if(!timeFlag) return false;
+	timeFlag=true;
+	waitF();
+}
+/*点击验证码end*/
+</script>
+</body>
+</html>

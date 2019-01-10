@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>理财专区</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+</head>
+
+<body ontouchstart>
+<div id="zoneHeader">
+	<div id="headerBar" class="greenBg">
+		<a class="goBack" href="investment.html">返回</a>
+    	<p>理财专区</p>
+	</div>
+    <img src="images/investment/bg.jpg" />
+</div>
+
+<div id="container" style="margin-top:0;">
+	<ul class="zoneNavCon financeNavCon clearfix">
+		<li><a href="financeProductList.html"><img src="images/investment/financeNavIco1.png" /><span>理财产品</span></a></li>
+		<li><a href="financeMyOwn.html"><img src="images/investment/financeNavIco2.png" /><span>我的持仓</span></a></li>
+		<li onclick="showLight('unwindBox')"><a href="javascript:void(0)"><img src="images/investment/financeNavIco3.png" /><span>签约/解约</span></a></li>
+		<li><a href="riskAssess.html"><img src="images/investment/financeNavIco4.png" /><span>风险评估</span></a></li>
+	</ul>
+	<!--//理财产品-->
+	<div class="productList financeProductList">
+		<div class="title clearfix">
+			<span class="left">热门产品</span>
+			<a class="right colorGray" href="financeProductList.html">更多</a>
+			<i class="arrowRight"></i>
+		</div>
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+	</div>
+	<!--//理财产品 end-->
+</div>
+<!--//container end-->
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="riskAssessBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您尚未进行风险评估，无法进行签约，请先完成风险评估操作。</div>
+		<div class="btnCon">
+			<a href="javascript:void(0)" onclick="hideLight('riskAssessBox')">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="unwindBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您尚有未到期的理财产品，不能进行解约操作。</div>
+		<div class="btnCon">
+			<a href="javascript:void(0)" onclick="hideLight('unwindBox')">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示<end--></end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//showLight('riskAssessBox')
+})
+</script>
+</body>
+</html>

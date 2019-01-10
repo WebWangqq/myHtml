@@ -1,0 +1,43 @@
+@charset "utf-8";
+/*银行要闻*/
+.bankNewsWrap a{display:block;padding:.15rem .4rem;margin-bottom:.3rem;background-color:#fff;}
+.bankNewsWrap a:active{background-color:#e6e6e6}
+.bankNewsWrap .name{position:relative;padding:.1rem 0;}
+.bankNewsWrap .new .name:before{content:'';position:absolute;top:50%;left:-.2rem;width:.14rem;height:.14rem;margin-top:-.07rem;background-color:#f7941d;border-radius:50%;}
+.bankNewsWrap .date{padding-bottom:.1rem;font-size:.22rem;color:#8e8e8e;}
+.bankNewsWrap .abstract{font-size:.24rem}
+.bankNewsDetailWrap .name{padding:0.2rem;text-align:center;}
+.bankNewsDetailWrap .date{text-align:center;color:#8e8e8e;font-size:.22rem;}
+.bankNewsDetailWrap .con{padding:.25rem;color:#8e8e8e;line-height:1.8}
+.bankNewsDetailWrap .con img{max-width:100%;}
+
+/*银行信息*/
+.bankInfoWrap .mapWrap{position:relative;height:4.25rem;margin-bottom:.3rem;}
+.bankInfoWrap .mapWrap .searchCon{position:absolute;top:.3rem;left:50%;width:5.7rem;height:.6rem;margin-left:-2.85rem;background-color:#fff;border-radius:3px;z-index:9000;
+-webkit-box-shadow:0 2px 2px rgba(0, 0, 0, .3);
+-moz-box-shadow:0 2px 2px rgba(0, 0, 0, .3);
+box-shadow:0 2px 2px rgba(0, 0, 0, .3);
+}
+.bankInfoWrap .mapWrap .searchCon:before{content:'';position:absolute;top:50%;left:.2rem;width:.4rem;height:.4rem;margin-top:-.2rem;background:url(../images/icoSearch.png) no-repeat;background-size:.4rem .4rem;}
+.bankInfoWrap .mapWrap .searchCon .searchText{display:block;width:100%;height:.6rem;padding:0 1rem 0 .6rem;}
+.bankInfoWrap .mapWrap .searchCon .searchBtn{position:absolute;top:0;right:0;width:.9rem;height:.6rem;font-size:.24rem;line-height:.6rem;border-top-right-radius:3px;border-bottom-right-radius:3px;z-index:100}
+.bankInfoWrap .mapWrap .map{height:4.25rem;}
+.bankInfoWrap .title{height:.9rem;padding-left:.4rem;line-height:.9rem;font-size:.32rem;border-bottom:1px solid #d9d9d9;background-color:#fff;}
+.bankInfoWrap .srcollCon{overflow:hidden;}
+.bankInfoWrap .srcollCon .bankNewsWrap a{margin-bottom:0;border-bottom:1px solid #d9d9d9;}
+
+/*网点查询*/
+.branchWrap a{display:block;background-color:#fff;}
+.branchWrap a:active{background-color:#e6e6e6}
+.branchWrap li{padding:.2rem .3rem;margin-bottom:.3rem;}
+.branchWrap li .name{padding-bottom:.1rem;}
+.branchWrap li .ico{position:relative;padding-left:.4rem;color:#8e8e8e;font-size:.26rem;line-height:.4rem;}
+.branchWrap li .ico:before{content:'';position:absolute;top:.05rem;left:0;width:.3rem;height:.3rem;background:url(../images/branchIco1.png) no-repeat;background-size:.3rem .3rem;}
+.branchWrap li .ico.address:before{background-image:url(../images/branchIco2.png)}
+.branchDetail ul{padding-left:.35rem;margin-bottom:.5rem;background-color:#fff;}
+.branchDetail ul li{position:relative;padding:.25rem 0.1rem .25rem 0;border-bottom:1px solid #eaeaea;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.branchDetail ul li:last-child{border-bottom:none;}
+.branchDetail ul li label{display:block;min-width:1.6rem;padding-right:.1rem;}
+.branchDetail ul li .info{position:relative;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.branchDetail .map{width:6.9rem;height:4.25rem;margin:0 auto;}
+.branchDetail .map .mapImg{max-width:100%;}

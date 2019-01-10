@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>个人信息</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/set.css">
+<link rel="stylesheet" href="css/LArea.min.css"><!--城市选择-->
+</head>
+
+<body>
+<div id="container">
+    <ul class="infoList">
+        <li class="touxiang">    
+            <label>头像</label>
+            <div class="info"><img class="userImg" src="images/mascot.png" /></div>
+            <i class="arrowRight"></i>
+        </li>
+        <li>    
+            <label>姓名</label>
+            <div class="info">林雅静</div>
+        </li>
+        <li>    
+            <label>身份证号</label>
+            <div class="info">**************2726</div>
+        </li>
+    </ul>
+    <ul class="infoList">
+        <li>    
+            <label>年龄</label>
+            <div class="info" onclick="showLight('editInfo')">26</div>
+            <i class="arrowRight"></i>
+        </li>
+        <li>    
+            <label>性别</label>
+            <div class="info">女</div>
+            <i class="arrowRight"></i>
+        </li>
+        <li>    
+            <label>学历</label>
+            <div class="info">本科</div>
+            <i class="arrowRight"></i>
+        </li>
+        <li>    
+            <label>职业</label>
+            <div class="info">职员</div>
+            <i class="arrowRight"></i>
+        </li>
+        <li>    
+            <label>地区</label>
+            <div class="info"><input id="city" class="field mustFill" type="text" value="天津市东丽区" readonly unselectable="on" onfocus="this.blur()" /></div>
+            <i class="arrowRight"></i>
+        </li>
+    </ul>
+</div>
+<!--信息编辑-->
+<div  class="lightBox" id="editInfo">
+    <div class="content">
+        <p class="colorRed">请输入您的年龄</p>
+        <input class="field" type="text" />
+        <div class="btnCon">
+            <a href="javascript:void(0)" onclick="hideLight('editInfo')">确  定</a>
+            <a href="javascript:void(0)" onclick="hideLight('editInfo')">取  消</a>
+        </div>
+    </div>
+</div>
+<!--信息编辑end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script src="js/LAreaData1.js"></script><!--城市选择-->
+<script src="js/LAreaData2.js"></script><!--城市选择-->
+<script src="js/LArea.min.js"></script><!--城市选择-->
+<script type="text/javascript">
+/*******地区*******/
+var city = new LArea();
+city.init({
+    'trigger': '#city',
+    'keys': {
+        id: 'value',
+        name: 'text'
+    },
+    'type': 2,
+    'data': [provs_data, citys_data, dists_data]
+});
+
+$("#city").on("input",function(){
+    console.log($(this).val())
+})
+/*******地区end*******/
+</script>
+</body>
+</html>

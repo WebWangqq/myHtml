@@ -1,0 +1,95 @@
+@charset "utf-8";
+img{max-width: 100%;}
+/*收支明细*/
+#navBar .arrowBottom{display:inline-block;width:.4rem;height:.4rem;margin-left:.2rem;vertical-align:middle;background:url(../images/navBarArrowleft.png)no-repeat;background-size:0.4rem 0.4rem;
+-webkit-transform: rotate(-90deg);
+}
+#navBar .selectNav{display:none;position:absolute;top:1rem;left:0;width:100%;padding-left:0.4rem;background-color:#fff;box-sizing:border-box;}
+#navBar .selectNav li{height:1.1rem;text-align:left;line-height:1.1rem;font-size:.28rem;border-bottom:1px solid #ddd;}
+#navBar .selectNav li.current{color:#31c27c;border-color:#31c27c;}
+
+.detailWrap li{padding:0.15rem 0.3rem;border-bottom:1px solid #e4e4e4;color:#8e8e8e;}
+.detailWrap li .name{margin-bottom:0.05rem;font-size:.32rem;color:#333;}
+/*关于我们*/
+.aboutUsWrap{margin-top:.3rem;padding-bottom:.8rem;}
+.aboutUsWrap .logo{display:block;width:4.4rem;margin:0 auto .3rem;}
+.aboutUsWrap .versions{font-size:.32rem;text-align:center;line-height:.6rem;}
+.aboutUsWrap .info{padding:0 .25rem;text-align:justify;text-indent:2em;line-height:2;color:#8e8e8e;}
+.aboutUsWrap .copy{padding:0.05rem 0;color:#b9b9b9;text-align:center;}
+.aboutUsWrap .copy .tel{color:#ed6860}
+/*FAQ*/
+.faqWrap{padding:0 .3rem .5rem;margin-top:.2rem;}
+.faqWrap .question{position:relative;padding:.1rem 0 .1rem .45rem;}
+.faqWrap .question:before{content:'';position:absolute;top:.13rem;left:-.05rem;width:20px;height:20px;text-align:justify; background:url(../images/icoMark.png) no-repeat;background-size:20px 20px;}
+.faqWrap .answer{display:none;color:#8e8e8e;line-height:2;text-indent:2em;}
+/*个人信息*/
+.infoList{margin-top:.3rem;padding-left:.3rem;background-color:#fff;}
+.infoList li{position:relative;padding:.25rem .7rem .25rem 0;border-bottom:1px solid #f0f0f0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.infoList li:last-child{border-bottom:none;}
+.infoList li label{color:#000;}
+.infoList li .info{position:relative;padding-left:.3rem;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;text-align: right;color:#8d8d8d;}
+.infoList li .info input{display:block;width:100%;height:100%;text-align:right;color:#8d8d8d;}
+.infoList li .arrowRight{position:absolute;top:50%;right:.35rem;width:.3rem;height:.3rem;margin-top:-.15rem;background:url(../images/arrowRight.png) no-repeat;background-size:.3rem auto;}
+.infoList li.touxiang{line-height:1.2rem;padding:.15rem .7rem .15rem 0;}
+.infoList li.touxiang .userImg{display:block;float:right;width:1.2rem;height:1.2rem;background-color:#e7e7e7;border-radius:50%;}
+/*我的福利*/
+.welfareList{padding:0 0.15rem;}
+.welfareList .item{margin-top:.3rem;height:2.3rem;padding-left:2.3rem;background:url(../images/welfareBg.jpg) no-repeat;background-size:100% 100%}
+.welfareList .item .info{display:table-cell;width:4rem;height:2.3rem;vertical-align:middle;font-size:.28rem;}
+.welfareList .item .info p{width:4rem;padding:0.2rem 0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.welfareList .item .ljsy{display:table-cell; vertical-align: middle;}
+.welfareList .item .ljsy a{display:block;width:.26rem;font-size:.28rem;color:#f7941d;}
+
+/*中长期理财*/
+.manageList li{margin-bottom:.4rem;background-color:#fff;}
+.manageList li .title{position:relative;height:.84rem;padding:0 .25rem 0 .7rem;line-height:.84rem;border-bottom:1px solid #d9d9d9;font-size:.32rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.manageList li .title:before{content:'';position:absolute;top:50%;left:.4rem;width:0;height:.4rem;margin-top:-.2rem;border-left:.04rem solid #31c27c;}
+.manageList li .money{height:1.2rem;line-height:1.2rem;text-align:center;color:#8e8e8e;}
+.manageList li .money span{margin-left:.3rem;color:#f7941d;font-size:.36rem;}
+/*银行卡*/
+.cardWrap{padding:0 .2rem .3rem;}
+.cardWrap .item{position:relative;height:2rem;padding:.2rem .2rem 0 1.3rem;margin-top:.3rem;border-radius:.1rem;color:#fff;
+background: -webkit-linear-gradient(left, #f38981 , #f28ca7); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(right,#f38981 , #f28ca7); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(right,#f38981 , #f28ca7); /* Firefox 3.6 - 15 */
+background: linear-gradient(to right,#f38981 , #f28ca7); /* 标准的语法 */
+}
+.cardWrap .item.oneType{
+background: -webkit-linear-gradient(left, #a5e185 , #5cdf98); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(right,#a5e185 , #5cdf98); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(right,#a5e185 , #5cdf98); /* Firefox 3.6 - 15 */
+background: linear-gradient(to right,#a5e185 , #5cdf98); /* 标准的语法 */
+}
+.cardWrap .item.personalType{
+background: -webkit-linear-gradient(left, #ffb58e , #fa9887); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(right,#ffb58e , #fa9887); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(right,#ffb58e , #fa9887); /* Firefox 3.6 - 15 */
+background: linear-gradient(to right,#ffb58e , #fa9887); /* 标准的语法 */
+}
+.cardWrap .item .logo{position:absolute;top:.3rem;left:.15rem;display:block;width:.8rem;height:.8rem;}
+.cardWrap .item .info .cardNum{font-size:.36rem;}
+.cardWrap .item .info .type{margin:.35rem 0 0.1rem 0;font-size:.36rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.cardWrap .item .info .money{font-size:.22rem;}
+.cardWrap .item .opration{position:absolute;bottom:.2rem;right:.05rem;}
+.cardWrap .item .opration a,.cardWrap .item .accountCancell{display:inline-block;width:1.1rem;height:.4rem;margin-right:.2rem;border:1px solid #fff;border-radius:.4rem;text-align:center;line-height:.4rem;color:#fff;font-size:.22rem;}
+.cardWrap .item .accountCancell{position:absolute;top:.25rem;right:0;}
+.cardWrap .nav{margin-top:.3rem;font-size:.28rem;}
+.cardWrap .quick{position:relative;margin-top:.3rem;overflow:hidden;border-radius:.1rem;}
+.cardWrap .quick .item{margin-top:0;z-index:10;
+background: -webkit-linear-gradient(left, #fbdd8b , #f7a379); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(right,#fbdd8b , #f7a379); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(right,#fbdd8b , #f7a379); /* Firefox 3.6 - 15 */
+background: linear-gradient(to right,#fbdd8b , #f7a379); /* 标准的语法 */
+}
+.cardWrap .quick .delete{position:absolute;right:0;top:0;width:1rem;height:2.2rem;background:#f04647 url(../images/icoDelete.png) center center no-repeat;background-size:.6rem .6rem;text-indent:-9999px;overflow:hidden;}
+
+.lightBox,#editInfo{display:none;position:fixed;top:50%;left:50%;width:5.5rem;margin-left:-2.75rem;padding:.3rem 0;background-color:#fff;border-radius:.1rem;z-index:9902;}
+.lightBox .content p,#editInfo .content p{padding:.3rem 0;text-align:center;line-height:1.8;}
+.lightBox .field,#editInfo .field{display:block;width:4.8rem;height:0.6rem;margin:0 auto .55rem;padding-left:0.1rem;border:1px solid #cdcdcd;}
+.lightBox .btnCon,#editInfo .btnCon{font-size:0;text-align:center;}
+.lightBox .btnCon a,#editInfo .btnCon a{display:inline-block;width:1.6rem;height:0.6rem;margin:0 0.35rem;text-align:center;line-height:0.6rem;font-size:0.25rem;color:#fff;border-radius:3px;background-color:#31c27c;}
+.lightBox .btnCon a:nth-child(2),#editInfo .btnCon a:nth-child(2){background-color:#8e8e8e;}
+
+.ruleWrap{padding-top:.2rem;background-color:#fff;}
+.ruleWrap .list{padding-left:.35rem;padding-bottom:.1rem;}
+.ruleWrap .list li{margin:.2rem 0;}

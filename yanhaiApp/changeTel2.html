@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>变更手机号码</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="securityCenter.html">返回</a>
+	<p>变更手机号码</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="agreementTip">为保障您的交易安全，请确保您的互联网账户留存手机号码与你的任意一张绑定银行卡预留手机号码一致。</div>
+	<ul class="formInfo" style="margin-bottom:0;">
+		<li>
+			<label>卡号</label>
+			<div class="info" id="bankCard" onclick="showLight('warmPromptBox')"></div>
+			<i class="arrowRight"></i>
+		</li>
+		<li>
+			<label>手机号码</label>
+			<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="" maxlength="11" /></div>
+		</li>
+	</ul>
+	<div class="agreementTip"">请确保绑定卡银行预留手机号已更新为您要变更的手机号码</div>
+	<ul class="formInfo">
+		<li>
+			<label>验证码</label>
+			<div class="info"><input class="field mustFill" type="tel" placeholder="" /></div>
+			<span id="yzm" class="yzm colorYellow colorGray">发送验证码</span>
+		</li>
+	</ul>
+	<a class="btnMain btnGray" href="changeTelSuccess.html" style="margin-top:1.1rem;">下一步</a>
+</div>
+<!--//container end-->
+
+<!--//卡号选择-->
+<div class="selectBox" id="bankCardBox">
+	<ul class="selectCon">
+		<li class="current">6225********4608</li>
+		<li>6225********4601</li>
+		<li>6225********4603</li>
+	</ul>
+</div>
+<!--//卡号选择<end></end>-->
+
+<!--//温馨提示--><!--//显示此弹框 showLight("warmPromptBox") -->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">请先绑定一张本行银行卡，以便进行后续操作。</div>
+		<div class="btnCon">
+			<a class="cancel" onclick="hideLight('warmPromptBox')">取消</a>
+			<a href="toAddBankCard.html">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+
+function telphone(){
+	var phone=$("#telphone").val().replace(/\s+/g, "");//手机号码 
+	var isMobile=/^1[34578]\d{9}$/;
+	if(phone != "" && isMobile.test(phone) && phone.length==11){ 
+		$("#yzm").removeClass("colorGray");
+		timeFlag=true;
+	}else{
+		showTipBox("请输入正确手机号！");
+	}
+}
+/*点击验证码*/
+var wait=60;//秒数
+function waitF() {
+	if (wait == 0) {
+		timeFlag=true;
+		$("#yzm").html("重新发送").removeClass("colorGray");
+		wait = 60; 
+	}else { 
+		timeFlag=false;
+		$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+		wait--; 
+		setTimeout(function() { 
+			waitF();
+		},1000) 
+	}	
+} 
+function yzmF(){
+	if(!timeFlag) return false;
+	timeFlag=true;
+	waitF();
+}
+/*点击验证码end*/
+
+/*填手机号验证码颜色变化*/
+$("#telphone").blur(function(){
+	telphone();
+})
+//结束
+$("#yzm").bind("touchend",function(){
+	telphone();
+	yzmF();
+})
+</script>
+</body>
+</html>

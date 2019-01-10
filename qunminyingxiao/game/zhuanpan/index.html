@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转盘抽奖</title>
+<link type="text/css" rel="stylesheet" href="../../css/layout.css">
+<link type="text/css" rel="stylesheet" href="index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<img class="banner" src="images/banner.png">
+	<img class="jinbi" src="images/jinbi.png">
+	<div style="height:2.7rem;"></div>
+	<div class="turntableCon">
+		<img class="pan" id="rotate" src="images/pan.png">
+		<img class="btn" id="pointer" src="images/btn.png">
+	</div>
+	<div class="cishu">您当前剩余抽奖次数：<span id='cishu'></span>次</div>
+	<div class="btnCon">
+		<a onclick="showLight('ruleBox')"><span>活动规则</span></a>
+		<a><span>我的奖品</span></a>
+	</div>
+	<div class="messageCon">
+		<div class="ico"></div>
+		<ul id='message'>
+			<li>恭喜<span>155****2055</span>手机用户抽中一等奖耳机一只1</li>
+			<li>恭喜155****2055手机用户抽中一等奖耳机一只2</li>
+			<li>恭喜155****2055手机用户抽中一等奖耳机一只3</li>
+		</ul>
+	</div>
+</div>
+
+<!-- 活动规则 -->
+<div class="lightBox" id='ruleBox'>
+	<img class="ruleImg" src="images/img.png">
+	<img class="close" src="images/close.png" onclick="hideLight()">
+	<div class="ruleTitle">活动规则</div>
+	<div class="ruleCon">
+		<p>1.活动时间：2018.12.01-2018.12.21</p>
+		<p>2.本次活动为每人仅可参与一次。</p>
+		<p>3.活动期间使用任何舞弊行为的用户一经发现，即刻取消活动资格。</p>
+		<p>4.中奖礼品数量有限，送完即止。礼品库存数量在活动过程中实时变化，中奖成功与否以实际结果为准。</p>
+	</div>
+</div>
+<!-- 活动规则end -->
+
+<!-- 中奖了 -->
+<div class="lightBox" id='myAward'>
+	<img class="close" src="images/close.png" onclick="hideLight()">
+	<div class="myTit"></div>
+	<div class="award">抽到蓝牙耳机一副</div>
+	<img class="awardImg" src="images/img2.jpg">
+	<div class="btn" onclick="hideLight()">知道了</div>
+</div>
+<!-- 中奖了end -->
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript" src="awardRotate.js"></script>
+<script>
+function resize() {
+    var wWidth = document.body.clientWidth;
+    var Fsize = wWidth / 7.5 < 100 ? wWidth / 7.5 : 100;
+    document.querySelector('html').style.fontSize = Fsize + 'px';
+};
+resize();
+window.onresize = resize;
+// showLight('myAward')
+
+function startmarquee(lh, speed, delay) {
+    var p = false;
+    var t;
+    var o = document.getElementById("message");
+    o.innerHTML += o.innerHTML;
+    o.style.marginTop = 0;
+    o.onmouseover = function () { p = true; }
+    o.onmouseout = function () { p = false; }
+    function start() {
+        t = setInterval(scrolling, speed);
+        if (!p) o.style.marginTop = parseInt(o.style.marginTop) - 1 + "px";
+    }
+    function scrolling() {
+        if (parseInt(o.style.marginTop) % lh != 0) {
+            o.style.marginTop = parseInt(o.style.marginTop) - 1 + "px";
+            if (Math.abs(parseInt(o.style.marginTop)) >= o.scrollHeight / 2) o.style.marginTop = 0;
+        } else {
+            clearInterval(t);
+            setTimeout(start, delay);
+        }
+    }
+    setTimeout(start, delay);
+}
+startmarquee(30, 20, 2000);
+
+
+var rotateTimeOut = function (){
+	$('#rotate').rotate({
+		angle:0,
+		animateTo:2160,
+		duration:8000,
+		callback:function (){
+			alert('网络超时，请检查您的网络设置！');
+		}
+	});
+};
+var bRotate = false;
+var rotateFn = function (awards, angles, txt){
+	bRotate = !bRotate;
+	$('#rotate').stopRotate();
+	$('#rotate').rotate({
+		angle:0,
+		animateTo:angles+1800,
+		duration:8000,
+		callback:function (){
+			awards==0 ? $('#myAward .myTit').text('很遗憾') : $('#myAward .myTit').text('恭喜您')
+			
+			$('#myAward .award').text(txt)
+			showLight('myAward')
+			bRotate = !bRotate;
+		}
+	})
+};
+function award(item){
+	switch (item) {
+		case 0:
+			rotateFn(0, 360, '本次未抽中');
+			break;
+		case 1:
+			rotateFn(1, 300, '抽到一等奖');
+			break;
+		case 2:
+			rotateFn(2, 240, '抽到二等奖');
+			break;
+		case 3:
+			rotateFn(3, 180, '抽到三等奖');
+			break;
+		case 4:
+			rotateFn(0, 120, '本次未抽中');
+			break;
+		case 5:
+			rotateFn(3, 60, '抽到三等奖');
+			break;
+	}
+}
+var count=2;//转奖次数
+$('#cishu').text(count)
+$('#pointer').click(function (){
+	if(bRotate)return;
+	count--;
+
+	if(count>=0){
+		$('#cishu').text(count)
+		// var item =Math.round(Math.random()*6) ;//最终中奖位置
+		var item=Math.round(Math.random()*3)
+		console.log(item)
+
+		award(item);
+	}
+	else{
+		showTipBox("您已经没有抽奖机会");
+	}
+	
+});
+</script>
+</body>
+</html>

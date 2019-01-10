@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/grad.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="mygrad.html">返回</a>
+	<div class="title">我的积分<span class="colorMain score" id="score">1223</span></div>
+</div>
+<div id="wrap">
+	<div style="height:45px;"></div>
+	<ul class="detailCon clearfix">
+		<!-- <li>
+			<img src="http://api.qujie365.com/upload/20180731183926900416.jpg">
+			<div class="name">张斌</div>
+		</li> -->
+	</ul>
+	<div class="hasfooterBar"></div>
+</div>
+
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var apiUrl= getApiUrl();
+var myscore = localStorage.getItem("myscore");//积分
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var actid=getQueryString('actid');
+// var bhnsuserid=1
+function loadMore(){
+	showLoadding()
+	$.ajax({
+		type: "POST",
+		url: apiUrl+'StaffFans/getListByStaffIdAndActivityId',
+		data:ajaxData("{\"staffId\": "+bhnsuserid+",\"activityId\":\""+actid+"\",\"token\": \"login\"}"),
+		contentType : "application/json",
+		dataType:'json',
+		success: function (msg) {
+			hideLoadding();
+			if(msg.data.status==1){
+				var listData=msg.data.data;
+				console.log(listData)
+				var html='';
+				$.each(listData,function(i,item){
+			        html+="<li><img src='"+item.profilePicture+"'><div class='name'>"+item.nickName+"</div></li>"
+			    })
+			    $('.detailCon').html(html)
+			    $(".detailCon img").each(function(index) {
+                    $(this).one("error", function(e){
+                         $(this).attr("src", "images/touxiang@2x.png");
+                    });
+                });
+			}
+		}
+	})
+}
+$(document).ready(function() {
+	$('#score').text(myscore);
+	if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+        loadMore()
+    }
+	
+});
+</script>
+</body>
+</html>

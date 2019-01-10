@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>银行卡管理</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bank.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="accountManagement.html">返回</a>
+    <p>银行卡管理</p>
+</div>
+<div id="container" class="accountManagement" style="margin-top:.8rem;">
+	<div class="bankCardManage">
+		<div class="item bankInfo">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="name">营口沿海银行<span class="type">电子借记卡Ⅱ类</span></div>
+			<div class="num">6225 **** **** 4608</div>
+		</div>	
+		<a class="item" href="transactionPasswordManage.html">交易密码管理<i class="arrowRight"></i></a>
+		<a class="item" href="messageManagement.html">动账短信提醒管理<i class="arrowRight"></i></a>
+		<a class="item" href="myBindCard.html">我的绑定卡<i class="arrowRight"></i></a>
+		<a class="item" href="accountDowngrade.html">账户降级<i class="arrowRight"></i></a>
+		<a class="item" href="javascript:void(0)" onclick="showLight('warmPromptBox')">销户<i class="arrowRight"></i></a>
+	</div>
+</div>
+<!--//container end-->
+
+
+<!--//注销账号-->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">注销账号</div>
+		<div class="textCon">您确定要注销尾号为7649的互联网账户吗？</div>
+		<div class="btnCon">
+			<a class="cancel" href="javascript:void(0)" onclick="hideLight('warmPromptBox')">取消</a>
+			<a href="closeAccount.html">确定</a>
+		</div>
+	</div>
+</div>
+<!--//注销账号end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+</body>
+</html>

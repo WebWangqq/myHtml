@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>银行卡</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/set.css">
+
+</head>
+
+<body>
+<div id="container">
+    <div class="cardWrap">
+        <!--//item-->
+        <div class="item personalType">
+            <img class="logo" src="images/bankLogo/transparentLogo/jilonghuicai.png" />
+            <div class="info">
+                <div class="cardNum">6236 3300 7008 9905</div>
+                <div class="type">吉龙•汇财个人账户</div>
+                <div class="money">余额:50,000.00元</div>
+            </div>
+            <div class="opration">
+                <a href="shiftTo.html">转  入</a>
+                <a href="export.html">转  出</a>
+            </div>
+            <a class="accountCancell" href="accountCancell.html">销  户</a>
+        </div>
+        <!--//item end-->
+        <!--//item-->
+        <div class="item oneType">
+            <img class="logo" src="images/bankLogo/transparentLogo/xingye.png" />
+            <div class="info">
+                <div class="cardNum">6236 3300 7008 9905</div>
+                <div class="type">兴业银行</div>
+                <div class="money">绑定一类账户</div>
+            </div>
+            <div class="opration">
+                <a href="replaceCard.html">换绑卡</a>
+            </div>
+        </div>
+        <!--//item end-->
+        <h2 class="nav">快捷充值</h2>
+        <div class="quick">
+            <div class="item">
+                <img class="logo" src="images/bankLogo/transparentLogo/beijing.png" />
+                <div class="info">
+                    <div class="cardNum">6236 3300 7008 9905</div>
+                    <div class="type">北京银行</div>
+                    <div class="money clearfix">
+                        <span class="left">单笔限额：50,000.00元</span>
+                        <span class="right">每日限额：50,000.00元</span>
+                    </div>
+                </div>
+            </div>
+            <div class="delete">删除</div>
+        </div>
+        <!--//quick end-->
+        <div class="quick">
+            <div class="item">
+                <img class="logo" src="images/bankLogo/transparentLogo/gongshang.png" />
+                <div class="info">
+                    <div class="cardNum">6236 3300 7008 9905</div>
+                    <div class="type">工商银行</div>
+                    <div class="money clearfix">
+                        <span class="left">单笔限额：50,000.00元</span>
+                        <span class="right">每日限额：50,000.00元</span>
+                    </div>
+                </div>
+            </div>
+            <div class="delete">删除</div>
+        </div>
+        <!--//quick end-->
+    </div>
+    <!--//cardWrap end-->
+    <a class="btnAddCard" href="openAccount.html">+ 快速添加卡片</a>
+</div>
+
+<div id="lightBox1" class="lightBox">
+    <div class="content">
+        <p class="colorRed">您的个人中还有余额，<br/>请先转出后再进行销户操作！</p>
+        <div class="btnCon">
+            <a href="javascript:void(0)" onclick="hideLight('lightBox1');$('.quick .item').css('left','0');">确  定</a>
+        </div>
+    </div>
+</div>
+
+<div id="lightBox2" class="lightBox">
+    <div class="content">
+        <p class="colorRed">您尚有在投资产未到期，请待<br/>资产到账后再进行销户操作！</p>
+        <div class="btnCon">
+            <a href="javascript:void(0)" onclick="hideLight('lightBox2');$('.quick .item').css('left','0');">确  定</a>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+function btnFixedBottom(){
+    var mt=$(window).height()-$(".cardWrap").height()-$(window).width()/7.5*2.5;
+    marginTop=(mt>50) ? mt : 50;
+    marginBottom=(mt>50)? 0 :50
+    $(".btnAddCard").css({"margin-top":marginTop,"margin-bottom":marginBottom});
+}
+$(function() {
+    btnFixedBottom()
+
+    //showLight("lightBox1")
+    function prevent_default(e) {
+        e.preventDefault();
+    }
+    function disable_scroll() {
+        $(document).on('touchmove', prevent_default);
+    }
+    function enable_scroll() {
+        $(document).unbind('touchmove', prevent_default)
+    }
+    var x;
+    $('.quick .item').on('touchstart', function(e) {
+            console.log(e.originalEvent.pageX)
+            $(e.currentTarget).addClass('open')
+            x = e.originalEvent.targetTouches[0].pageX // anchor point
+        }).on('touchmove', function(e) {
+            var change = e.originalEvent.targetTouches[0].pageX - x
+            change = Math.min(Math.max(-100, change), 0) // restrict to -100px left, 0px right
+            e.currentTarget.style.left = change + 'px'
+            if (change < -10) disable_scroll() // disable scroll once we hit 10px horizontal slide
+        }).on('touchend', function(e) {
+            var left = parseInt(e.currentTarget.style.left)
+            var new_left;
+            if (left < -35) {
+                new_left = '-.9rem'
+            } else if (left > 35) {
+                new_left = '-.9rem'
+            } else {
+                new_left = '0px'
+            }
+            $(e.currentTarget).animate({left: new_left}, 200)
+            enable_scroll()
+        });
+
+    $('.quick .delete').on('touchend', function(e) {
+        /*删除成功*/
+        e.preventDefault();
+        $(this).parents('.quick').slideUp('fast', function() {
+            $(this).remove();
+            showTipBox("删除成功！");
+        })
+        /*删除成功end*/
+        //showLight('lightBox2');
+    })
+});
+</script>
+</body>
+</html>

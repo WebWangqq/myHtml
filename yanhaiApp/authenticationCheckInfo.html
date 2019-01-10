@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>身份证认证</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/realNameAuthentication.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+    <p>身份证认证</p>
+</div>
+<div id="container" style="margin-top:.8rem;">	
+	<div class="resetCellPhoneWrap" style="margin-bottom:0;">
+		<div class="colorGray">请分别上传身份证正面和背面照片</div>
+		<ul class="identityCard">
+			<li>
+				<div class="img"><img src="images/realNameAuthentication/card3.png" /><i class="ico"></i></div>
+				<div class="text">点击扫描身份证正面</div>
+			</li>
+			<li>
+				<div class="img"><img src="images/realNameAuthentication/card4.png" /><i class="ico"></i></div>
+				<div class="text">点击扫描身份证背面</div>
+			</li>
+		</ul>
+	</div>
+	<div class="agreementTip textCenter"><span class="colorYellow">如下列信息有误，请您重新编辑，确认无误后点击按钮</span></div>
+	<!--//infoExamination-->
+	<div class="infoExamination">
+		<div class="title"><span>请核实下列信息</span></div>
+		<ul>
+			<li>
+				<label>真实姓名</label>
+				<div class="info">林雅静</div>
+			</li>
+			<li>
+				<label>身份证号</label>
+				<div class="info">120110200512061258</div>
+			</li>
+			<li>
+				<label>签发机关</label>
+				<div class="info">天津市公安局和平分局</div>
+			</li>
+			<li>
+				<label>有效期限</label>
+				<div class="info">2016.12.27-2025.12.27</div>
+			</li>
+		</ul>
+	</div>
+	<!--//infoExamination end-->
+	<a class="btnMain" href="addOtherBankCard.html">信息确认无误</a>
+</div>
+<!--//container end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//showTipBox("您的身份证不可用")
+})
+</script>
+</body>
+</html>

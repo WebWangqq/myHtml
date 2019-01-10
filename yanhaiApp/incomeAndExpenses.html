@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>收支记录</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/swiper-3.3.1.min.css">
+<link type="text/css" rel="stylesheet" href="css/bank.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+    <p>收支记录</p>
+</div>
+<div id="container">
+	<div class="swiper-container incomeAndExpensesNav">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide bgColor1">
+				<div class="title clearfix">
+					<span>全部收支</span>
+					<span class="right fsizeSmall">数据截止至04-30</span>
+				</div>
+				<div class="dateCon clearfix">
+					<div class="left item">
+						<div>当月支出</div>
+						<div>140,905.31</div>
+					</div>
+					<div class="left item">
+						<div>当月收入</div>
+						<div>140,905.31</div>
+					</div>
+				</div>
+				<div class="unit fsizeSmall">单位:元</div>
+			</div>
+			<div class="swiper-slide bgColor2">
+				<div class="title clearfix">
+					<span>本行借记卡Ⅰ类</span>
+					<span class="right fsizeSmall">数据截止至04-30</span>
+				</div>
+				<div class="dateCon clearfix">
+					<div class="left item">
+						<div>当月支出</div>
+						<div>140,905.31</div>
+					</div>
+					<div class="left item">
+						<div>当月收入</div>
+						<div>140,905.31</div>
+					</div>
+				</div>
+				<div class="unit fsizeSmall">单位:元</div>
+			</div>
+			<div class="swiper-slide bgColor3">
+				<div class="title clearfix">
+					<span>本行借记卡Ⅱ类</span>
+					<span class="right fsizeSmall">数据截止至04-30</span>
+				</div>
+				<div class="dateCon clearfix">
+					<div class="left item">
+						<div>当月支出</div>
+						<div>140,905.31</div>
+					</div>
+					<div class="left item">
+						<div>当月收入</div>
+						<div>140,905.31</div>
+					</div>
+				</div>
+				<div class="unit fsizeSmall">单位:元</div>
+			</div>
+			<div class="swiper-slide bgColor4">
+				<div class="title clearfix">
+					<span>他行借记卡Ⅰ类</span>
+					<span class="right fsizeSmall">数据截止至04-30</span>
+				</div>
+				<div class="dateCon clearfix">
+					<div class="left item">
+						<div>当月支出</div>
+						<div>140,905.31</div>
+					</div>
+					<div class="left item">
+						<div>当月收入</div>
+						<div>140,905.31</div>
+					</div>
+				</div>
+				<div class="unit fsizeSmall">单位:元</div>
+			</div>
+		</div>
+	</div>
+	<!--//incomeAndExpensesNav end-->
+	
+	<div class="incomeAndExpensesText">
+		<div class="title">全部明细</div>
+		<div class="fsizeSmall colorGray">本人卡内互转、投资理财、未入账交易，不计入当月收入和支出。月底尚未入账的交易</div>
+	</div>
+	<!--//incomeAndExpensesList-->
+	<ul class="incomeAndExpensesList">
+		<li>
+			<div class="clearfix">
+				<span class="left">转入(储蓄卡4608)</span>
+				<span class="right">+0.78</span>
+			</div>
+			<div class="colorGray detail">
+				<div class="name">张三0060转账</div>
+				<div>2016-03-17 12:00</div>
+			</div>
+		</li>
+		<li>
+			<div class="clearfix">
+				<span class="left">转入(储蓄卡4608)</span>
+				<span class="right">+0.78</span>
+			</div>
+			<div class="colorGray detail">
+				<div class="name">张三0060转账</div>
+				<div>2016-03-17 12:00</div>
+			</div>
+		</li>
+		<li>
+			<div class="clearfix">
+				<span class="left">转入(储蓄卡4608)</span>
+				<span class="right">+0.78</span>
+			</div>
+			<div class="colorGray detail">
+				<div class="name">张三0060转账</div>
+				<div>2016-03-17 12:00</div>
+			</div>
+		</li>
+		<li>
+			<div class="clearfix">
+				<span class="left">转入(储蓄卡4608)</span>
+				<span class="right">+0.78</span>
+			</div>
+			<div class="colorGray detail">
+				<div class="name">张三0060转账</div>
+				<div>2016-03-17 12:00</div>
+			</div>
+		</li>
+	</ul>
+	<!--//incomeAndExpensesList end-->
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+var swiper = new Swiper('.incomeAndExpensesNav', {
+	slidesPerView: 'auto',
+    centeredSlides: true, 
+    loop: true,
+	grabCursor: true, 
+	autoplayDisableOnInteraction:false,
+	onSlideChangeEnd: function(swiper){
+		var slideIndex = $(".swiper-slide-active").attr("data-swiper-slide-index")
+    	console.log(slideIndex);
+    	//文字说明、收支列表改变
+    	//$(".incomeAndExpensesText").html(slideIndex);
+    	//$(".incomeAndExpensesList").html(slideIndex)
+    }
+});
+</script>
+</body>
+</html>

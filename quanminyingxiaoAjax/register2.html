@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/iosSelect.css">
+<link type="text/css" rel="stylesheet" href="css/login.css">
+</head>
+
+<body ontouchstart>
+<div id="wrap">
+	<img class="logo" src="images/logo.jpg">
+	<img class="logo2" src="images/logoImg.png">
+	<ul class="formInfo">
+		<li>
+			<div class="info">
+				<div class="field colorGray" id="selectName">请选择所属支行</div>
+				<input id="branchs" class="field select"  data-id='' data-value=''  readonly unselectable="on" onfocus="this.blur()" />
+				<!-- <div class="select" id="branchs" data-id='' data-value=''></div> -->
+			</div>
+			<i class="arrowBtoom"></i>
+		</li>
+		<li>
+			<div class="info"><input id="userName" class="field mustFill" type="text" placeholder="姓名" /></div>
+		</li>
+		<li>
+			<div class="info"><input id="userId" class="field mustFill" type="text" placeholder="工号" /></div>
+		</li>
+	</ul>
+	<a class="btnMain btnGray" onclick="finnish()">完成</a>
+	<div class="loginTip"><a href="login.html">已有账号</a></div>
+</div>
+
+<div class="branchSelect"></div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/iosSelect.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var inputflag=false
+var branchflag=false
+function btnGray(){
+	$(".field.mustFill").on("input propertychange", function() {
+		inputflag=valF() && branchflag
+		inputflag&&branchflag ? $(".btnMain").removeClass("btnGray") : $(".btnMain").addClass("btnGray")
+    })
+    inputflag=valF() && branchflag
+   	inputflag&&branchflag ? $(".btnMain").removeClass("btnGray") : $(".btnMain").addClass("btnGray")
+}
+
+var branch=[
+	{ 'id': '10001', 'value': '开平支行' },
+	{ 'id': '10002', 'value': '空港支行' },
+	{ 'id': '10003', 'value': '空港支行2' },
+	{ 'id': '10004', 'value': '空港支行3' },
+	{ 'id': '10005', 'value': '空港支行4' },
+	{ 'id': '10006', 'value': '空港支行5' },
+]
+var branchsDom = document.querySelector('#branchs');
+var selectName=document.querySelector('#selectName');
+branchsDom.addEventListener('click', function() {
+    var activityId = branchsDom.dataset['id'];
+    var branchSelect = new IosSelect(1,
+        [branch], {
+            title: '请选择支行',
+            itemHeight: 40,
+            itemShowCount: 5,
+            oneLevelId: activityId,
+            callback: function(selectOneObj) {
+                branchsDom.value = selectOneObj.value;
+                branchsDom.dataset['id'] = selectOneObj.id;
+                branchsDom.dataset['value'] = selectOneObj.value;
+				selectName.innerHTML=selectOneObj.value;
+				selectName.classList.remove('colorGray')
+				branchflag=true
+                btnGray()
+            }
+        });
+});
+function finnish () {
+	if($('#branchs').val()==''){
+		showTipBox('请选择所属支行')
+	}
+	else if($("#userName").val()=='') {
+		showTipBox("请输入姓名");
+	}
+	else if($('#userId').val()==''){
+		showTipBox("请输入工号");
+	}
+	else{
+		showTipBox('注册成功')
+		setTimeout(function(){
+			window.location.href='index.html'
+		}, 2000)
+	}
+}
+</script>
+</body>
+</html>

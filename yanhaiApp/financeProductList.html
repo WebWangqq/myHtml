@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>理财产品列表</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="financeZone.html">返回</a>
+	<p>理财产品列表</p>
+</div>
+<div id="container" style="margin-top:2.5rem;">
+	<ul class="depositSwitchNav">
+		<li class="current"><a href="javascript:void(0)">常规产品</a></li>
+		<li><a href="javascript:void(0)">专属产品</a></li>
+	</ul>
+	<!--//rankNav-->
+	<div class="rankNav">
+		<ul>
+			<li><span>收益率</span><i></i></li>
+			<li><span>起购金额</span><i></i></li>
+			<li><span>投资期限</span><i></i></li>
+		</ul>
+		<span class="icoFilter" id="icoFilter">筛选</span>
+	</div>
+	<!--//rankNav end-->
+	<div id="filterWrapOverlay" onclick="hideFilterWrap()"></div>
+	<div class="filterWrap" id="filterWrap">
+		<div class="filterCon">
+			<div class="scrollCon">
+				<div class="item">
+					<div class="title">产品性质</div>
+					<ul class="con">
+						<li>不限</li>
+						<li>保本</li>
+						<li>非保本</li>
+					</ul>
+				</div>
+				<div class="item">
+					<div class="title">产品状态</div>
+					<ul class="con">
+						<li>不限</li>
+						<li>在售</li>
+						<li>待售</li>
+						<li>售罄</li>
+					</ul>
+				</div>
+				<div class="item">
+					<div class="title">起购金额</div>
+					<ul class="con">
+						<li>不限</li>
+						<li>5万元以下</li>
+						<li>5-20万元</li>
+						<li>20-50万元</li>
+						<li>50-100万元</li>
+						<li>100万以上</li>
+					</ul>
+				</div>
+				<div class="item">
+					<div class="title">投资期限</div>
+					<ul class="con">
+						<li>不限</li>
+						<li>灵活期限</li>
+						<li>0-3个月</li>
+						<li>3-6个月</li>
+						<li>6-12个月</li>
+						<li>12个月以上</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="btnCon">
+			<a class="btn btnRest" href="javascript:void(0)">重置</a>
+			<a class="btn" href="javascript:void(0)" onclick="hideFilterWrap();">确定</a>
+		</div>
+	</div>
+	<!--//filterWrap end-->
+	
+	<!--//常规产品-->
+	<div class="productList financeProductList" style="display:block;">
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+	</div>
+	<!--//常规产品end-->
+	
+	<!--//专属产品-->
+	<div class="productList financeProductList" style="display:none;">
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="exclusiveType"><span>私行专享</span></div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="exclusiveType"><span>私行专享</span></div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+		<!--//item-->
+		<a class="item" href="productDetail.html">
+			<div class="name">尊贵智慧资产管理类开放型273天</div>
+			<div class="exclusiveType"><span>私行专享</span></div>
+			<div class="infoCon">
+				<div class="interestRateCon">
+					<div class="colorYellow"><span class="big">5</span><small class="small">.15%</small></div>
+					<div>预期年化收益率</div>
+				</div>
+				<div class="timeLimit">
+					<div><span class="big">273</span><small class="small">天</small></div>
+					<div>投资期限</div>
+				</div>
+				<div class="investmentAmount">
+					<div><span class="big">100</span><small class="small">万元起</small></div>
+					<div>起购金额</div>
+				</div>
+			</div>
+			<div class="dateTime">销售期：2017-06-20至2017-06-26</div>
+		</a>
+		<!--//item end-->
+	</div>
+	<!--//专属产品-->
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script>
+$(".depositSwitchNav li").click(function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	$(".financeProductList").hide().eq($(this).index()).show();
+})
+$(".rankNav li").bind("touchend",function(){
+	if($(this).hasClass("rankUp")){
+		$(this).removeClass("rankUp").addClass("rankDown");
+	}
+	else{
+		$(this).removeClass("rankDown").addClass("rankUp");
+	}
+	$(this).css("color","#6ca6fa")
+})
+$("#icoFilter").click(function(){
+	if($("#filterWrap").is(":visible")){
+		hideFilterWrap();
+	}
+	else{
+		showFilterWrap();
+	}
+})
+$(".filterCon .item li").click(function(){
+	$(this).addClass("current").siblings().removeClass("current");
+})
+$(".btnRest").bind("touchend",function(){
+	$(".filterCon .item li").removeClass("current")
+})
+function showFilterWrap(){
+	$("#filterWrap").show();
+	$("#filterWrapOverlay").show();
+	var filterConH=$(window).height()-$(window).width()/7.5*5;
+	$(".filterCon").css("height",filterConH);
+	var filterCon = new IScroll('.filterCon', { mouseWheel: true, click: true });
+}
+function hideFilterWrap(){
+	setTimeout(function(){$('#filterWrapOverlay').hide()},100);
+	$("#filterWrap").hide();
+}
+</script>
+</body>
+</html>

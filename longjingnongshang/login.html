@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>登录</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+
+<div id="container" style="margin-top:.5rem;">
+	<div class="loginWrap">
+		<h2>您好！</h2>
+		<p class="colorGray">欢迎来到吉龙汇财VIP专区</p>
+		<ul class="infoCon">
+			<li>
+				<label>手机</label>
+				<div class="info">13821669497</div>
+			</li>
+			<li>
+				<label>密码</label>
+				<div class="info"><input id="password" class="field mustFill" type="password" placeholder="请输入密码" maxlength="12" /></div>
+			</li>
+		</ul>
+		<div class="clearfix">
+			<a class="left colorMain" href="resetLoginPassword.html">忘记密码</a>
+			<a class="right colorMain" href="register.html">立即注册</a>
+		</div>
+	</div>
+	<a class="btnMain btnGray" onclick="login()">登录</a>
+</div>
+<!--//container end-->
+
+	
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var login=function(){
+	if($("#password").val()==""){
+		showTipBox("请输入密码！");
+	}
+	else{
+		window.location.href = "VIP.html";
+	}
+	
+}
+</script>
+
+</body>
+</html>

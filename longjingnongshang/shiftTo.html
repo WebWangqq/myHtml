@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转入</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/set.css">
+</head>
+
+<body ontouchstart>
+<div id="container" style="margin-top:0">
+	<div class="tixianWrap">
+		<div class="info clearfix">
+			<div class="cardInfo">
+				<div class="text"><span>中国银行（6053）</span></div>
+			</div>
+			<div class="arrowInfo"></div>
+			<div class="cardInfo">
+				<div class="text"><span>吉龙•汇财电子账户 </span></div>
+			</div>
+		</div>
+	</div>
+	<div class="shiftToCardInfo" onclick="showSelectCardBox()">
+		<div class="bank clearfix">
+			<img class="logo" src="images/bankLogo/beijing.png">
+			<span class="name">中国银行</span>
+			<div class="limit colorGray"><span>单笔限额:5万</span><span>单日限额:5万</span></div>
+		</div>
+		<div class="cardNum"><strong>6222 **** **** 6053</strong></div>
+		<i class="arrowRight"></i>
+	</div>
+	<ul class="formInfo transferAmount">
+		<li>转账金额</li>
+		<li class="money">
+			<span class="symbol">￥</span>
+			<div class="info"><input id="money" class="field" type="text" placeholder="请输入转入金额" /></div>
+			<span id="deletMoney">删除</span>
+		</li>
+	</ul>
+	<div class="agreement"><i></i>同意<a class="colorMain" onclick="showAgreementBox('shiftToAgreement');">《充值带口委托协议》</a></div>
+	<a class="btnMain" href="javascript:void(0)" onclick="showLight('successBox')">确认</a>
+</div>
+<!--//container end-->
+
+<!--//选择账户-->
+<div class="selectCardOverlay" onclick="hideSelectCardBox()"></div>
+<div class="selectCardBox">
+	<div class="title colorMain">
+		<span class="closeBtn" onclick="hideSelectCardBox()">关闭</span>
+		<p>选择账户</p>
+	</div>
+	<ul class="cardCon">
+		<li class="item current">
+			<img src="images/bankLogo/zhongguo.png">
+			<label>中国银行（7480）</label>
+			<p>单笔限额:5万   单日限额:5万 拷贝</p>
+		</li>
+		<li class="item">
+			<img src="images/bankLogo/zhongguo.png">
+			<label>中国银行（7480）</label>
+			<p>单笔限额:5万   单日限额:5万 拷贝</p>
+		</li>
+		<li>
+			<a class="newCard" href="openAccount.html">使用新卡<i class="arrowRight"></i></a>
+		</li>
+	</ul>
+</div>
+<!--//选择账户end-->
+
+<div class="successBox" id="successBox">
+	 <div class="text colorMain">转入成功！</div>
+	 <div class="text colorGray">预计2017-04-17  24点前到账</div>
+	 <a class="btn" href="javascript:void(0)" onclick="hideLight('successBox')">确定</a>
+</div>
+
+<!--//协议-->
+<div class="agreementBox" id="shiftToAgreement">
+	<div class="title colorMain">充值带口委托协议</div>
+	<div class="textCon">
+		<div class="con">
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<div class="okBtn colorMain" href="javascript:void(0)" onclick="hideLight('shiftToAgreement')">确定</div>
+</div>
+<!--//协议end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+/*选择账户*/
+function showSelectCardBox(){
+	$('.selectCardOverlay').show();
+	$(".selectCardBox").removeClass('slideDown');
+	$(".selectCardBox").addClass('animated slideUp').fadeIn();
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hideSelectCardBox(){
+	$('.selectCardBox').removeClass('slideUp');
+	$('.selectCardBox').addClass('slideDown').fadeOut();
+	setTimeout(function () {
+		$('.selectCardOverlay').fadeOut();
+	}, 500);
+	$('body').unbind("touchmove");
+}
+$(".cardCon .item").click(function(){
+	$(this).addClass("current").siblings().removeClass("current")
+	hideSelectCardBox()
+})
+
+$(document).ready(function(){
+	$(".agreement i").click(function(){
+		if($(this).hasClass("noagree")){
+			$(this).removeClass("noagree");
+			$(".btnMain").removeClass("btnGray")
+		}
+		else{
+			$(this).addClass("noagree")
+			$(".btnMain").addClass("btnGray")
+		}
+	})
+	$("#money").on("input",function(){
+		$(this).attr("placeholder","");
+		$(this).css("font-size",".5rem");
+		$("#deletMoney").show();
+	})
+	$("#money").blur(function(){
+		var num=parseFloat($(this).val());
+		console.log(isNaN(num))
+		if(isNaN(num)){
+			$(this).css("font-size",".26rem");
+			$(this).attr("placeholder","请输入转入金额");
+		}
+	})
+	$("#deletMoney").click(function(){
+		$(this).hide();
+		$("#money").val("")
+	})
+})
+</script>
+</body>
+</html>

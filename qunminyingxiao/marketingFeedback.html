@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<div class="ygxxWrap">
+		<div class="searchCon">
+			<form class="formInfo" action="" target="nm_iframe" method="post" onsubmit="return search()">
+				<input class="field" id='searchInput' type="search" placeholder="请输入活动主题" />
+			</form>
+			<iframe id="id_iframe" name="nm_iframe" style="display:none;"></iframe>
+		</div>
+		<div class="list">
+			<a class="item" href="voucher.html">
+				<div class="title">盛世华诞普天同庆爱我中华<i class="arrowRight"></i></div>
+				<img src="images/temp/ygyxImg1.jpg">
+				<ul>
+					<li><div>20000</div><div>奖品总数量</div></li>
+					<li><div>20000</div><div>已发数量</div></li>
+					<li><div>20000</div><div>剩余数量</div></li>
+				</ul>
+			</a>
+			<!-- 活动已结束 -->
+			<a class="item end">
+				<div class="title">国庆小长假热门景点推荐<i class="arrowRight"></i></div>
+				<img src="images/temp/ygyxImg2.jpg">
+				<ul>
+					<li><div>20000</div><div>奖品总数量</div></li>
+					<li><div>20000</div><div>已发数量</div></li>
+					<li><div>20000</div><div>剩余数量</div></li>
+				</ul>
+			</a>
+			<!-- 活动已结束 end-->
+			<!-- 发放完毕 -->
+			<a class="item finish">
+				<div class="title">国庆小长假热门景点推荐<i class="arrowRight"></i></div>
+				<img src="images/temp/ygyxImg2.jpg">
+				<ul>
+					<li><div>20000</div><div>奖品总数量</div></li>
+					<li><div>20000</div><div>已发数量</div></li>
+					<li><div>20000</div><div>剩余数量</div></li>
+				</ul>
+			</a>
+			<!-- 发放完毕 end-->
+		</div>
+	</div>
+</div>
+
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+function search () {
+	$('#searchInput').blur()
+}
+</script>
+</body>
+</html>

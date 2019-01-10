@@ -1,0 +1,88 @@
+@charset "utf-8";
+.headerNav{width:100%;background-color:#6ca6fa;}
+.greenNav a,.whiteNav a{float:left;width:50%;text-align:center;box-sizing:border-box;}
+.greenNav a{padding:.25rem 0 .5rem;color:#fff;}
+.greenNav a img{display:block;width:.55rem;margin:0 auto .2rem;}
+.whiteNav{background-color:#fff;border-bottom:1px solid #dcdcdc;}
+.whiteNav a{padding:.2rem 0;line-height:.5rem;border-right:1px solid #dcdcdc;}
+.whiteNav a:last-child{border-right:none;}
+.whiteNav a img{display:inline-block;width:.5rem;}
+
+.transferAccountsListCon{margin-top:.3rem;background-color:#fff;}
+.transferAccountsListCon .title{position:relative;padding:.2rem .6rem .2rem .35rem;}
+.transferAccountsListCon .title .all .num{display:inline-block;height:.3rem;padding:0 .08rem;margin-left:.1rem;color:#fff;line-height:.3rem;background-color:#6ca6fa;border-radius:.3rem;}
+.transferAccountsListCon .cardTitle{position:relative;padding:.2rem .6rem .2rem 1rem;background:url(../images/bank/transferAccountsIco5.png) .35rem center no-repeat;background-size:.5rem auto;}
+.transferAccountsListCon .cardList{display:none;padding-left:1.05rem;background-color:#f9f9f9;border-bottom:1px solid #dedede;}
+.transferAccountsListCon .cardList li{padding:.15rem 0;height:.4rem;line-height:.4rem;color:#8e8e8e;font-size:.24rem;border-bottom:1px solid #dedede;}
+.transferAccountsListCon .cardList li:last-child{border-bottom:none;}
+.transferAccountsListCon .cardList li .logo{display:inline-block;width:.4rem;height:.4rem;}
+.transferAccountsListCon .cardList li span{display:inline-block;margin-left:.2rem;}
+.transferAccountsListCon .initialNav{height:.8rem;padding-left:.35rem;line-height:.8rem;background-color:#f9f9f9;border-bottom:1px solid #dedede}
+.transferAccountsListCon .transferAccountsList .item{position:relative;display:block;padding:.2rem 0 .2rem 1rem;border-bottom:1px solid #dedede;}
+.transferAccountsListCon .transferAccountsList .item:active{background-color:#eaeaea;}
+.transferAccountsListCon .transferAccountsList .item .logo{position:absolute;top:50%;left:.35rem;display:block;width:.5rem;height:.5rem;margin-top:-.25rem;}
+.transferAccountsListCon .transferAccountsList .item .name span{display:inline-block;padding-right:.6rem;background:url(../images/bank/transferAccountsIco6.png) right center no-repeat;background-size:.38rem auto;}
+.transferAccountsListCon .transferAccountsList .item .name.company span{background-image:url(../images/bank/transferAccountsIco7.png);}
+.transferAccountsListCon .transferAccountsList .item .bank{font-size:.24rem;color:#8e8e8e;}
+.transferAccountsListCon .transferAccountsList .item .bank span{display:inline-block;margin-right:.2rem;}
+
+.transferPartnerInfo{margin:0 .7rem;padding:.5rem 0 .4rem;background-color:#fff;border-radius:5px;}
+.transferPartnerInfo .infoCon{position:relative;padding:0 .6rem 0 1.15rem;margin-bottom:.6rem;}
+.transferPartnerInfo .infoCon .logo{position:absolute;top:50%;left:.25rem;display:block;width:.6rem;height:.6rem;margin-top:-.3rem;}
+.transferPartnerInfo .infoCon .remittance{position:absolute;top:50%;right:.6rem;margin-top:-.2rem;}
+.transferPartnerInfo .btnCon{font-size:0;text-align:center;}
+.transferPartnerInfo .btnCon a{display:inline-block;width:1.6rem;height:.54rem;margin:0 .5rem;font-size:.26rem;color:#fff;text-align:center;line-height:.54rem;background-color:#6ca6fa;border-radius:3px;box-sizing: border-box;}
+.transferPartnerInfo .btnCon a.btnEdit{color:#6ca6fa;background-color:#fff;border:1px solid #6ca6fa;}
+
+.receiptCon{margin:0 .25rem;padding-bottom:.3rem;background-color:#fff;border:1px solid #ededed;}
+.receiptCon .content{position:relative;padding:.3rem 0 0 .3rem;background-repeat:repeat;background-size:2rem auto;}
+.receiptCon .seal{position:absolute;top:.3rem;right:.3rem;display:block;width:3rem;}
+.receiptCon .infoCon{border-top:1px solid #dcdcdc;}
+.receiptCon .tip{padding-right:.45rem;text-align:justify;}
+.receiptCon .infoCon li{padding:.1rem 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.receiptCon .infoCon li label{display:block;min-width:2rem;padding-right:.1rem;color:#8e8e8e;}
+.receiptCon .infoCon li .info{position:relative;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.receiptCon .code{display:block;width:2.1rem;margin:.2rem auto 0;}
+
+.addNew{display:block;height:.7rem;padding-left:1rem;line-height:.7rem;background:#fff url(../images/icoAdd.png) .35rem center no-repeat;background-size:.42rem auto;}
+.addNew:active{background-color:#eaeaea;}
+.selectForm{height:.7rem;margin:0 .25rem .3rem;padding-left:.45rem;background:#fafafa url(../images/icoFind.png) .1rem center no-repeat;background-size:.3rem auto;border-radius:3px;
+-webkit-box-shadow:0 1px 3px rgba(43, 43, 43, .3);
+-moz-box-shadow:0 1px 3px rgba(43, 43, 43, .3);
+box-shadow:0 1px 3px rgba(43, 43, 43, .3);
+}
+.selectForm .field{display:block;width:100%;height:100%;}
+.myTransferPartnerNav{margin:0 .25rem .3rem;font-size:0;background-color:#fff;border:1px solid #157efb; border-radius:5px;}
+.myTransferPartnerNav li{display:inline-block;width:50%;height:.7rem;line-height:.7rem;text-align:center;color:#157efb;font-size:.28rem;}
+.myTransferPartnerNav li.current{color:#fff;background-color:#157efb}
+
+.progressQuery{position:relative;padding:.3rem .35rem;margin-bottom:.3rem;background-color:#fff;}
+.progressQuery .colorGray{font-size:.24rem;}
+.progressQuery .progress{position:absolute;top:50%;right:.65rem;margin-top:-.2rem;color:#8e8e8e;}
+
+.remittanceInfo{padding:.25rem .35rem;margin-bottom:.3rem; background-color:#7db0fa}
+.remittanceInfo .con{position:relative;padding:.2rem 0 .2rem 1.4rem;background-color:#fff;border-radius:5px;}
+.remittanceInfo .con .logo{position:absolute;top:50%;left:.4rem;display:block;width:.8rem;margin-top:-.4rem;}
+.remittanceInfo .con .name{margin-bottom:.1rem;}
+.remittanceInfo .con .name .bank{margin-left:.1rem;color:#8e8e8e;font-size:.24rem;}
+
+.transferRecordNav{padding:.3rem;color:#fff;font-size:.24rem;background-color:#6ca6fa;}
+.transferRecordNav .money{margin-top:.1rem;text-align:center;
+-webkit-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+-moz-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+}
+.transferRecordNav .money span{font-size:.52rem;}
+.transferRecordNav .money small{font-size:.32rem;}
+
+.transferRecordInfo{position:relative;padding:.2rem 0;font-size:0;background:#fff url(../images/bank/transferAccountsIco8.png) 46% center no-repeat;background-size:.64rem auto;}
+.transferRecordInfo .con{display:inline-block;width:50%;padding-left:.35rem;font-size:.28rem;box-sizing:border-box;}
+.transferRecordInfo .con .bankName img{display:inline-block;width:.26rem;height:.26rem;}
+.transferRecordInfo .con .bankName  span{font-size:.22rem;}
+
+
+.delayTransferList .item{display:block;padding-bottom:.2rem;margin-bottom:.3rem;background-color:#fff;}
+.delayTransferList .item .dateCon{padding:.15rem .25rem;font-size:.24rem;border-bottom:1px solid #dedede;}
+.delayTransferList .item .transferRecordInfo{padding:.1rem 0;background-size:.4rem auto;}
+.delayTransferList .item .transferRecordInfo .con,.delayTransferList .item .moneyCon{padding-left:.25rem;}
+.delayTransferList .item:active,.delayTransferList .item .transferRecordInfo:active{background-color:#eaeaea;}

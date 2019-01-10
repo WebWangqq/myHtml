@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>demo</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart style="padding-bottom:1rem;">
+<!-- <div id="headerBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>demo</p>
+</div> -->
+
+<div id="headerBar">
+    <a class="icoPerson" href="personalCenter.html">返回</a>
+    <p>关于我们</p>
+    <a class="icoNotice" href="javascript:void(0)" onclick="showAgreementBox('noticeBox')">公告</a>
+</div>
+
+<!-- <div id="headerBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>首页应用编辑</p>
+    <a class="icoText" id="btnorder" href="javascript:void(0)">编辑</a>
+</div> -->
+
+
+<!--//leftNavItem-->
+<div id="leftOverlay"></div>
+<div id="leftNavItem">
+	<!--//已登录-->
+	<div class="loginCon">
+		<div class="userInfo">
+			<img class="img" src="images/_temp/touxiang.jpg" />
+			<span class="name">李思颖</span>
+		</div>
+		<a class="btnExit" href="##">安全退出</a>
+		<div class="colorGray">上次登录  2017-05-09 10:10:19</div>
+	</div>
+	<!--//已登录end-->
+	<!--//未登录-->
+	<div class="loginCon" style="display:none;">
+		<div class="userInfo">
+			<a href="login.html"><img class="img" src="images/headImg.png" /></a>
+		</div>
+		<a class="colorMain" href="login.html">点击登录</a>
+	</div>
+	<!--//未登录end-->
+	<ul class="navItem">
+		<li><a href="register.html"><img src="images/leftNavIco1.png" /><span>注册</span><i class="arrowRight"></i></a></li>
+		<li><a href="securityCenter.html"><img src="images/leftNavIco4.png" /><span>安全中心</span><i class="arrowRight"></i></a></li>
+		<li><a href="findPassword.html"><img src="images/leftNavIco2.png" /><span>找回密码</span><i class="arrowRight"></i></a></li>
+		<li><a href="aboutUs.html"><img src="images/leftNavIco3.png" /><span>关于</span><i class="arrowRight"></i></a></li>
+	</ul>
+	<!-- <a class="btnMain" href="login.html">点击登录</a> -->
+</div>
+<!--//leftNavItem end-->
+
+<div id="container">
+	<div class="formWrap">
+		<ul class="formInfo">
+			<li>
+				<label>卡号</label>
+				<div class="info"><input id="bankcard" class="field mustFill" type="tel" maxlength="23" placeholder="请输入银行卡号" onkeyup="formatBankcardNum(this)" /></div>
+			</li>
+			<li>
+				<label>手机号</label>
+				<div class="info"><input id="telphone" class="field mustFill" type="tel" maxlength="13" placeholder="请输入您的手机号" onkeyup="formatMobile(this)" /></div>
+			</li>
+			<li>
+				<label>登录密码</label>
+				<div class="info"><input id="password" class="field mustFill" type="password" placeholder="请输入账户登录密码" /></div>
+			</li>
+			<li style="padding-right:.7rem;">
+				<label>证件类型</label>
+				<div class="info" id="cardType">身份证</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>验证码</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="请输入序号为11的验证码" /></div>
+				<span id="yzm" class="yzm colorMain colorGray" onclick="yzmF()">发送验证码</span>
+			</li>
+		</ul>
+		<ul class="formInfo formInfoRight">
+			<li>
+				<label>地区</label>
+				<div class="info" id="sel_city">河北省石家庄市</div>
+				<i class="arrowRight"></i>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain btnGray" href="##">登&nbsp;&nbsp;&nbsp;&nbsp;录</a>
+</div>
+<!--//container end-->
+
+<ul id="footerBar">
+	<li class="current"><a href="index.html"><i></i>首页</a></li>
+	<li><a href="investment.html"><i></i>投资</a></li>
+	<li><a href="bank.html"><i></i>银行</a></li>
+	<li><a href="life.html"><i></i>生活</a></li>
+</ul>
+
+<!--//协议-->
+<div class="agreementBox" id="noticeBox">
+	<div class="title colorMain">公告</div>
+	<div class="textCon">
+		<div class="con">
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<div class="okBtn colorMain" href="javascript:void(0)" onclick="hideLight('noticeBox')">确定</div>
+</div>
+<!--//协议end-->
+
+
+<div class="selectBox" id="cardTypeBox">
+	<ul class="selectCon">
+		<li class="current">身份证</li>
+		<li>军官证</li>
+		<li>护照</li>
+	</ul>
+</div>
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您的Ⅱ类账户中尚有资产，请将全部在投资金及余额转出到一类账户后再进行此操作。</div>
+		<div class="btnCon">
+			<!-- <a class="cancel" href="javascript:void(0)">取消</a> -->
+			<a href="javascript:void(0)" onclick="hideLight('warmPromptBox')">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script src="js/picker.min.js"></script>
+<script src="js/city.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		//btnFixedBottom();
+		//showLoadding();
+	})
+	$("#cardType").bind("touchend",function(){
+		showLight("cardTypeBox");
+	})
+	$("#overlay").bind("touchend",function(){
+		setTimeout(function(){$('#overlay').hide()},200);
+		$(".selectBox").hide();
+		$('body').unbind("touchmove");
+	})
+	$("#cardTypeBox li").bind("touchend",function(){
+		$(this).addClass("current").siblings().removeClass("current");
+		hideLight("cardTypeBox");
+		$("#cardType").text($(this).text())
+	})
+	$("#password").bind("blur",function(){
+		var password=$(this).val();
+		var isPassword=/^[a-zA-Z0-9]{6,12}/; //长度为6-12的用户密码（数字、字母）
+		if(isPassword.test(password)){
+			console.log("zhenque")
+		}else{
+			showTipBox("密码错误")
+		}
+	})
+
+	/*填手机号验证码颜色变化*/
+	$("#telphone").blur(function(){
+		var phone=$("#telphone").val().replace(/\s+/g, "");//手机号码 
+		var isMobile=/^1[34578]\d{9}$/;
+		if(phone != "" && isMobile.test(phone) && phone.length==11){ 
+			$("#yzm").removeClass("colorGray");
+			timeFlag=true;
+		}else{
+			showTipBox("手机号格式错误,请重新输入");
+		}
+	})
+	//结束
+
+
+	/*点击验证码*/
+	var timeFlag=false;//发送验证码不可点击
+	var wait=60;//秒数
+	function waitF() {
+		if (wait == 0) {
+			timeFlag=true;
+			$("#yzm").html("重新发送").removeClass("colorGray");
+			wait = 60; 
+		}else { 
+			timeFlag=false;
+			$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+			wait--; 
+			setTimeout(function() { 
+				waitF();
+			},1000) 
+		}	
+	} 
+	function yzmF(){
+		if(!timeFlag) return false;
+		timeFlag=true;
+		waitF();
+	}
+	/*点击验证码end*/
+
+
+	/*地区选择*/
+	var nameEl = document.getElementById('sel_city');
+
+	var first = []; /* 省，直辖市 */
+	var second = []; /* 市 */
+	var third = []; /* 镇 */
+
+	var selectedIndex = [0, 0, 0]; /* 默认选中的地区 */
+	var checked = [0, 0, 0]; /* 已选选项 */
+
+	function creatList(obj, list){
+	  obj.forEach(function(item, index, arr){
+	  var temp = new Object();
+	  temp.text = item.name;
+	  temp.value = index;
+	  list.push(temp);
+	  })
+	}
+	creatList(city, first);
+
+	if (city[selectedIndex[0]].hasOwnProperty('sub')) {
+		creatList(city[selectedIndex[0]].sub, second);
+	} else {
+		second = [{text: '', value: 0}];
+	}
+
+	if (city[selectedIndex[0]].sub[selectedIndex[1]].hasOwnProperty('sub')) {
+	  creatList(city[selectedIndex[0]].sub[selectedIndex[1]].sub, third);
+	} else {
+	  third = [{text: '', value: 0}];
+	}
+
+	var picker = new Picker({
+	    data: [first, second, third],
+	  	selectedIndex: selectedIndex,
+	    title: '地区选择'
+	});
+
+	picker.on('picker.select', function (selectedVal, selectedIndex) {
+	  var text1 = first[selectedIndex[0]].text;
+	  var text2 = second[selectedIndex[1]].text;
+	  var text3 = third[selectedIndex[2]] ? third[selectedIndex[2]].text : '';
+
+	    nameEl.innerText = text1 + ' ' + text2 + ' ' + text3;
+	});
+
+	picker.on('picker.change', function (index, selectedIndex) {
+	  if (index === 0){
+	    firstChange();
+	  } else if (index === 1) {
+	    secondChange();
+	  }
+
+	function firstChange() {
+	    second = [];
+	    third = [];
+	    checked[0] = selectedIndex;
+	    var firstCity = city[selectedIndex];
+	    if (firstCity.hasOwnProperty('sub')) {
+	      creatList(firstCity.sub, second);
+
+	      var secondCity = city[selectedIndex].sub[0]
+	      if (secondCity.hasOwnProperty('sub')) {
+	        creatList(secondCity.sub, third);
+	      } else {
+	        third = [{text: '', value: 0}];
+	        checked[2] = 0;
+	      }
+	    } else {
+	      second = [{text: '', value: 0}];
+	      third = [{text: '', value: 0}];
+	      checked[1] = 0;
+	      checked[2] = 0;
+	    }
+
+	    picker.refillColumn(1, second);
+	    picker.refillColumn(2, third);
+	    picker.scrollColumn(1, 0)
+	    picker.scrollColumn(2, 0)
+	  }
+
+		function secondChange() {
+		    third = [];
+		    checked[1] = selectedIndex;
+		    var first_index = checked[0];
+		    if (city[first_index].sub[selectedIndex].hasOwnProperty('sub')) {
+		      var secondCity = city[first_index].sub[selectedIndex];
+		      creatList(secondCity.sub, third);
+		      picker.refillColumn(2, third);
+		      picker.scrollColumn(2, 0)
+		    } else {
+		      third = [{text: '', value: 0}];
+		      checked[2] = 0;
+		      picker.refillColumn(2, third);
+		      picker.scrollColumn(2, 0)
+		    }
+		}
+	});
+
+	picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
+	  //console.log(selectedVal);
+	  //console.log(selectedIndex);
+	  console.log($("#sel_city").text());
+	});
+
+	nameEl.addEventListener('click', function () {
+	    picker.show();
+	});
+	/*地区选择end*/
+</script>
+</body>
+</html>

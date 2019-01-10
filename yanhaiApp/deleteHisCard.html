@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>删除账号</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="bankCardManage3.html">返回</a>
+    <p>删除账号</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="formWrap">
+		<div class="agreementTip">请选择对以下银行卡进行删除账号</div>
+		<ul class="formInfo">
+			<li class="selected">
+				<div class="info"><img class="bankLogo" src="images/bankLogo/yanhai.png"><span>沿海银行(9911)</span></div>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain" href="javascript:void(0)" onclick="showPay()">确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+</div>
+<!--//container end-->
+
+<!--输入交易密码-->
+<div id="passwordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="closeBtn" onclick="hidePay();"></i>请输入交易密码</div>
+		<div class="text">您正在对借记卡(6651)进行<span class="colorYellow">删除银行卡</span>操作</div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--输入交易密码end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){btnFixedBottom();})
+$(".formInfo li").click(function(){
+	$(this).addClass("selected");
+})
+
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#passwordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"bottom":"0"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#passwordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"bottom":"-6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){window.location.href="operateSuccess.html"},1000)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("touchend",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

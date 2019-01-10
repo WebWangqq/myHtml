@@ -1,0 +1,45 @@
+@charset "utf-8";
+@font-face
+{
+font-family: scool;
+src: url(scool.ttf);
+}
+.navTitleCon{text-align:center;}
+.navTitle{position:relative;display:inline-block;max-width:100%;padding:0 40px;font-size:16px;font-weight:bold;line-height:46px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;box-sizing:border-box;}
+.navTitle:before{content:'';position:absolute;bottom:0;left:50%;width:28px;height:0;margin-left:-14px;border-bottom:2px solid #e1e1e1;}
+.selectName:after{content:'';position:absolute;top:50%;right:13px;display:block;width:10px;height:10px;margin-top:-10px;border:2px solid #333;border-top:none;border-right:0;
+transform: rotate(-45deg); }
+
+.topInfo{padding-bottom:10px;margin-bottom:15px;background-color:#ffffff;}
+.topInfo ul{margin:15px 0;font-size:0}
+.topInfo ul li{display:inline-block;width:33.33%;text-align:center;font-size:14px;color:#9da2b2;}
+.topInfo ul li div:nth-child(1){color:#333333;font-size:16px;font-weight:bold;}
+
+.listCon{background-color:#ffffff;}
+.levelCon li .level{content:'';position:absolute;top:50%;left:0;width:36px;height:36px;margin-top:-18px;text-align:center;line-height:36px;color:#0142ff;font-size:22px;font-weight:bold;font-family:scool;background-repeat:no-repeat;background-size:100% 100%;}
+.levelCon li:nth-child(1) .level{background-image: url(../images/level1.png);text-indent:-9999px;overflow:hidden;}
+.levelCon li:nth-child(2) .level{background-image: url(../images/level2.png);text-indent:-9999px;overflow:hidden;}
+.levelCon li:nth-child(3) .level{background-image: url(../images/level3.png);text-indent:-9999px;overflow:hidden;}
+
+.gradCon{padding:15px;margin-bottom:15px;}
+.gradCon li{position:relative;height:36px;margin-bottom:15px;padding-left:85px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.gradCon li:last-child{margin-bottom:0;}
+.gradCon li .img{position:absolute;top:0;left:40px;width:36px;height:36px;border-radius:50%;}
+.gradCon li .info{padding-right:10px;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;display:flex;align-items:center;}
+.gradCon li .info .con{width:100%;}
+.gradCon li .branch{color:#9da2b2;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.gradCon li .num{line-height:36px;color:#fdc015;}
+
+.myGradeCon{padding:15px 15px 0 15px;}
+.myGradeCon li{position:relative;padding:10px 95px 10px 40px;margin-bottom:15px;background-color:#ffffff;border-radius:10px;}
+.myGradeCon li .level{left:3px;}
+.myGradeCon li .name{margin-bottom:5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:400;color:#000;}
+.myGradeCon li .toDetail{position:absolute;top:50%;right:3px;width:80px;height:30px;margin-top:-10px;color:#ffffff;font-size:12px;line-height:22px;text-align:center;background:url(../images/btn2.png) no-repeat;background-size:100% 100%;}
+
+.detailCon {padding:0 10px;}
+.detailCon li{float:left;width:20%;padding:10px 5px;text-align:center; box-sizing:border-box;}
+.detailCon li img{display:block;width:36px;height:36px;margin:0 auto 5px;border-radius:50%;}
+.detailCon li .name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.detailCon li .num{color:#9da2b2;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+
+.noData{padding:20px;text-align:center;color:#888;}

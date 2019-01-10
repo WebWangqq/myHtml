@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap" class="indexWrap">
+	<div class="userInfo">
+		<img id='userImg' class="img" src="images/touxiang@2x.png">
+		<div class="info">
+			<div class="welcom" id="welcom">尊敬的<span id="userName"></span>，<span id="time"></span></div>
+			<ul class="fenshuCon clearfix">
+				<li>
+					<strong id="paiming">-</strong>
+					<span>总排名</span>
+				</li>
+				<li>
+					<strong id="score">-</strong>
+					<span>个人积分</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- userInfo end -->
+	<div class="banner">
+		<div class='swiper-container'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                    <a><img src='images/temp/indexBanner.jpg'></a>
+                </div>
+                <div class='swiper-slide'>
+                    <a><img src='images/temp/img1.jpg'></a>
+                </div>
+                <div class='swiper-slide'>
+                    <a><img src='images/temp/img2.jpg'></a>
+                </div>
+            </div>
+            <div class='promotion-pagination'></div>
+        </div>
+	</div>
+	<ul class="list clearfix">
+		<li>
+			<a class="left item" href="marketingStaff.html">
+				<div class="con">
+					<div>员工营销</div>
+					<div>转发朋友圈的积分</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="right item" href="marketingFeedback.html">
+				<div class="con">
+					<div>营销回馈</div>
+					<div>查看客户转化率</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="left item" href="grad.html">
+				<div class="con">
+					<div>营销成绩</div>
+					<div>Top10成绩榜单</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="right item" href="testCoupons.html">
+				<div class="con">
+					<div>验券中心</div>
+					<div>为现在客户发放礼品</div>
+				</div>
+			</a>
+		</li>
+	</ul>
+	<div class="hasfooterBar"></div>
+</div>
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+//$('body').on('touchmove', function(event) { event.preventDefault(); });
+var bannerSwiper = new Swiper('.banner .swiper-container', {
+    pagination: '.promotion-pagination',
+    paginationType :'bullets',
+    loop: true,
+    autoplay: 3000,
+    grabCursor: true, 
+    paginationClickable: true,
+    autoplayDisableOnInteraction:false
+});
+var apiUrl= getApiUrl();
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var bhnstel=localStorage.getItem("bhnstel");
+var token=localStorage.getItem("token");
+// 获取用户信息
+function loadInfo(){
+	showLoadding()
+	$.ajax({
+		type: "POST",
+		url: apiUrl+'staff/getStaffInfo',
+		data:ajaxData("{\"condition\":\""+bhnstel+"\",\"type\": \"mobile\"}"),
+		contentType : "application/json",
+		dataType:'json',
+		success: function (msg) {
+			hideLoadding();
+			console.log(msg)
+			if(msg.data.data.nickName!=''){
+				$("#userImg").attr("src", msg.data.data.profilePicture);
+				$('#userName').text(msg.data.data.name);
+				$('#paiming').text(msg.data.data.orderNum);
+				$('#score').text(msg.data.data.totalScore);
+				$("#userImg").one("error", function(e){
+				     $(this).attr("src", "images/touxiang@2x.png");
+				});
+				localStorage.setItem("userImg", msg.data.data.profilePicture); //我的名字
+				localStorage.setItem("userName", msg.data.data.name); //我的名字
+				localStorage.setItem("paiming", msg.data.data.orderNum); //我的排名
+				localStorage.setItem("myscore", msg.data.data.totalScore); //我的积分
+			}
+			else{
+				getappid()
+			}
+		}
+	});
+}
+
+$(document).ready(function() {
+	var hour=new Date().getHours();
+	var welcomHtml='';
+	if(hour < 6){welcomHtml="凌晨好！"} 
+	else if (hour < 9){welcomHtml="早上好！"} 
+	else if (hour < 12){welcomHtml="上午好！"}
+	else if (hour < 14){welcomHtml="中午好！"}
+	else if (hour < 17){welcomHtml="下午好！"}
+	else if (hour < 19){welcomHtml="傍晚好！"}
+	else if (hour < 22){welcomHtml="晚上好！"}
+	else {welcomHtml="夜里好！"} 
+	$('#time').html(welcomHtml)
+	
+	if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+    	loadInfo()
+    }
+});
+
+var url = document.location.href;
+var code = getQueryString("code");
+var appid = "";
+function getappid(){
+	$.ajax({
+		type: "POST",
+		url: apiUrl+'WeChat/getAppId',
+		data:ajaxData("{\"token\": \""+token+"\"}"),
+		contentType : "application/json",
+		dataType:'json',
+		success: function (msg) {
+			appid=msg.data.data.appid
+			// if (appid == null) appid = 'wxb19f7710b955a093';
+            if (!code) {
+                //code为空，代表还没有reload
+                location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(url) + '&response_type=code&scope=snsapi_userinfo&state=STATE&connect_redirect=1#wechat_redirect';
+            }
+            else {
+                //code存在，开始获取openid
+                getopenid();
+            }
+		},
+        error: function () {
+            showTipBox('页面加载失败！');
+            return;
+        }
+
+	});
+}
+function getopenid(){
+	$.ajax({
+		type: "POST",
+		url: apiUrl+'WeChat/getOpenId',
+		data:ajaxData("{\"token\": \""+token+"\",\"code\": \""+code+"\"}"),
+		contentType : "application/json",
+		dataType:'json',
+		success: function (msg) {
+			console.log(msg)
+			if(msg.data.status==1){
+				//更新微信信息
+				var obj=msg.data.data
+				$.ajax({
+					type: "POST",
+					url: apiUrl+'staff/updateWeChatInfo',
+					data:ajaxData("{\"token\": \""+token+"\",\"staffId\": \""+bhnsuserid+"\",\"nickName\": \""+obj.nickname+"\",\"profilePicture\": \""+obj.headimgurl+"\",\"wechatId\": \""+obj.openid+"\"}"),
+					contentType : "application/json",
+					dataType:'json',
+					success: function (msg) {
+						hideLoadding();
+						console.log(msg)
+						if(msg.data.status==1){
+							location.href = 'index.html';
+						}
+						else{
+							getappid()
+						}
+					}
+				});
+			}
+			else{
+				location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(url) + '&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect';
+				return
+			}
+		},
+        error: function () {
+            showTipBox("请求超时!openid获取失败！");
+        }
+	});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>全员营销系统</title>
+    <link type="text/css" rel="stylesheet" href="css/layout.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+    <div id="wrap">
+        <div class="activityCon">
+            <img class="actiImg" src="">
+            <a class="toSee" href="">查看详情</a>
+        </div>
+    </div>
+    <!-- 分享弹框 -->
+    <div class="shareBox" onclick="hideShare()">
+        <img class="jiantou" src="images/share.png">
+        <div class="shareNum">争做龙井营销王，把我们最好的产品推广给朋友吧</div>
+    </div>
+    <!-- 分享弹框 end-->
+    <div id="footerBar">
+        <a class="current" href="index.html"><i></i><span>全员营销</span></a>
+        <a href="operationManual.html"><i></i><span>操作手册</span></a>
+        <a href="myCenter.html"><i></i><span>个人中心</span></a>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script type="text/javascript">
+    function showShare() {
+        $(".shareBox").show();
+        $('body').css({ 'overflow': 'hidden' })
+        $('body').on('touchmove', function(event) { event.preventDefault(); });
+    }
+
+    function hideShare() {
+        $(".shareBox").hide();
+        $('body').css({ 'overflow': 'hidden' })
+        $('body').on('touchmove', function(event) { event.preventDefault(); });
+    }
+
+    var apiUrl = getApiUrl();
+    var actid = getQueryString('actid');
+    var bhnsuserid = getQueryString("frombhnsuid");
+    var localbhnsuid = localStorage.getItem("bhnsuserid");
+
+    var shareTitle; // 分享标题
+    var shareContent; // 分享描述
+    var shareLink = document.location.href // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+    var shareImg; // 分享图标
+
+    // 获取活动信息
+    function loadDetail() {
+        showLoadding()
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'Activity/getActivityById',
+            data: ajaxData("{\"activityId\":\"" + actid + "\",\"token\": \"login\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                hideLoadding();
+                console.log(msg)
+                if (msg.data.status == 1) {
+                    $('.actiImg').attr('src', msg.data.data.backgroundPicture);
+                    $('.toSee').attr('href', msg.data.data.shareUrl);
+                    shareTitle = msg.data.data.shareTitle;
+                    shareContent = msg.data.data.defaultContent;
+                    shareImg = msg.data.data.displayPicture;
+                }
+            }
+        })
+    }
+
+    //调整积分
+    function addFen() {
+        showLoadding();
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'Share/personalActivityList',
+            data: ajaxData("{\"wechatId\":\"" + bhnsfsid + "\",\"activityId\": " + actid + ",\"staffId\":" + bhnsuserid + "}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                hideLoadding();
+                if (msg.data.status != 1) {
+                    getappid();
+                }
+            }
+        });
+    }
+
+    $(document).ready(function() {
+        var wWidth = document.body.clientWidth;
+        var Fsize = wWidth / 7.5;
+        document.querySelector('html').style.fontSize = Fsize + 'px';
+        $('body').on('touchmove', function(event) { event.preventDefault(); });
+        loadDetail()
+        if (bhnsuserid == localbhnsuid) {
+            showShare();
+        } else {
+            //朋友点开
+            hideShare();
+            $('#footerBar').hide();
+            var bhnsfsid = localStorage.getItem("bhnsfsid");
+            if (bhnsfsid == null || bhnsfsid == "" || bhnsfsid == "undefined") {
+                getappid();
+            } else {
+                addFen()
+            }
+        }
+        wxShare()
+    });
+
+    
+    var url = document.location.href;
+    var code = getQueryString("code");
+    var appid = "";
+
+    function getappid() {
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'WeChat/getAppId',
+            data: ajaxData("{\"token\": \"aaa\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                appid = msg.data.data.appid
+                if (!code) {
+                    //code为空，代表还没有reload
+                    location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(url) + '&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect';
+                } else {
+                    //code存在，开始获取openid
+                    getopenid();
+                }
+            },
+            error: function() {
+                showTipBox('页面加载失败！');
+                return;
+            }
+        });
+    }
+
+    function getopenid() {
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'WeChat/getOpenId',
+            data: ajaxData("{\"token\": \"aaa\",\"code\": \"" + code + "\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                console.log(msg)
+                if (msg.data.status == 1) {
+                    //微信信息
+                    var obj = msg.data.data
+                    /*$.ajax({
+                        type: "POST",
+                        url: apiUrl + 'staff/updateWeChatInfo',
+                        data: ajaxData("{\"token\": \"aaa\",\"nickName\": \"" + obj.nickname + "\",\"profilePicture\": \"" + obj.headimgurl + "\",\"wechatId\": \"" + obj.openid + "\"}"),
+                        contentType: "application/json",
+                        dataType: 'json',
+                        success: function(msg) {
+                            hideLoadding();
+                            console.log(msg)
+                            if (msg.data.status == 1) {
+                                localStorage.setItem("bhnsfsid", obj.openid);
+                                addFen()
+                            } else {
+                                getappid()
+                            }
+                        }
+                    });*/
+                    localStorage.setItem("bhnsfsid", obj.openid);
+                    addFen()
+                } else {
+                    location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + appid + '&redirect_uri=' + encodeURIComponent(url) + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+                    return
+                }
+            },
+            error: function() {
+                showTipBox("请求超时!openid获取失败！");
+            }
+        });
+    }
+    //微信分享
+    function wxShare() {
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'WeChat/getShare',
+            data: '{}',
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                var obj = msg.data.data
+                wx.config({
+                    debug: false,
+                    appId: obj.appid,
+                    timestamp: obj.timestamp,
+                    nonceStr: obj.nonceStr,
+                    signature: obj.signature,
+                    jsApiList: [
+                        'checkJsApi',
+                        'updateAppMessageShareData',
+                        'updateTimelineShareData'
+                    ]
+                });
+                wx.ready(function() { //需在用户可能点击分享按钮前就先调用
+                    wx.updateAppMessageShareData({
+                        title: shareTitle, // 分享标题
+                        desc: shareContent, // 分享描述
+                        link: shareLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: shareImg, // 分享图标
+                        success: function() {
+                            // 设置成功
+                        }
+                    });
+                    wx.updateTimelineShareData({
+                        title: shareTitle, // 分享标题
+                        desc: shareContent, // 分享描述
+                        link: shareLink, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                        imgUrl: shareImg, // 分享图标
+                        success: function() {
+                            // 设置成功
+                        }
+                    })
+                });
+            }
+        })
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>全员营销系统</title>
+    <link type="text/css" rel="stylesheet" href="css/layout.css">
+    <link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+    <div id="wrap" class="indexWrap">
+        <div class="userInfo">
+            <img class="img" id='userImg' src="images/touxiang@2x.png">
+            <div class="info">
+                <div class="welcom">尊敬的<span id='userName'></span>，<span id='time'></span></div>
+                <div class="rules"><a href="rules.html">了解营销规则>></a></div>
+            </div>
+        </div>
+        <!-- userInfo end -->
+        <div class="activityList">
+            <div class="title">选择活动去营销</div>
+            <div id="list">
+                <!-- <a href="activity.html"><img src="images/temp/indexBanner.jpg"></a> -->
+            </div>
+        </div>
+        <div class="hasfooterBar"></div>
+    </div>
+    <div id="footerBar">
+        <a class="current" href="index.html"><i></i><span>全员营销</span></a>
+        <a href="operationManual.html"><i></i><span>操作手册</span></a>
+        <a href="myCenter.html"><i></i><span>个人中心</span></a>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/base.js"></script>
+    <script type="text/javascript">
+    var apiUrl = getApiUrl();
+    var userName = localStorage.getItem("userName"); //名字
+    var bhnsuserid = localStorage.getItem("bhnsuserid");
+    var userImg = localStorage.getItem("userImg");
+    var token=localStorage.getItem("token");
+
+    function loadData() {
+        showLoadding()
+        $.ajax({
+            type: "POST",
+            url: apiUrl + 'Activity/getActivityList',
+            data: ajaxData("{\"displayPosition\": 0,\"token\": \""+token+"\"}"),
+            contentType: "application/json",
+            dataType: 'json',
+            success: function(msg) {
+                hideLoadding();
+                console.log(msg)
+                if (msg.data.status == 1) {
+                    var listData = msg.data.data;
+                    var html = '';
+                    $.each(listData, function(i, item) {
+                        html += "<a href='activity.html?actid=" + item.id + "'><img src='" + item.feedbackPicture + "'></a>"
+                    })
+                    $('#list').html(html)
+                }
+            }
+        })
+    }
+    $(document).ready(function() {
+        if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+            location.href = "login.html";
+        } else {
+            var hour = new Date().getHours();
+            var welcomHtml = '';
+            if (hour < 6) { welcomHtml = "凌晨好！" } else if (hour < 9) { welcomHtml = "早上好！" } else if (hour < 12) { welcomHtml = "上午好！" } else if (hour < 14) { welcomHtml = "中午好！" } else if (hour < 17) { welcomHtml = "下午好！" } else if (hour < 19) { welcomHtml = "傍晚好！" } else if (hour < 22) { welcomHtml = "晚上好！" } else { welcomHtml = "夜里好！" }
+            $('#time').html(welcomHtml);
+            $('#userName').text(userName);
+            $('#userImg').attr('src', userImg);
+            $("#userImg").one("error", function(e){
+                 $(this).attr("src", "images/touxiang@2x.png");
+            });
+            loadData()
+
+        }
+    });
+    </script>
+</body>
+
+</html>

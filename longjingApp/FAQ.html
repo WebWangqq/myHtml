@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>常见问题</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/personalCenter.css">
+</head>
+
+<body>
+<div id="navBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>常见问题</p>
+</div>
+<div id="container" style="margin-top:1.2rem;">
+	<div class="faqWrap">
+		<div class="question">“南金交•宁富盈”系列产品是一款什么样的产品？</div>
+		<div class="answer" style="display:block">南金交•宁富盈系列产品，是由南京金融资产交易中心面向个人发行的固定期限类理财计划产品。该产品由佰银金服运营的吉龙汇财平台进行销售，资金全程由吉林龙井农村商业银行进行监管。</div>
+		<div class="question">“南金交•宁富盈”系列产品的投资范围有哪些？安全吗？</div>
+		<div class="answer">
+			<p>南金交•宁富盈系列产品，主要投向现金，银行存款，银行协议存款，银行大额存单，货币市场基金，银行理财产品，消费分期资产，消费类资产资产支持证券资产，保理应收账款资产，租赁资产，商业票据资产及其他本产品管理人授权的投资项目。其风险较低，是用户相对理想的投资途径。</p>
+		</div>
+		<div class="question">“南金交•宁富盈”系列产品最低购买金额是多少？有没有最高购买金额限制？</div>
+		<div class="answer">单笔以25000元起购，以1000元的整数倍追加。单日单人可购买的产品额度将根据每期管理人拟开放的额度决定。具体以产品详情页提示为准。同时会受到第三方支付渠道的限额限制，具体额度各家银行不同。</div>
+		<div class="question">“南金交•宁富盈”系列产品可以提前赎回吗？</div>
+		<div class="answer">暂不支持提前赎回服务。</div>
+		<div class="question">“南金交•宁富盈”系列产品收益何时到账？</div>
+		<div class="answer">产品到期后，以产品详情中的【到期日】系统开始进行用户的赎回操作。一般在产品【到账日】即可将本息一并兑付至用户的平台个人电子账户。</div>
+	</div>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(".faqWrap .question").click(function(){
+	$(".answer").hide();
+	$(this).next(".answer").show();
+})
+</script>
+</body>
+</html>

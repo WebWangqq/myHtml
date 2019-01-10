@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link href="css/public.css" type="text/css" rel="stylesheet" />
+<link href="css/demo2.css" type="text/css" rel="stylesheet" />
+<link href="css/animate.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-min.js"></script>
+
+<title>农行员工营销流程展示</title>
+</head>
+
+<body>
+	
+	<div class="demo">
+    	<div class="bg">
+           
+           <div id="p" ontouchstart="donghua()"><img src="img/15.jpg" alt="15"></div>
+          
+    	</div>
+        <img id="hand" src="img/hand.png" alt="hand" class="hand">
+      
+    </div>
+    
+    <script type="text/javascript">
+		$(document).ready(function(e) {
+			donghua();
+			  
+	});
+	
+	function donghua(){
+			
+			
+			var i = 15; 
+			var setint = setInterval(function(){
+
+				if(i == 21){
+				 	clearInterval(setint);
+					window.location = "ejy.html";
+					return false;
+				}
+				
+				var hand=$("#hand");  //拿到小手
+				var divPic=document.getElementById("p");   //图片层
+				var strImg = "<img src='img/"+i+".jpg' alt='"+i+"'>";
+				divPic.innerHTML = strImg;
+				
+				if(i !=18 && i!=20){
+					$("#hand").attr("style","animation-name:fade, drop"+i+", away;-webkit-animation-name:fade, drop"+i+", away");
+					//hand.style = "animation-name:fade, drop"+i+", away;-webkit-animation-name:fade, drop"+i+", away";
+				}
+				if(i ==18 || i== 20){
+					hand.hide();
+				}
+                
+				i++;
+				
+			},3000);
+			  
+		}
+	
+    </script>
+
+</body>
+</html>

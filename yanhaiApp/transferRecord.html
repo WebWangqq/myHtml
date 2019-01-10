@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转账记录查询</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" type="text/css" href="css/mobiscroll.scroller.css" />
+<link rel="stylesheet" type="text/css" href="css/mobiscroll.scroller.android-ics.css" />
+<link rel="stylesheet" type="text/css" href="css/mobiscroll.animation.css" />
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" style="z-index:9901;">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>转账记录查询</p>
+</div>
+<div id="container" style="margin-top:1.65rem">
+	<ul class="depositSwitchNav" style="z-index:9901;">
+		<li id="cardNum"><label class="select"><span>6225********4608</span><i class="arrowBottomMain"></i></label></li>
+		<li id="time"><label class="select"><span>本月</span><i class="arrowBottomMain"></i></label></li>
+	</ul>
+	<ul class="depositSwitchNav timeCon">
+		<li><span>开始日期</span><input id="startTime" class="field" type="text" placeholder="yyyy-mm-dd" name="" readonly></li>
+		<li><span>结束日期</span><input id="endTime" class="field" type="text" placeholder="yyyy-mm-dd" name="" readonly></li>
+	</ul>
+
+	<div id="selectTime" class="agreementTip" style="padding:.2rem .25rem;">本月</div>
+	<div class="transferRecord">
+		<!--item-->
+		<a class="item" href="transferRecordDetail.html">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="name">
+				<div class="num">林雅静(尾号7649)</div>
+				<span class="money">-0.01</span>
+			</div>
+			<div class="clearfix">
+				<span class="left">今天10:58</span>
+				<span class="right">已汇出</span>
+			</div>
+		</a>
+		<!--item end-->
+
+		<!--item-->
+		<a class="item" href="transferRecordDetail.html">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="name">
+				<div class="num">林雅静(尾号7649)</div>
+				<span class="money">-0.01</span>
+			</div>
+			<div class="clearfix">
+				<span class="left">今天10:58</span>
+				<span class="right">已汇出</span>
+			</div>
+		</a>
+		<!--item end-->
+
+		<!--item-->
+		<a class="item" href="transferRecordDetail.html">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="name">
+				<div class="num">林雅静(尾号7649)</div>
+				<span class="money">-0.01</span>
+			</div>
+			<div class="clearfix">
+				<span class="left">今天10:58</span>
+				<span class="right">已汇出</span>
+			</div>
+		</a>
+		<!--item end-->
+	</div>
+</div>
+<!--//container end-->
+
+<!-- /*付款账号*/ -->
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li class="current">6225********4608</li>
+		<li>6225********4601</li>
+		<li>6225********4602</li>
+	</ul>
+</div>
+<!-- /*付款账号end*/ -->
+
+<!-- /*存期*/ -->
+<div class="selectBox" id="timeBox">
+	<ul class="selectCon">
+		<li class="current">本月</li>
+		<li>最近三个月</li>
+		<li>最近一年</li>
+		<li>自定义区间</li>
+	</ul>
+</div>
+<!-- /*存期end*/ -->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/mobiscroll.zepto.js"></script>
+<script type="text/javascript" src="js/mobiscroll.core.js"></script>
+<script type="text/javascript" src="js/mobiscroll.scroller.js"></script>
+<script type="text/javascript" src="js/mobiscroll.datetime.js"></script>
+<script type="text/javascript" src="js/mobiscroll.select.js"></script>
+<script type="text/javascript" src="js/mobiscroll.scroller.ios.js"></script>
+<script type="text/javascript" src="js/mobiscroll.scroller.android.js"></script>
+<script type="text/javascript" src="js/mobiscroll.scroller.android-ics.js"></script>
+<script type="text/javascript" src="js/mobiscroll.scroller.wp.js"></script>
+<script type="text/javascript" src="js/mobiscroll.i18n.zh.js"></script>
+<script>
+	var date = new Date();
+	//var maxdate = new Date();
+	//maxdate.setDate(date.getFullYear()+5);
+	var currYear = date.getFullYear();
+	var currMonth = date.getMonth();
+	var currDay = date.getDate();
+	$('#startTime,#endTime').scroller('destroy').scroller({
+		preset: 'date',
+		invalid: { daysOfWeek: [], daysOfMonth: [] },
+		theme: 'android-ics light',
+		mode:'scroller',
+	    dateFormat: 'yyyy-mm-dd',
+		lang: 'zh',
+	    showNow: true,
+	    display:'bottom',
+	    animate:'slideup',
+	    //minDate: new Date(currYear,currMonth,currDay),
+	    maxDate:new Date(currYear,currMonth,currDay)
+	});
+
+	$("#overlay").bind("touchend",function(){
+		setTimeout(function(){$('#overlay').hide()},200);
+		$(".selectBox").hide();
+		$('body').unbind("touchmove");
+	})
+	/*付款账号*/
+	$("#cardNum").bind("touchend",function(){
+		showLight("cardNumBox");
+	})
+	$("#cardNumBox li").bind("touchend",function(){
+		$(this).addClass("current").siblings().removeClass("current");
+		hideLight("cardNumBox");
+		$("#cardNum").find("span").text($(this).text())
+	})
+	/*存期*/
+	$("#time").bind("touchend",function(){
+		showLight("timeBox");
+	})
+	$("#timeBox li").bind("touchend",function(){
+		$(this).addClass("current").siblings().removeClass("current");
+		hideLight("timeBox");
+		$("#time").find("span").text($(this).text());
+		//console.log($(this).index()+","+$("#timeBox li").length)
+		if($(this).index()!=$("#timeBox li").length-1){
+			$(".timeCon").css("display","none");
+			$("#selectTime").text($(this).text());
+			$("#container").css("margin-top","1.65rem");
+		}
+		else{
+			$(".timeCon").css("display","block");
+			$("#container").css("margin-top","2.5rem");
+		}
+	})
+
+	$("#startTime,#endTime").change(function(){
+		$("#selectTime").text($('#startTime').val()+' 至 '+$('#endTime').val())
+	})
+	
+</script>
+</body>
+</html>

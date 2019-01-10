@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>延时转账查询</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+    <p>延时转账查询</p>
+</div>
+<div id="container">
+	<div class="findPasswordWrap">
+		<ul class="formInfo">
+			<li>
+				<label>选择账号</label>
+				<div class="info" id="bankNum">6222 ********5698</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>账户类型</label>
+				<div class="info">借记卡Ⅰ类</div>
+			</li>
+			<li style="padding-right:.7rem;">
+				<label>交易类型</label>
+				<div class="info" id="tradeType">跨行2小时后发起</div>
+				<i class="arrowRight"></i>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain" href="delayTransferList.html">查&nbsp;&nbsp;&nbsp;&nbsp;询</a>
+</div>
+<!--//container end-->
+
+<!--选择账号-->
+<div class="selectBox" id="bankNumBox">
+	<ul class="selectCon">
+		<li class="current">6222 ********5698</li>
+		<li>6222 ********5691</li>
+		<li>6222 ********5692</li>
+		<li>6222 ********5693</li>
+	</ul>
+</div>
+<!--选择账号end-->
+
+<!--交易类型-->
+<div class="selectBox" id="tradeTypeBox">
+	<ul class="selectCon">
+		<li class="current">跨行2小时后发起</li>
+		<li>跨行次日发起</li>
+		<li>本行2小时后发起</li>
+		<li>本行次日发起</li>
+	</ul>
+</div>
+<!--交易类型end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#overlay").bind("touchend",function(){
+	setTimeout(function(){$('#overlay').hide()},200);
+	$(".selectBox").hide();
+	$('body').unbind("touchmove");
+})
+$("#bankNum").bind("click",function(){
+	showLight("bankNumBox");
+})
+$("#bankNumBox li").bind("click",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("bankNumBox");
+	$("#bankNum").text($(this).text())
+})
+$("#tradeType").bind("click",function(){
+	showLight("tradeTypeBox");
+})
+$("#tradeTypeBox li").bind("click",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("tradeTypeBox");
+	$("#tradeType").text($(this).text())
+})
+</script>
+</body>
+</html>

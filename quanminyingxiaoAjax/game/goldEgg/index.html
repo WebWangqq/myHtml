@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>砸蛋赢大奖</title>
+<link type="text/css" rel="stylesheet" href="../../css/layout.css">
+<link type="text/css" rel="stylesheet" href="index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<div class="tabCon">
+		<span onclick="showLight2('rulesBox')">活动规则</span>
+		<span onclick="showLight2('awardListBox')">中奖纪录</span>
+	</div>
+	<div class="eggBox">
+		<div class="eggCon">
+			<div class="item">
+				<img class="egg" src="images/egg.png">
+				<img class="base" src="images/base.png">
+			</div>
+			<div class="item">
+				<img class="egg" src="images/egg.png">
+				<img class="base" src="images/base.png">
+			</div>
+			<div class="item">
+				<img class="egg" src="images/egg.png">
+				<img class="base" src="images/base.png">
+			</div>
+		</div>
+		<div id="hammer" class="shak"></div>
+	</div>
+	<div class="hitBtnCon"><div class="btn"><strong>马上砸蛋</strong></div></div>
+</div>
+
+<!-- 活动规则 -->
+<div class="lightBox lightBox1" id="rulesBox">
+	<img class="img1" src="images/img1.png">
+	<div class="content">
+		<div class="title">砸金蛋活动规则</div>
+		<div class='scrollCon' style='height:5.6rem;overflow:hidden;'>
+			<div class="rulecontet">
+				<div class="ruleTit">活动时间</div>
+				<div class="ruleCon">
+					<p>2018.12.01-2018.12.31</p>
+				</div>
+				<div class="ruleTit">活动详情</div>
+				<div class="ruleCon">
+					<p>1.本次活动为新用户专享。</p>
+					<p>2.活动期间使用任何舞弊行为的用户一经发现，即刻取消活动资格。</p>
+					<p>3.中奖礼品数量有限，送完即止。礼品库存数量在活动过程中实时变化，中奖成功与否以实际结果为准。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="btnCon">
+		<div class="btn" onclick="hideLight()">知道了</div>
+	</div>
+</div>
+<!-- 活动规则end -->
+
+<!-- 获奖记录 -->
+<div class="lightBox lightBox1" id="awardListBox">
+	<img class="img1" src="images/img1.png">
+	<div class="content">
+		<div class="title">砸金蛋中奖记录</div>
+		<div class="listTile clearfix">
+			<span>手机号</span>
+			<span>奖品</span>
+		</div>
+		<div class='scrollCon' style='height:4.6rem;overflow:hidden;'>
+			<ul class="list">
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+				<li>
+					<span>135****6352</span>
+					<span>获得50元代金券</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="btnCon">
+		<div class="btn" onclick="hideLight()">知道了</div>
+	</div>
+</div>
+<!-- 获奖记录end -->
+
+<!-- 获奖啦 -->
+<div class="lightBox myAwardBox" id="myAwardBox">
+	<img class="img1" src="images/img1.png">
+	<div class="title">恭喜您中奖啦！</div>
+	<div class="content">
+		<div class="info">
+			<div class="con">
+				<div>5元话费券</div>
+				<div>有效期：10.8-10.30</div>
+			</div>
+		</div>
+		<a class="touse">去使用</a>
+	</div>
+	<div class="text">优惠券已放入商城卡包，请前往查看</div>
+	<div class="btn" onclick="hideLight()">确定</div>
+</div>
+<!-- 获奖啦end -->
+
+<!-- 未中奖 -->
+<div class="lightBox myAwardBox" id="noAwardBox">
+	<img class="img1" src="images/img1.png">
+	<div class="title">很遗憾，未中奖</div>
+	<div class="btn" onclick="hideLight()">知道了</div>
+</div>
+<!-- 未中奖end -->
+
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript" src="../../js/iscroll.js"></script>
+<script>
+function resize() {
+    var wWidth = document.body.clientWidth;
+    var Fsize = wWidth / 7.5 < 100 ? wWidth / 7.5 : 100;
+    document.querySelector('html').style.fontSize = Fsize + 'px';
+};
+resize();
+window.onresize = resize;
+
+function showLight2(cla) {
+    $("#overlay").show();
+    var marginTop = (-$("#" + cla).outerHeight()) / 2;
+    $("#" + cla).css({ "margin-top": marginTop });
+    $("#" + cla).show();
+    var awardList = new IScroll('#'+cla+' .scrollCon', { mouseWheel: true, click: true });
+    $('body').on('touchmove', function(event) { event.preventDefault(); });
+    $('body').css({'overflow':'hidden'})
+}
+
+var startFlag=false
+var flag=true
+var $hammer = $("#hammer")
+var	$egg=$('.egg')
+
+$('.hitBtnCon .btn').click(function(event) {
+	startFlag=true
+	showTipBox('您可以开始砸蛋了')
+});
+$('.eggCon .item').each(function(i) {
+	$(this).click(function() {
+		if(startFlag){
+			if(flag){
+				flag=false
+				eggChange($(this).index())
+			}
+			else{
+				showTipBox('您已经砸过金蛋')
+			}
+		}
+		else{
+			showTipBox('您还未开始砸蛋')
+		}
+	});
+});
+function eggChange(i){
+	$hammer.removeClass("shak");
+	if(i==0){
+		$hammer.animate({'top':'.3rem','left':'3.95rem'})
+	}
+	else if(i==1){
+		$hammer.animate({'top':'2.45rem','left':'2rem'})
+	}
+	else{
+		$hammer.animate({'top':'2.45rem','left':'5.9rem'})
+	}
+    setTimeout(function() { 
+    	$hammer.addClass("hammer hit");
+        setTimeout(function() {
+        	$egg.eq(i).prop("src", "images/egg2.png");
+            $hammer.removeClass("hammer hit");
+            win()
+        }, 600)
+    }, 600);
+}
+function win(){
+	showLight('myAwardBox')
+}
+</script>
+</body>
+</html>

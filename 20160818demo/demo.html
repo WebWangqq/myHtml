@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<link href="css/public.css" type="text/css" rel="stylesheet" />
+<link href="css/demo.css" type="text/css" rel="stylesheet" />
+<link href="css/animate.css" type="text/css" rel="stylesheet" />
+<script type="text/javascript" src="js/jquery-min.js"></script>
+
+<title>农行流程展示</title>
+</head>
+
+<body>
+	<div class="demo">
+    	<div class="bg">
+            <div id="p1"><img src="img/01.jpg" alt="01"></div>
+            <div id="p2" style="display:none"><img src="img/02.jpg" alt="02"></div>
+            <div id="p3" style="display:none"><img src="img/03.jpg" alt="03"></div>
+            <div id="p4" style="display:none"><img src="img/03.jpg" alt="03"></div>
+            <div id="p5" style="display:none"><img src="img/04.jpg" alt="04"></div>
+            <div id="p6" style="display:none"><img src="img/05.jpg" alt="05"></div>
+            <div id="p7" style="display:none"><img src="img/06.jpg" alt="06"></div>
+            <div id="p8" style="display:none"><img src="img/k1.jpg" alt="k1"></div>
+            <div id="p9" style="display:none"><img src="img/k2.jpg" alt="k2"></div>
+            <div id="p10" style="display:none"><img src="img/k3.jpg" alt="k3"></div>
+            <div id="p11" style="display:none"><img src="img/k4.jpg" alt="k4"></div>
+            <div id="p12" style="display:none"><img src="img/k5.jpg" alt="k5"></div>
+    	</div>
+        <img id="hand1" src="img/hand.png" alt="hand">
+        <img id="hand2" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand3" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand4" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand5" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand6" src="img/hand.png" alt="hand" style="display:none">
+     	<img id="hand7" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand8" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand9" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand10" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand11" src="img/hand.png" alt="hand" style="display:none">
+        <img id="hand12" src="img/hand.png" alt="hand" style="display:none">
+       	<img id="q1" src="img/q1.png" alt="请选择活动" style="display:none">
+        <img id="q2" src="img/q2.png" alt="请选择奖品" style="display:none">
+        <img id="q3" src="img/q2.png" alt="请输入客户信息" style="display:none">
+        <img id="q4" src="img/q2.png" alt="请扫描二维码" style="display:none">
+        <img id="q5" src="img/q2.png" alt="用户扫描后" style="display:none">
+    </div>
+    
+    <script type="text/javascript">
+		$(document).ready(function(e) {
+			donghua();
+			  
+	});
+	
+	function donghua(){
+			
+			var i = 1; 
+			var setint = setInterval(function(){
+
+				if(i == 12){
+				 	clearInterval(setint);
+				 	window.location = "ejy.html";
+					
+					return false;
+				}
+				
+				var box=document.getElementById("hand"+i);
+				var pic1=document.getElementById("p"+i);
+				var pic2=document.getElementById("p"+(i+1));
+				var box2=document.getElementById("hand"+(i+1));
+				box.style.display="none"; 
+				pic1.style.display="none";
+				
+				pic2.style.display="block";
+				box2.style.display="block";
+
+				i++;
+				
+			},3000);
+			  
+		}
+	
+    </script>
+
+</body>
+</html>

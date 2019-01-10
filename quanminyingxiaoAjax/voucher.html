@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/iosSelect.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+    <div class="duihuanWrap">
+        <div class="title">请选择礼品</div>
+        <div class="stub"></div>
+        <div class="content">
+            <div class="selectCon">
+                <div id="selectName" class="name colorGray">请选择</div>
+                <input id="prize"  class="fieldIn" data-id='' data-value=''  readonly unselectable="on" onfocus="this.blur()" />
+            </div>
+            <div class="bottomLine"></div>
+        </div>
+    </div>
+    <a class="btnMain btnGray">确定</a>
+</div>
+
+<div id="footerBar">
+    <a class="current" href="index.html"><i></i><span>全员营销</span></a>
+    <a href="operationManual.html"><i></i><span>操作手册</span></a>
+    <a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/iosSelect.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var bhnstel=localStorage.getItem("bhnstel");
+var actid=getQueryString('actid');
+
+var apiUrl= getApiUrl();
+var selected=false
+var prizeId,prizeName
+function btnClick(){
+    $('.btnMain').click(function(event) {
+        if(selected){
+            localStorage.setItem("actid", actid);
+            localStorage.setItem("prizeId", prizeId);
+            localStorage.setItem("prizeName", prizeName);
+            window.location.href='voucher2.html'
+        }
+        else{
+            showTipBox('请选择奖品')
+        }
+    });  
+}
+
+$(document).ready(function() {
+    if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+        showLoadding()
+        $.ajax({
+            type: "POST",
+            url: apiUrl+'prize/getActivityPrize',
+            data:ajaxData("{\"activityId\":\""+actid+"\"}"),
+            contentType : "application/json",
+            dataType:'json',
+            success: function (msg) {
+                hideLoadding();
+                console.log(msg)
+                if(msg.data.status==1){
+                    var msgData=msg.data.data
+                    var prizeData=[]
+                    for(var i=0;i<msgData.length;i++){
+                        msgData[i].value=msgData[i].prizeName
+                        if(msgData[i].remainCount>0){
+                             prizeData.push(msgData[i])   
+                        }
+                    }
+                    var prizeDom = document.querySelector('#prize');
+                    var selectName=document.querySelector('#selectName');
+                    prizeDom.addEventListener('click', function() {
+                        var activityId = prizeDom.dataset['id'];
+                        var prizeelect = new IosSelect(1,
+                            [prizeData], {
+                                title: '请选择奖品',
+                                itemHeight: 40,
+                                itemShowCount: 5,
+                                oneLevelId: activityId,
+                                callback: function(selectOneObj) {
+                                    prizeDom.value = selectOneObj.value;
+                                    prizeDom.dataset['id'] = selectOneObj.id;
+                                    prizeDom.dataset['value'] = selectOneObj.value;
+                                    selectName.innerHTML=selectOneObj.value;
+                                    selectName.classList.remove('colorGray');
+                                    selected=true;
+                                    $('.btnMain').removeClass('btnGray');
+                                    prizeId=selectOneObj.id;
+                                    prizeName=selectOneObj.value;
+                                    btnClick()
+                                }
+                            });
+                    });
+                    btnClick()
+                }
+            }
+        });
+    }
+});
+</script>
+</body>
+</html>

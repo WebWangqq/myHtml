@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>网点详情</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bankInfo.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="branch.html">返回</a>
+	<p>网点详情</p>
+</div>
+<div id="container" style="margin-top:1rem;">
+	<div  class="branchDetail">
+		<ul>
+			<li>
+				<label>网点名称</label>
+				<div class="info">吉林龙井农村商业银行荣盛支行</div>
+			</li>
+			<li>
+				<label>地址</label>
+				<div class="info">延吉市海兰路120号1004</div>
+			</li>
+			<li>
+				<label>附近地位置</label>
+				<div class="info">东市场进学街与海兰路交汇处</div>
+			</li>
+			<li>
+				<label>网点电话</label>
+				<div class="info">(0433)2554927</div>
+			</li>
+			<li>
+				<label>手机</label>
+				<div class="info">18604336866</div>
+			</li>
+			<li>
+				<label>网点负责人</label>
+				<div class="info">侯亚萍</div>
+			</li>
+		</ul>
+		<div class="map" id="map"></div>
+	</div>
+</div>
+<!--//container end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8MVRhBVC91vlarz99blLYfG2"></script>
+<script type="text/javascript">
+	var map = new BMap.Map("map");          
+	map.centerAndZoom(new BMap.Point(129.526497, 42.911191), 20);
+	var new_point=new BMap.Point(129.526497,42.911191)
+	var marker = new BMap.Marker(new_point);  // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	map.panTo(new_point);
+</script>
+</body>
+</html>

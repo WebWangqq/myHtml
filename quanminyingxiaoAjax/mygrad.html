@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/grad.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="grad.html">返回</a>
+	<div class="title">个人营销成绩</div>
+</div>
+<div id="wrap">
+	<div class="hasnavBar"></div>
+	<ul class="levelCon myGradeCon">
+		<!-- <li>
+			<span class="level">1</span>
+			<div class="name">重要消息！国金黄金15款贵金贵金重要消息！国金黄金15款贵金贵金</div>
+			<div class="num colorMain">1592阅读量</div>
+			<a class="toDetail" href="mygradDetail.html?actid=1">查看详情</a>
+		</li> -->
+	</ul>
+	<div class="hasfooterBar"></div>
+</div>
+
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var apiUrl= getApiUrl();
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var actid=0
+
+function loadMore () {
+	showLoadding()
+    $.ajax({
+        type: "POST",
+        url: apiUrl+'Share/personalActivityInfo',
+        data:ajaxData("{\"staffId\": "+bhnsuserid+",\"activityId\":\""+actid+"\",\"token\": \"login\"}"),
+        contentType : "application/json",
+        dataType:'json',
+        success: function (msg) {
+            hideLoadding();
+            console.log(msg)
+            if(msg.data.status==1){
+                var listData=msg.data.data;
+                var html='';
+                $.each(listData,function(i,item){
+                   html+='<li><span class="level">'+(i+1)+'</span><div class="name">'+item.theme+'</div><div class="num colorMain">'+item.readCount+'阅读量</div><a class="toDetail" href="mygradDetail.html?actid='+item.activityId+'">查看详情</a></li>'
+                })
+                $('.myGradeCon').html(html)
+            }
+        }
+    })
+}
+$(document).ready(function() {
+    if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+        loadMore()
+    }
+});
+</script>
+</body>
+</html>

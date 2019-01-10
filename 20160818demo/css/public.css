@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+html{
+	font-size:62.5%;
+	-webkit-tap-highlight-color:transparent;
+}
+body{
+	-webkit-appearance:none;
+}
+body,div,ul,ol,li,h1,h2,h3,h4,h5,h6,form,input,textarea,p{
+	font-family:"微软雅黑",Arial, sans-serif;
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration:none; 
+	outline:none;
+}  
+a:hover{ 
+	text-decoration:none;
+}     
+img{
+	border:none; 
+	margin:0px; 
+	padding:0px;
+}  
+img,input,select,textarea,label{
+	vertical-align:middle;
+	outline:none
+}
+.mgL0{
+	margin-left:0;
+}
+.mgR0{
+	margin-right:0;
+}
+
+/* 清理浮动 */
+.clearfix:after {
+ visibility:hidden;
+ display:block;
+ font-size:0;
+ content:" ";
+ clear:both;
+ height:0;
+}
+.clearfix {
+ zoom:1;
+}

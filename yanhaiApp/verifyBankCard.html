@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>验证银行卡</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+    <p>验证银行卡</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="formWrap">
+		<div class="agreementTip">请输入沿海银行借记卡Ⅰ类的信息</div>
+		<ul class="formInfo" style="margin-bottom:0">
+			<li>
+				<label>姓名</label>
+				<div class="info"><input class="field mustFill" type="text" placeholder="请输入姓名" /></div>
+			</li>
+			<li>
+				<label>银行卡号</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="请输入银行卡号" maxlength="19" /></div>
+			</li>
+			<li>
+				<label>预留手机号</label>
+				<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="请输入预留手机号" maxlength="11" /></div>
+			</li>
+			<li>
+				<label>验证码</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="请输入验证码" /></div>
+				<span id="yzm" class="yzm colorYellow colorGray">发送验证码</span>
+			</li>
+		</ul>
+		<div class="agreementTip"><a class="colorYellow" onclick="showAgreementBox('registerAgreement');">《服务协议》</a></div>
+	</div>
+	<a class="btnMain btnGray" href="javascript:void(0)" onclick="showPay()">提&nbsp;&nbsp;&nbsp;&nbsp;交</a>
+</div>
+<!--//container end-->
+
+<!--//协议-->
+<div class="agreementBox" id="registerAgreement">
+	<div class="title colorMain">服务协议</div>
+	<div class="textCon">
+		<div class="con">
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<div class="okBtn colorMain" href="javascript:void(0)" onclick="hideLight('registerAgreement')">确定</div>
+</div>
+<!--//协议end-->
+
+<!--输入交易密码-->
+<div id="passwordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="closeBtn" onclick="hidePay();"></i>请输入交易密码</div>
+		<div class="text">您正在对借记卡(6651)进行<span class="colorYellow">绑定银行卡</span>操作</div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--输入交易密码end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script>
+$(document).ready(function(){btnFixedBottom()})
+function telphone(){
+	var phone=$("#telphone").val().replace(/\s+/g, "");//手机号码 
+	var isMobile=/^1[34578]\d{9}$/;
+	if(phone != "" && isMobile.test(phone) && phone.length==11){ 
+		$("#yzm").removeClass("colorGray");
+		timeFlag=true;
+	}else{
+		showTipBox("请输入正确手机号！");
+	}
+}
+/*点击验证码*/
+var wait=60;//秒数
+function waitF() {
+	if (wait == 0) {
+		timeFlag=true;
+		$("#yzm").html("重新发送").removeClass("colorGray");
+		wait = 60; 
+	}else { 
+		timeFlag=false;
+		$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+		wait--; 
+		setTimeout(function() { 
+			waitF();
+		},1000) 
+	}	
+} 
+function yzmF(){
+	if(!timeFlag) return false;
+	timeFlag=true;
+	waitF();
+}
+/*点击验证码end*/
+
+/*填手机号验证码颜色变化*/
+$("#telphone").blur(function(){
+	telphone();
+})
+//结束
+$("#yzm").bind("touchend",function(){
+	telphone();
+	yzmF();
+})
+
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#passwordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"bottom":"0"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#passwordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"bottom":"-6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){window.location.href="operateSuccess.html"},1000)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("touchend",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

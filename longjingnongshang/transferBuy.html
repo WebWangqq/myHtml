@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转账购买</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/productDetail.css">
+</head>
+
+<body ontouchstart style="background-color:#fff;">
+<div id="container">
+	<div class="transferBuyWrap">
+		<div class="tip colorMain">如需大额转入，请您按照如下步骤进行操作：</div>
+		<ul class="oprateCon colorMain">
+			<li>
+				<p>◆转账</p>
+				<p>根据下方提示账户信息进行转账</p>
+			</li>
+			<li>
+				<p>◆提交</p>
+				<p>转账完成后点击“提交审核”按钮 </p>
+			</li>
+			<li>
+				<p>◆完成</p>
+				<p>系统审核完成后，发送成功购买通知 </p>
+			</li>
+		</ul>
+		<table class="info">
+			<tr>
+				<td>账户名</td>
+				<td>**********</td>
+			</tr>
+			<tr>
+				<td>账号</td>
+				<td>1234 2569 2569 4598</td>
+			</tr>
+			<tr>
+				<td>开户行</td>
+				<td>**********</td>
+			</tr>
+			<tr>
+				<td>项目</td>
+				<td>南金交2017025期</td>
+			</tr>
+			<tr>
+				<td>确认金额</td>
+				<td>100,000,000.00</td>
+			</tr>
+		</table>
+		<div class="auditTip colorGray">
+			<p>注:1.为保障审核速度，请按照确认金额进行转账;</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.如审核过程中出现可购买额度不足的情况，系统将自动退款。</p>
+		</div>
+		<div class="inputBank"><input id="cardNum" class="field mustFill" type="tel" placeholder="请输入转账卡号的后6位" maxlength="6" data-length="6"></div>
+	</div>
+	<a class="btnMain btnGray" style="margin:.5rem .45rem;">提交审核</a>
+	
+</div>
+<!--//container end-->
+
+<!--余额不足-->
+<div id="noMoreMoney">
+	<div class="content content2">
+		<p class="colorMain">审核中，敬请期待…</p>
+		<a class="btn">确定</a>
+	</div>
+</div>
+<!--余额不足-->
+
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(".btnMain").click(function(){
+	if($("#cardNum").val().length!=6){
+		showTipBox("请输入转账卡号的后6位")
+	}
+	else{
+		$("#noMoreMoney").show()
+	}
+	
+})
+$("#noMoreMoney .btn").click(function(){
+	$("#noMoreMoney").hide();
+	$(".btnMain").addClass("auditIng").text("审核中");
+})
+</script>
+</body>
+</html>

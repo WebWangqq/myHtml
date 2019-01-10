@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/login.css">
+</head>
+
+<body ontouchstart>
+<div id="wrap">
+	<img class="logo" src="images/temp/logo.jpg">
+	<img class="logo2" src="images/logoImg.png">
+	<ul class="formInfo">
+		<li class="ico user">
+			<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="请输入注册手机号" maxlength="13" onkeyup="formatMobile(this)" /></div>
+		</li>
+		<li class="ico tel">
+			<div class="info"><input id="yzm" class="field mustFill" type="password" placeholder="请输入手机验证码" disabled /></div>
+			<span id="yzmBtn" class="colorMain" onclick="sendCode($(this))">获取验证码</span>
+		</li>
+	</ul>
+	<a class="btnMain btnGray" onclick="next()">下一步</a>
+	<div class="loginTip"><a href="login.html">已有账号</a></div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+/*发送验证码*/
+var countdown = 60;
+var timer = null;
+function run() {
+    countdown--;
+    if (countdown == 0) {
+        $("#yzmBtn").attr("disabled", false);
+        $("#yzmBtn").html('重新发送');
+        $("#yzmBtn").removeClass("colorGray");
+        countdown = 60;
+        window.clearInterval(timer);
+        timer = null;
+        $("#yzmBtn").attr("onclick", "sendCode($(this))");
+    } else {
+        $("#yzmBtn").html(countdown+'s后重新发送');
+    }
+}
+
+function runbanktime(string) {
+    string.attr("disabled", true);
+    string.addClass("colorGray");
+    string.html(countdown+'s后重新发送');
+    timer = window.setInterval("run();", 1000);
+    $("#yzmBtn").removeAttr("onclick");
+}
+/*发送验证码end*/
+
+
+var sendCode = function(string) {
+	$("#yzm").val("")
+	if (isMobile($("#telphone").val())) {
+		$("#yzm").attr("disabled", false)
+		runbanktime(string);
+	} else {
+		showTipBox("请输入正确手机号")
+	}
+}
+
+var next=function(){
+	if (!isMobile($("#telphone").val())) {
+		showTipBox("请输入正确的手机号");
+	} else if ($("#yzm").val() == "") {
+		showTipBox("请输入验证码");
+	} else {
+		window.location.href='register2.html'
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>客户端二维码</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<style>
+.codeWrap{position:relative;margin:0 1.3rem .3rem;padding:0 .3rem .89rem;border-radius:8px;
+background-color:#add0fd;
+background:-webkit-gradient(linear, 0 1%, 0 100%, color-stop(0, #a3c6fd), color-stop(0.5,#add0fd), color-stop(1,#c1e7fc));
+background:-moz-linear-gradient(0px 0px -90deg, #a3c6fd 0, #add0fd 50%, #c1e7fc 100%);
+background:-o-linear-gradient(top, #a3c6fd 0%,#add0fd 50%,#c1e7fc 100%);
+background:-ms-linear-gradient(top, #a3c6fd 0%,#add0fd 50%,#c1e7fc 100%);
+background:linear-gradient(top, #a3c6fd 0%,#add0fd 50%,#c1e7fc 100%);
+}
+.codeWrap:before,.codeWrap:after{content: '';position:absolute;top:10px;width:40px;height:40px;background-color:#f9f9f9;border-radius:50%;}
+.codeWrap:before{left:-30px;}
+.codeWrap:after{right:-30px;}
+.codeWrap .title{height:50px;text-align:center;line-height:50px;color:#fff;border-bottom:1px dotted #fff;}
+.codeWrap .code{display:block;width:3rem;margin:.9rem auto 0;border-radius:5px;}	
+</style>
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="aboutUs.html">返回</a>
+    <p>客户端二维码</p>
+     <a class="icoText" href="javascript:void(0)">分享</a>
+</div>
+<div id="container" style="margin-top:1.4rem;">
+	<div class="codeWrap">
+		<div class="title">沿海银行app</div>
+		<img class="code" src="images/_temp/code.jpg">
+	</div>
+	<div class="textCenter">扫一扫上面的二维码图案<br/>下载沿海银行手机银行</div>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+</body>
+</html>

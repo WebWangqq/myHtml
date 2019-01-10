@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>安全中心</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="index.html">返回</a>
+	<p>安全中心</p>
+</div>
+<div id="container">
+	<ul class="formInfo formInfoA">
+		<a href="changePassword.html"><li>修改登录密码<i class="arrowRight"></i></li></a>
+		<a href="resetPasswordOk.html"><li>重置登录密码<i class="arrowRight"></i></li></a>
+		<a href="changeCellPhoneNum.html"><li>修改注册手机号<i class="arrowRight"></i></li></a>
+		<a href="resetCellPhoneNumScanIdCard.html"><li>重置注册手机号<i class="arrowRight"></i></li></a>
+		<a href="javascript:void(0)" onclick="showPay();"><li>修改支付密码<i class="arrowRight"></i></li></a>
+		<a href="resetPayPasswordScanIdCard.html"><li>重置支付密码<i class="arrowRight"></i></li></a>
+		<a href="reviseInfo.html"><li>修改账户信息<i class="arrowRight"></i></li></a>
+	</ul>
+	<ul class="formInfo">
+		<li><a href="riskAssess.html">风险评估<span class="quan colorGray" style="right:.2rem;">稳健型</span></a></li>
+		<li>手势密码<span class="quan colorGray">设置手势密码</span><i class="arrowRight"></i></li>
+		<li>指纹密码<div class="switch"><span></span></div></li>
+	</ul>
+</div>
+<!--//container end-->
+
+<!--修改支付密码-->
+<div id="editPasswordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="arrowLeft" onclick="hidePay();"></i>修改支付密码</div>
+		<div class="text">请设置新支付密码</div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--修改支付密码end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(".switch").bind("touchend",function(){
+	if($(this).hasClass("open")) $(this).removeClass("open");
+	else $(this).addClass("open");
+})
+
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#editPasswordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"top":"3.4rem"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#editPasswordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"top":"8.6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("click",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){showTipBox("支付密码修改成功");},500)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("click",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

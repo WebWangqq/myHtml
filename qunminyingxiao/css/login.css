@@ -1,0 +1,44 @@
+@charset "utf-8";
+::-moz-placeholder {color:#c8c7cd;}
+:-moz-placeholder {color:#c8c7cd;}
+::-webkit-input-placeholder {color:#c8c7cd;}
+:-ms-input-placeholder {color:#c8c7cd;}
+#wrap{padding-top:40px;box-sizing:border-box;background-color:#ffffff;}
+.logo{display:block;height:35px;width:auto;margin:0 auto;}
+.logo2{display:block;width:200px;margin:0 auto 80px;}
+
+.formInfo{margin:0 30px 30px;}
+.formInfo li{position:relative;height:45px;margin-bottom:15px;padding-left:10px;font-size:16px;line-height:45px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.formInfo li:last-child{margin-bottom:0;}
+.formInfo li:after{content:'';position: absolute;left:0;bottom:0;width:100%;height:1px;background-color:#dcdcdc;
+-webkit-transform: scaleY(0.5);
+-moz-transform: scaleY(0.5);
+-ms-transform: scaleY(0.5);
+-o-transform: scaleY(0.5);
+transform: scaleY(0.5);
+}
+.formInfo li.ico{padding-left:40px;}
+.formInfo li.ico:before{content:'';position:absolute;top:50%;left:0;width:28px;height:28px;margin-top:-14px;background-repeat:no-repeat;background-size:100% 100%;}
+.formInfo li.user:before{background-image:url(../images/icoUser.png);}
+.formInfo li.password:before{background-image:url(../images/icoPassword.png);}
+.formInfo li.tel:before{background-image:url(../images/icoTel.png);}
+.formInfo li .info{position:relative;height:100%;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.formInfo li .info .field{display:block;width:100%;height:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.formInfo li .info select{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:2;}
+
+.btnMain{margin:45px 18px;}
+
+.weixinLogin{text-align:center;}
+.weixinLogin .con{display:inline-block;color:#c8c7cd;}
+.weixinLogin img{display:block;width:35px;margin:0 auto 5px;}
+
+.loginTip{margin-top:20px;text-align:center;color:#c8c7cd;}
+.loginTip a{position:relative;margin:0 20px;}
+.loginTip a:nth-child(2):after{content:'';position:absolute;top:0;left:-20px;width:0;height:100%;border-left:1px solid #c8c7cd}
+
+.arrowBtoom{content:'';position:absolute;top:50%;right:10px;width:10px;height:10px;margin-top:-6px;border:2px solid #333;border-right:none;border-bottom:none;
+transform: rotate(-135deg);
+}
+@media (width:320px){
+.formInfo li{font-size:14px;}
+}

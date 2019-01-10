@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>营业网点详情</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bankInfo.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="branchBusiness.html">返回</a>
+	<p>营业网点详情</p>
+</div>
+<div id="container">
+	<div  class="branchDetail">
+		<ul>
+			<li>
+				<label>网点名称</label>
+				<div class="info">吉林龙井农村商业银行阳光分理处</div>
+			</li>
+			<li>
+				<label>联系电话</label>
+				<div class="info">(0433)2354809</div>
+				<a class="btnMain link" href="tel:(0433)2354809">拨号</a>
+			</li>
+			<li>
+				<label>地址</label>
+				<div class="info">延吉市前进路41-3号</div>
+			</li>
+			<li>
+				<label>营业时间</label>
+				<div class="info">周一至周五8:30-17:00</div>
+			</li>
+		</ul>
+		<div class="map" id="map"></div>
+	</div>
+</div>
+<!--//container end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=8MVRhBVC91vlarz99blLYfG2"></script>
+<script type="text/javascript">
+	var map = new BMap.Map("map");          
+	map.centerAndZoom(new BMap.Point(129.526306, 42.91296), 20);
+	var new_point=new BMap.Point(129.526306, 42.91296)
+	var marker = new BMap.Marker(new_point);  // 创建标注
+	map.addOverlay(marker);              // 将标注添加到地图中
+	map.panTo(new_point);  
+</script>
+</body>
+</html>

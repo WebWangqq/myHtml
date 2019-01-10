@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>账户明细</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/personalCenter.css">
+</head>
+
+<body>
+<div id="navBar" style="z-index:9901">
+    <a class="goBack" href="myProperty.html">返回</a>
+    <p><span>账户明细</span><i class="arrowBottom"></i></p>
+    <ul class="selectNav">
+        <li class="current">账户明细</li>
+        <li>收益明细</li>
+        <li>收支明细</li>
+    </ul>
+</div>
+<div id="container" style="margin-top:1rem;">
+    <ul class="detailWrap">
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+        <li>
+            <div class="clearfix name">
+                <span class="left">收益(金祥云20160906)</span>
+                <span class="right">+0.78</span>
+            </div>
+            <div class="clearfix date">
+                <span class="left">2016-12-17</span>
+                <span class="right">11990.25</span>
+            </div>
+        </li>
+    </ul>
+    <div class="noDataList">
+        <img src="images/noWelfare.jpg" />
+        <div>您目前还没有任何数据哟~</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#navBar p").bind("touchend",function(){
+    $(".selectNav").slideDown();
+    $("#overlay").show();
+    $('body').on('touchmove', function (event) { event.preventDefault(); });
+})
+$(".selectNav li").click(function(){
+    $(this).addClass("current").siblings().removeClass("current");
+    $("#navBar p span").text($(this).text());
+    $(".selectNav").slideUp();
+    $("#overlay").fadeOut(400);
+    $('body').unbind("touchmove");
+})
+$("#overlay").bind("touchend",function(){
+    $(".selectNav").slideUp();
+    $(this).fadeOut(400);
+})
+</script>
+</body>
+</html>

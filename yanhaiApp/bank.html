@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bank.css">
+</head>
+
+<body ontouchstart style="padding-bottom:1rem;">
+<div id="headerBar">
+    <a class="icoPerson" href="javascript:void(0)">返回</a>
+    <p>银行</p>
+    <a class="icoNotice" href="bankNews.html">公告</a>
+</div>
+
+<!--//leftNavItem-->
+<div id="leftOverlay"></div>
+<div id="leftNavItem">
+	<!--//已登录-->
+	<div class="loginCon">
+		<div class="userInfo">
+			<img class="img" src="images/_temp/touxiang.jpg" />
+			<span class="name">李思颖</span>
+		</div>
+		<a class="btnExit" href="##">安全退出</a>
+		<div class="colorGray">上次登录  2017-05-09 10:10:19</div>
+	</div>
+	<!--//已登录end-->
+	<!--//未登录-->
+	<div class="loginCon" style="display:none;">
+		<div class="userInfo">
+			<a href="login.html"><img class="img" src="images/headImg.png" /></a>
+		</div>
+		<a class="colorMain" href="login.html">点击登录</a>
+	</div>
+	<!--//未登录end-->
+	<ul class="navItem">
+		<!-- <li><a href="register.html"><img src="images/leftNavIco1.png" /><span>注册</span><i class="arrowRight"></i></a></li> -->
+		<li><a href="securityCenter.html"><img src="images/leftNavIco4.png" /><span>安全中心</span><i class="arrowRight"></i></a></li>
+		<li><a href="findPassword.html"><img src="images/leftNavIco2.png" /><span>找回密码</span><i class="arrowRight"></i></a></li>
+		<li><a href="aboutUs.html"><img src="images/leftNavIco3.png" /><span>关于</span><i class="arrowRight"></i></a></li>
+	</ul>
+	<!-- <a class="btnMain" href="login.html">点击登录</a> -->
+</div>
+<!--//leftNavItem end-->
+
+
+
+<div id="container">
+	<div class="cardWrap">
+		<div class="bankCon">
+			<div class="bankInfo clearfix">
+				<img class="bankLogo" src="images/bankLogo/yanhai.png" />
+				<span class="bankName">营口沿海银行</span>
+				<span class="right">电子借记卡Ⅱ类</span>
+			</div>
+			<div class="moneyInfo clearfix">
+				<div class="left">
+					<p class="money">2000</p>
+					<p>当前余额(￥) </p>
+				</div>
+				<div class="left">
+					<p class="money">2000</p>
+					<p>可用余额(￥) </p>
+				</div>
+				<a class="accountManage" href="">账户管理</a>
+			</div>
+			<div class="operateCon">
+				<div class="cardInfo"><span>6236********9905</span><i class="icoEye"></i></div>
+				<div class="btnCon">
+					<a href="shiftTo.html">转入</a>
+					<a href="shiftOut.html">转出</a>
+				</div>
+			</div>
+		</div>
+		<!--//bankCon end-->
+		<div class="bankCon oteher">
+			<div class="bankInfo clearfix">
+				<img class="bankLogo" src="images/bankLogo/gongshang.png" />
+				<span class="bankName">中国工商银行</span>
+				<span class="right">借记卡Ⅰ类</span>
+			</div>
+			<div class="moneyInfo clearfix">
+				<div class="left">
+					<p class="money">2000</p>
+					<p>当前余额(￥) </p>
+				</div>
+				<div class="left">
+					<p class="money">2000</p>
+					<p>可用余额(￥) </p>
+				</div>
+			</div>
+			<div class="operateCon">
+				<div class="cardInfo"><span>6236********9905</span></div>
+				<a class="accountManage" href="">账户管理</a>
+			</div>
+		</div>
+		<!--//oteher end-->
+		<div class="bankCon addBanckCon active">
+			<a class="content" href="addBankCard.html">
+				<div>添加新卡</div>
+				<div class="fsizeSmall colorGray">支持沿海银行与其它银行</div>
+			</a>
+		</div>
+		<!--//addBanckCon end-->
+	</div>
+	<!--//cardWrap end-->
+
+	<ul class="bankNav">
+		<li><a href="myAccount.html"><img src="images/index/icoNav1.png" /><span>我的账户</span></a></li>
+		<li><a href="accountManagement.html"><img src="images/bank/icoNav1.png" /><span>账户管理</span></a></li>
+		<li><a href="incomeAndExpenses.html"><img src="images/index/icoNav3.png" /><span>收支</span></a></li>
+		<li><a href="detailEnquiry.html"><img src="images/bank/icoNav2.png" /><span>明细查询</span></a></li>
+		<li><a href="transferAccounts.html"><img src="images/index/icoNav2.png" /><span>转账</span></a></li>
+		<li><a href="myLoan.html"><img src="images/index/icoNav7.png" /><span>我的贷款</span></a></li>
+		<li><a href="branch.html"><img src="images/bank/icoNav3.png" /><span>网点服务</span></a></li>
+	</ul>
+</div>
+<!--//container end-->
+
+<ul id="footerBar">
+	<li><a href="index.html"><i></i>首页</a></li>
+	<li><a href="investment.html"><i></i>投资</a></li>
+	<li class="current"><a href="bank.html"><i></i>银行</a></li>
+	<li><a href="life.html"><i></i>生活</a></li>
+</ul>
+
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">您的手机银行未加挂营口沿海银行实体借记卡，暂时不能使用此功能</div>
+		<div class="btnCon">
+			<a href="javascript:void(0)" onclick="hideLight('warmPromptBox')">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+</body>
+</html>

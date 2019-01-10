@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>产品详情</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+</head>
+
+<body ontouchstart style="padding-bottom:.9rem;">
+<div id="headerBar" class="greenBg">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>产品详情</p>
+</div>
+<div id="container" style="margin-top:.8rem">
+	<div class="productDetailNav">
+    	<div class="name">聚益生金360天A款(600360)</div>
+    	<div class="interestRate"><span>8.65</span><small>%</small></div>
+    	<div class="text">预期年化收益</div>
+    	<ul class="explain">
+    		<li>
+    			<div class="big">360天</div>
+    			<div>投资期限</div>
+    		</li>
+    		<li>
+    			<div class="big">5万元</div>
+    			<div>起购金额</div>
+    		</li>
+    		<li>
+    			<div class="big">10万元</div>
+    			<div>递增金额</div>
+    		</li>
+    	</ul>
+    </div>
+    <!--//productDetailNav end-->
+    
+    <div class="raiseCon">
+        <div class="specialty"><span>中等风险</span><span>非保本</span></div>
+        <div class="progressBar clearfix">
+            <div class="bar" style="width:46.19%"></div>
+            <label class="left">募集进度<span class="colorYellow">46.19%</span></label>
+            <label class="right">剩余金额<span class="colorYellow">3000万元</span></label>
+        </div>
+        <div class="pleaseLogin" style="display:none;">请登录后了解募集进度及剩余额度<a class="colorYellow textUnder" href="login.html">点击登录</a></div>
+        <div class="pleaseLogin" style="display:none;">请签约后了解募集进度及剩余额度<a class="colorYellow textUnder" href="login.html">点击签约</a></div>
+    </div>
+
+    <!--//financeCycle-->
+    <div class="financeCycle">
+        <div class="title">理财周期</div>
+        <ul class="progressCon">
+            <li class="current">
+                <span>购买日期</span>
+                <span>2016.12.17</span>
+            </li>
+            <li>
+                <span>产品起息</span>
+                <span>2016.12.21</span>
+            </li>
+            <li>
+                <span>产品到期</span>
+                <span>2017.01.17</span>
+            </li>
+        </ul>
+    </div>
+    <!--//financeCycle end-->
+
+    <ul class="formInfo formInfoA agreement">
+        <li style="padding-left:.2rem;">请认真阅读并同意以下内容</li>
+        <a class="colorMain" href="##"><li>《营口沿海银行理财产品销售协议书》<i class="arrowRight"></i></li></a>
+        <a class="colorMain" href="##"><li>《营口沿海银行理财产品产品说明书》<i class="arrowRight"></i></li></a>
+        <a class="colorMain" href="##"><li>《营口沿海银行理财产品风险揭示书》<i class="arrowRight"></i></li></a>
+        <a class="colorMain" href="##"><li>《营口沿海银行理财产品客户权益须知》<i class="arrowRight"></i></li></a>
+    </ul>
+    
+    <div class="agreementTip" style="padding:.3rem .2rem;">
+        <p class="colorMain">温馨提示：</p>
+        <p>请您仔细核对您的客户评级是否符合本产品的要求，首次购买理财产品风险评估须在我行网点进行，详情请咨询95533</p>
+    </div>
+    
+    <div class="productDetaiBuyCon">
+        <span class="icoCalculator"></span>
+        <a class="btnBuy" href="buyProduct.html">同意并购买</a>
+    </div>
+</div>
+
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="warmPromptBox">
+    <div class="content">
+        <div class="title colorMain">温馨提示</div>
+        <div class="textCon">你的提示内容</div>
+        <div class="btnCon">
+            <!-- <a class="cancel" href="javascript:void(0)">取消</a> -->
+            <a href="javascript:void(0)" onclick="hideLight('warmPromptBox')">确定</a>
+        </div>
+    </div>
+</div>
+<!--//温馨提示end showLight('warmPromptBox')-->
+
+<!--//收益计算器-->
+<div class="incomeCalculator">
+    <div class="title">
+        <span class="closeBtn">X</span>
+        <p>收益计算器</p>
+        <span>确定</span>
+    </div>
+    <div class="calculatorCon">
+        <div class="text"></div>
+    </div>
+</div>
+<!--//收益计算器end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+
+</script>
+</body>
+</html>

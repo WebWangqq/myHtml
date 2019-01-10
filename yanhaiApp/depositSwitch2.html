@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>定期转活期</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" class="noShadow">
+	<a class="goBack" href="depositZone.html">返回</a>
+	<p>定期转活期</p>
+</div>
+<div id="container" style="margin-top:1.95rem;">
+	<ul class="depositSwitchNav">
+		<li><a href="depositSwitch.html">活期转定期</a></li>
+		<li class="current"><a href="depositSwitch2.html">定期转活期</a></li>
+	</ul>
+	<!--//depositSwitchNav end-->
+	<ul class="formInfo">
+		<li style="padding-right:.7rem;">
+			<label>付款账号</label>
+			<div class="info" id="cardNum">6225********4608</div>
+			<i class="arrowRight"></i>
+		</li>
+	</ul>
+	<div class="saveTransCheck">
+		<!--//item-->
+		<a class="item" href="depositSwitch3.html">
+			<div class="depositTerm">
+				<div class="moneyType">人民币</div>
+				<div class="time">存期：三个月</div>
+			</div>
+			<div class="info">
+				<div class="numCon">
+					<label>本金：<span class="colorMain">50</span></label>
+					<label>利率：<span class="colorMain">1.25%</span></label>
+				</div>
+				<div class="time">到期日：2017-08-15</div>
+			</div>
+			<i class="arrowRight"></i>
+		</a>
+		<!--//item end-->
+		
+		<!--//item-->
+		<a class="item" href="depositSwitch3.html">
+			<div class="depositTerm">
+				<div class="moneyType">人民币</div>
+				<div class="time">存期：三个月</div>
+			</div>
+			<div class="info">
+				<div class="numCon">
+					<label>本金：<span class="colorMain">50</span></label>
+					<label>利率：<span class="colorMain">1.25%</span></label>
+				</div>
+				<div class="time">到期日：2017-08-15</div>
+			</div>
+			<i class="arrowRight"></i>
+		</a>
+		<!--//item end-->
+
+	</div>
+	
+</div>
+<!--//container end-->
+
+<!-- /*付款账号*/ -->
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li class="current">6225********4608</li>
+		<li>6225********4601</li>
+		<li>6225********4602</li>
+	</ul>
+</div>
+<!-- /*付款账号end*/ -->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#overlay").bind("touchend",function(){
+	setTimeout(function(){$('#overlay').hide()},200);
+	$(".selectBox").hide();
+	$('body').unbind("touchmove");
+})
+/*付款账号*/
+$("#cardNum").bind("touchend",function(){
+	showLight("cardNumBox");
+})
+$("#cardNumBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardNumBox");
+	$("#cardNum").text($(this).text())
+})
+</script>
+</body>
+</html>

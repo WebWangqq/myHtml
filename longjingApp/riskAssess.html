@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>风险评估</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/riskAssess.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="securityCenter.html">首页</a>
+	<p>风险评估</p>
+</div>
+<div id="container" style="margin-top:1rem;">
+	<div class="riskAssessWrap">
+		<h3>请认真回复一下问题，完成风险评估，共10题</h3>
+		<!--item-->
+		<div class="item" style="display:block;">
+			<div class="title">1.您的年龄介于</div>
+			<ul>
+				<li>A.18-30岁</li>
+				<li>B.31-50岁</li>
+				<li>C.51-64岁</li>
+				<li>D.65岁以上</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">2.您的家庭可支配年收入为（折合人民币）？</div>
+			<ul>
+				<li>A.5万元以下</li>
+				<li>B.5-20万元</li>
+				<li>C.20-50万元</li>
+				<li>D.50-100万元</li>
+				<li>E.100万以上</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">3.在您每年的家庭可支配收入中，可用于金融投资（储蓄存款除外）的比例为？</div>
+			<ul>
+				<li>A.小于10%</li>
+				<li>B.10%至25%</li>
+				<li>C.25%至50%</li>
+				<li>D.大于50%</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">4.以下哪项最能说明您的投资经验?</div>
+			<ul>
+				<li>A.除存款外、国债外，我几乎不投资其他金融产品</li>
+				<li>B.大部分投资于存款、国债等，较少投资于股票、基金等风险产品</li>
+				<li>C.资产均衡地分布于存款、国债、银行理财产品、信托产品、股票、基金等</li>
+				<li>D.大部分投资于股票、基金，外汇等高风险产品，较少投资于存款、国债</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">5.您有多少年投资股票、基金、外汇、金融衍生产品等风险投资品的经验？</div>
+			<ul>
+				<li>A.没有经验</li>
+				<li>B.小于2年</li>
+				<li>C.2至5年</li>
+				<li>D.5至8年</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">6.以下哪项描述最符合您的投资态度？</div>
+			<ul>
+				<li>A.厌恶风险，不希望本金损失，希望获得稳定回报</li>
+				<li>B.保守投资，不希望本金损失，愿意承担一定幅度的收益波动</li>
+				<li>C.寻求资金的较高收益和成长性，愿意为此承担有限本金损失</li>
+				<li>D.希望赚取高回报，愿意为此承担较大本金损失</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">7.以下情况，你会选择哪一种？</div>
+			<ul>
+				<li>A.有100%的机会赢取1000元现金</li>
+				<li>B.有50%的机会赢取5万元现金</li>
+				<li>C.有25%的机会赢取50万元现金</li>
+				<li>D.有10%的机会赢取100万元现金</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">8.您计划的投资期限是多久？</div>
+			<ul>
+				<li>A.1年以下</li>
+				<li>B.1-3年</li>
+				<li>C.3-5年</li>
+				<li>D.5年以上</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">9.您的投资目的是？</div>
+			<ul>
+				<li>A.资产保值</li>
+				<li>B.资产稳健增长</li>
+				<li>C.资产迅速增长</li>
+			</ul>
+		</div>
+		<div class="item">
+			<div class="title">10.您的投资出现何种程度的波动时，您会呈现明显的较量</div>
+			<ul>
+				<li>A.本金无损，但收益未达预期</li>
+				<li>B.出现轻微本金损失</li>
+				<li>C.本金10%以内的损失</li>
+				<li>D.本金20%-50%的损失</li>
+			</ul>
+		</div>
+		<!--//item end-->
+		<div class="progressBar"><div class="redBar" id="redBar" style="width:10%;"></div></div>
+		<div class="numItem"><span class="num" id="num">1</span>/10</div>
+	</div>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+var i=1;
+$('.item li').click(function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	i++;
+	if(i<=10){
+		setTimeout(function(){
+			$(".item:visible").hide().next(".item").show();
+			$("#num").text(i);
+			$("#redBar").css("width",i*10+"%");
+		},300)
+	}
+	else{
+		setTimeout(function(){window.location.href='riskAssessResult.html'},300)
+	}
+	
+})
+
+</script>
+</body>
+</html>

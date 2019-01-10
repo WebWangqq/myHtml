@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>交易详情</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" class="greenBg">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>交易详情</p>
+</div>
+<div id="container" style="margin-top:.8rem">
+	<div class="productDetailNav" style="margin-bottom:0;">
+    	<div class="text">日益月鑫 30天 （8904）</div>
+    	<div class="interestRate"><span class="money">3000.00</span></div>
+    	<div class="text">理财资产(元)</div>
+    </div>
+    
+    <!--//financeCycle-->
+    <div class="financeCycle">
+        <ul class="progressCon">
+            <li class="current">
+                <span>购买</span>
+                <span>2016.12.17</span>
+            </li>
+            <li>
+                <span>起息</span>
+                <span>2016.12.21</span>
+            </li>
+            <li>
+                <span>到期</span>
+                <span>2017.01.17</span>
+            </li>
+        </ul>
+    </div>
+    <!--//financeCycle end-->
+
+    <ul class="formInfo muOwnFormInfo">
+		<li style="border-bottom:1px solid #eaeaea">产品详情</li>
+		<li>
+			<label>交易账户</label>
+			<div class="info">6236********7577</div>
+		</li>
+		<li>
+			<label>交易类型</label>
+			<div class="info">理财购买</div>
+		</li>
+		<li>
+			<label>交易状态</label>
+			<div class="info">募集中</div>
+		</li>
+		<li>
+			<label>预期年化收益率</label>
+			<div class="info">5.23%</div>
+		</li>
+		<li>
+			<label>理财期限</label>
+			<div class="info">360天</div>
+		</li>
+		<li>
+			<label>交易渠道</label>
+			<div class="info">手机银行</div>
+		</li>
+	</ul>
+	<a class="btnMain" href="javascript:void(0)" onclick="showPay()">撤&nbsp;&nbsp;&nbsp;&nbsp;单</a>
+	<!-- <a class="btnMain btnGray" href="##">撤&nbsp;&nbsp;&nbsp;&nbsp;单</a> --><!--灰色撤单按钮-->
+</div>
+<!--//container end-->
+
+<!--输入交易密码-->
+<div id="passwordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="closeBtn" onclick="hidePay();"></i>请输入交易密码</div>
+		<div class="text">您<span class="colorYellow">申请撤销</span>尾号4608账号的理财产品交易</div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--输入交易密码end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#passwordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"bottom":"0"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#passwordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"bottom":"-6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){window.location.href="financeMyOwnRevokeSuccess.html"},1000)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("touchend",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

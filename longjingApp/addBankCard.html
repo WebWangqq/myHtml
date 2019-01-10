@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>添加银行卡</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+    <a class="goBack" href="bankCard.html">返回</a>
+    <p>添加银行卡</p>
+</div>
+<div id="container" style="margin-top:1rem;">
+	<ul class="formInfo">
+		<li>
+			<label>卡号</label>
+			<div class="info"><input class="field" type="tel" placeholder="请输入银行卡号" /></div>
+		</li>
+		<li>
+			<label>所属银行</label>
+			<div class="info"><img class="bankLogo" src="images/bankLogo/zhongguo.png" /><span>中国银行</span></div>
+		</li>
+		<li>
+			<label>预留手机号</label>
+			<div class="info"><input class="field" type="tel" placeholder="请输入预留手机号" /></div>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input class="field" type="text" placeholder="请输入序号为11的验证码" /></div>
+			<span class="yzm colorYellow">发送验证码</span>
+		</li>
+	</ul>
+	<a class="btnMain btnGray" href="##">确认添加</a>
+
+</div>
+<!--//container end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5*1;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

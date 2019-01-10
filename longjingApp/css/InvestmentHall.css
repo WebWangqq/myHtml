@@ -1,0 +1,28 @@
+@charset "utf-8";
+#container{margin-top:1rem;}
+.navTab{width:100%;height:.8rem;text-align:center;line-height:.8rem;background-color:#efeff4;}
+.list .item{display:block;margin-bottom:.3rem;background-color:#fff; background-position:right top;background-repeat:no-repeat; background-size:.85rem .85rem;}
+.list .item:active{background-color:#eaeaea;}
+.list .item .name{position:relative;height:.82rem;padding:0 .9rem;line-height:.82rem;font-size:.28rem;border-bottom:1px solid #eaeaea;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.list .item .name:before{content:'';position:absolute;top:50%;left:.6rem;width:0;height:.4rem;margin-top:-.2rem;border-left:.04rem solid #31c27c;}
+.list .item .info{padding:0.2rem 0 .2rem .5rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.list .item .info .yield{color:#8e8e8e;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.list .item .info .time{width:3.5rem;text-align:center;}
+.list .item .info p{padding:0.05rem 0;font-size:.24rem;}
+.list .item .info .time p:nth-child(1){padding:.3rem 0 .1rem;}
+.list .item .info span.big{font-size:.44rem;}
+.list .item .info .type{width:1.9rem;padding-top:.8rem;text-align:center;font-size:.26rem;}
+.list .item .info .type span{display:inline-block;padding-left:.45rem;font-size:.24rem;background:url(../images/new.png) left center no-repeat;background-size:.4rem .4rem;}
+.list .item .info .type span.limit{background-image:url(../images/limit.png);}
+.list .item .info .type span.vip{background-image:url(../images/vip.png);}
+.list .item .info .percentage{position:relative;width:1.35rem;padding-left:.3rem;padding-top:.1rem;}
+.list .item .info .percentage canvas{width:1.1rem;height:1.1rem;}
+.list .item .info .percentage .num{position:absolute;top:0.1rem;left:0.3rem;width:1.1rem;height:1.1rem;text-align:center;line-height:1.1rem;color:#31c27c;font-size:.24rem;}
+.list .item .info .percentage .num span{font-size:.36rem;}
+.list.middleLongTerm .item.raise{background-image:url(../images/stateRaiseIng.png);}
+.list.middleLongTerm .item.presell{background-image:url(../images/statePresellIng.png);}
+.list.middleLongTerm .item.underway{background-image:url(../images/stateUnderway.png);}
+.list.middleLongTerm .item.end{background-image:url(../images/stateEnd.png);}
+.list.middleLongTerm .item.finish{background-image:url(../images/stateFinish.png);}
+.list.middleLongTerm .item.underway .num,.list.middleLongTerm .item.finish .num,.list.middleLongTerm .item.end .num{color:#e1e1e1;}
+

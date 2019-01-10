@@ -1,0 +1,15 @@
+@charset "utf-8";
+/*index.html*/
+.indexWrap{width:100%;height:4rem;background-color:#fff;}
+
+/*我的定制*/
+.myCustomWrap{ margin:0 .35rem;}
+.myCustomWrap li{position:relative;padding:.05rem 0 .15rem .15rem;margin-bottom:.3rem;background: url(../images/index/myCustomBg.png) left bottom repeat-x;background-size:.15rem auto}
+.myCustomWrap li:nth-child(4n+1){background-color:#2764bf}
+.myCustomWrap li:nth-child(4n+2){background-color:#2f77e5}
+.myCustomWrap li:nth-child(4n+3){background-color:#3485ff}
+.myCustomWrap li:nth-child(4n+4){background-color:#6ea8ff}
+.myCustomWrap li:after{content:'';position:absolute;top:50%;right:.3rem;width:.44rem;height:.44rem;margin-top:-.22rem;background:url(../images/icoSelect2.png) no-repeat;background-size:.44rem auto;}
+.myCustomWrap li.current:after{background-position:0 bottom;}
+.myCustomWrap img{display:inline-block;width:.55rem;margin-right:.25rem;}
+.myCustomWrap span{line-height:.55rem;font-size:.3rem;color:#fff;}

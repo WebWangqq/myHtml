@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>首页应用编辑</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/more.css">
+</head>
+
+<body style="background-color: #fff">
+<div id="navBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>首页应用编辑</p>
+    <a class="recordList" id="btnorder" href="javascript:void(0)">编辑</a>
+</div>
+<div id="container">
+	<div class="editTip" style="display:none">点击右上角<img src="images/editAdd.png" /><img src="images/editDelete.png" />以添加或移除快捷按钮，长按拖动以改变按钮排序顺序</div>
+	 <ul class="editWrap clearfix" id="editWrap">
+	 	<li><div class="item"><img src="images/indexNav1.png" /><span>投资攻略</span></div><i class="ico icoDelete"></i></li>
+	 	<li><div class="item"><img src="images/indexNav2.png" /><span>资金转入</span></div><i class="ico icoDelete"></i></li>
+	 	<li><div class="item"><img src="images/indexNav3.png" /><span>金融要闻</span></div><i class="ico icoDelete"></i></li>
+	 	<li><div class="item"><img src="images/indexNav4.png" /><span>网点查询</span></div><i class="ico icoDelete"></i></li>
+	 	<li><div class="item"><img src="images/indexNav5.png" /><span>活动精选</span></div><i class="ico icoAdd"></i></li>
+	 	<li><div class="item"><img src="images/indexNav6.png" /><span>账户查询</span></div><i class="ico icoAdd"></i></li>
+	 	<li><div class="item"><img src="images/indexNav7.png" /><span>在线客服</span></div><i class="ico icoAdd"></i></li>
+	 </ul>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/Sortable.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var container = document.getElementById("editWrap");
+	var sort = Sortable.create(container, {
+	  animation: 150, // ms, animation speed moving items when sorting, `0` — without animation
+	   onUpdate: function (evt/**Event*/){
+	     var item = evt.item; // the current dragged HTMLElement
+	  }
+	});	
+})
+$("#btnorder").click(function(){
+	if($(this).text()=="编辑"){
+		$(this).text("完成");
+		$(".editTip").css("display","block");
+		$(".editWrap li .ico").css("display","block");
+	}
+	else{
+		window.location.href="index.html";
+	}
+})
+$(".ico").bind("touchend",function(){
+	if($(this).hasClass("icoDelete")){
+		$(this).removeClass("icoDelete").addClass("icoAdd");
+	}
+	else{
+		$(this).removeClass("icoAdd").addClass("icoDelete");
+	}
+})
+</script>
+</body>
+</html>

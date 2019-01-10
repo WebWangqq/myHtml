@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>账户管理</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/bank.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="bank.html">返回</a>
+    <p>账户管理</p>
+</div>
+<div id="container" class="accountManagement">
+	<div class="accountList">
+		<a class="item" href="bankCardManage1.html">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="info">
+				<div class="name">营口沿海银行</div>
+				<div class="type">借记卡Ⅰ类</div>
+				<div class="num">6236 **** **** 9905</div>
+			</div>
+			<span class="default">默认卡</span>
+		</a>
+		
+		<a class="item" href="bankCardManage2.html">
+			<img class="logo" src="images/bankLogo/yanhai.png">
+			<div class="info">
+				<div class="name">营口沿海银行</div>
+				<div class="type">电子借记卡Ⅱ类</div>
+				<div class="num">6236 **** **** 9905</div>
+			</div>
+		</a>
+
+		<a class="item" href="bankCardManage3.html">
+			<img class="logo" src="images/bankLogo/gongshang.png">
+			<div class="info">
+				<div class="name">中国工商银行</div>
+				<div class="type">借记卡Ⅰ类</div>
+				<div class="num">6236 **** **** 9905</div>
+			</div>
+		</a>
+		
+		<div class="agreementTip textCenter" style="padding:0">您有<span class="colorYellow">1张沿海银行卡</span>待添加</div>
+	</div>
+	
+	<a class="btnAddCard" href="addBankCard.html">+ 添加新卡</a>
+</div>
+<!--//container end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	btnFixedBottom();
+})
+function btnFixedBottom(){
+	var mt=$(window).height()-$(".accountList").height()-$(window).width()/7.5*2.8;
+	marginTop=(mt>50) ? mt : 50;
+	marginBottom=(mt>50)? 0 :20
+	$(".btnAddCard").css({"margin-top":marginTop,"margin-bottom":marginBottom});
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>注册</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="container">
+	<ul class="formInfo">
+		<li>
+			<div class="info"><input id="referralCode" class="field mustFill" type="tel" placeholder="推荐人代码(必填)" /></div>
+			<a class="colorMain" href="appointmentRegister.html" style="margin-right:.3rem;">预约获取推荐码</a>
+		</li>
+	</ul>
+	<ul class="formInfo">
+		<li>
+			<label>手机号</label>
+			<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="请输入手机号" maxlength="11" /></div>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input id="yzm" class="field mustFill" type="tel" placeholder="请输入验证码" /></div>
+			<span id="yzmBtn" class="yzm colorMain colorGray" onclick="sendCode($(this))">发送验证码</span>
+		</li>
+	</ul>
+	<div class="agreementTip colorGray">注册及表示您同意<a class="colorMain textUnder" onclick="showAgreementBox('registerAgreement');">《吉龙汇财平台注册协议》</a>的相关规定</div>
+	<a class="btnMain btnGray" onclick="next()">下一步</a>
+</div>
+<!--//container end-->
+
+<!--//协议-->
+<div class="agreementBox" id="registerAgreement">
+	<div class="title colorMain">沿海银行注册协议</div>
+	<div class="textCon">
+		<div class="con">
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<div class="okBtn colorMain" href="javascript:void(0)" onclick="hideLight('registerAgreement')">确定</div>
+</div>
+<!--//协议end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<script>
+
+/*填手机号验证码颜色变化*/
+$("#telphone").bind('input propertychange',function(){
+	if(isMobile($("#telphone").val())){
+		$(".yzm").removeClass("colorGray")
+	}
+})
+
+var countdown=60;
+var timer=null;
+function run() {
+	countdown--;
+	if(countdown==0){
+		$("#yzmBtn").attr("disabled", false);
+	    $("#yzmBtn").html('获取验证码');
+	    $("#yzmBtn").removeClass("colorGray");
+	    countdown = 60;
+	    window.clearInterval(timer);
+	    timer = null;
+	    $("#yzmBtn").attr("onclick", "sendCode($(this))");
+	}
+	else{
+		$("#yzmBtn").html("重新发送(" +formatNumber(countdown)+ ")");
+	}
+}
+function runbanktime(val) {
+	val.attr("disabled", true);
+	val.addClass("colorGray");
+	val.html('重新发送(' + countdown + ')');
+	timer = window.setInterval("run();", 1000);
+	$("#yzmBtn").removeAttr("onclick");
+}
+
+var sendCode=function(val){
+	if(isMobile($("#telphone").val())){
+		countdown = 60;
+        runbanktime(val);
+	}
+	else{
+		showTipBox("请输入正确手机号")
+	}
+
+}
+var next=function(){
+	if($("#referralCode").val()==""){
+		showTipBox("请输入推荐人代码！");
+	}
+	else if(!isMobile($("#telphone").val())){
+		showTipBox("请输入正确的手机号！");
+	}
+	else if($("#yzm").val()==""){
+		showTipBox("请输入验证码！");
+	}
+	else{
+		window.location.href = "register2.html";
+	}
+}
+</script>
+</body>
+</html>

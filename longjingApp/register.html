@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>注册</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>注册</p>
+</div>
+<div id="container">
+	<ul class="formInfo">
+		<li>
+			<label>手机号</label>
+			<div class="info"><input class="field" type="tel" placeholder="请输入手机号" /></div>
+			<span class="yzm colorMain">发送验证码</span>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input class="field" type="text" placeholder="请输入验证码" /></div>
+		</li>
+		<li>
+			<label>设置密码</label>
+			<div class="info"><input class="field" type="password" placeholder="密码为6-12位数字字母的组合" /></div>
+		</li>
+	</ul>
+	<div class="agreement">注册及表示您同意<a  class="colorYellow aUnderline" onclick="showAgreementBox('registrationAgreement');">《吉龙•汇财平台注册协议》</a>的相关规定</div>
+	<a class="btnMain btnGray" href="registerSuccess.html">完&nbsp;&nbsp;成</a>
+</div>
+<!--//container end-->
+
+<!--//agreementBox-->
+<div class="agreementBox" id="registrationAgreement">
+	<div class="content">
+		<div class="textCon">
+			<h2>吉龙•汇财平台注册协议</h2>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<a class="closeBtn" href="javascript:void(0)" onclick="hideLight('registrationAgreement')">关闭</a>
+</div>
+<!--//agreementBox end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5*1;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

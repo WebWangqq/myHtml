@@ -1,0 +1,33 @@
+@charset "utf-8";
+img{max-width: 100%;}
+/*更多*/
+.moreWrap .title{padding:.1rem .25rem .4rem;font-size:.3rem;}
+.moreWrap .title a{position:relative;display:block;padding-right:.4rem;}
+.moreWrap .title a .arrowRight{right:0;background-image:url(../images/arrowRight2.png);}
+.moreWrap .activityCon{margin-bottom: .8rem;}
+.moreWrap .activityCon .swiper-slide{width:5.1rem;height:3rem;}
+.moreWrap .activityCon .swiper-slide img{display:block;width:4.5rem;height:2.1rem;margin-top: 0.45rem;margin-left: 0.3rem;border-radius:.1rem}
+.moreWrap .activityCon .swiper-slide.swiper-slide-active img{width:5.1rem;height:3rem;margin-top:0;margin-left:0}
+.moreWrap .nav li{float:left;width:50%;margin-bottom:.6rem;}
+.moreWrap .nav li a{display:block;width:1.5rem;margin:0 auto;text-align:center;}
+.moreWrap .nav li a img{display:block;}
+
+.messageWrap{padding:0 .4rem;}
+.messageWrap .shadow{display:block;width:100%;margin-bottom:.3rem;padding:.25rem;font-size:.24rem;background-color:#fff;border-radius:5px;}
+.messageWrap .textarea{height:3.3rem;}
+.btnLogin{margin-top:2rem;}
+
+/*活动列表*/
+.activityList{padding:0 .2rem;}
+.activityList li{margin-bottom:.3rem;}
+.activityList li a{display:block;}
+
+/*首页应用编辑*/
+.editTip{padding:0 .35rem .3rem;color:#8e8e8e;}
+.editTip img{display:inline-block;width:.34rem;margin:0 .05rem;vertical-align:middle;}
+.editWrap li{float:left;position:relative;width:25%;padding:0 .1rem;margin-bottom:.5rem;box-sizing: border-box;}
+.editWrap li .ico{display:none;position:absolute;top:.1rem;right:.25rem;width:.34rem;height:.34rem;background-repeat:no-repeat; background-size:.34rem .34rem;}
+.editWrap li .icoDelete{background-image:url(../images/editDelete.png);}
+.editWrap li .icoAdd{background-image:url(../images/editAdd.png)}
+.editWrap li .item{padding:.1rem 0;text-align:center;background-color:#f6f6f6;}
+.editWrap li .item img{display:block;width:.8rem;margin:0 auto .1rem;}

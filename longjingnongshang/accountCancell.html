@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>销户</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<style type="text/css">
+.info{padding:.5rem .6rem;color:#8e8e8e;line-height:1.8;text-align:justify;}
+</style>
+</head>
+
+<body ontouchstart>
+<div id="container">
+	<div class="info">如您确认销户，请您拨打吉龙汇财客服热线<a class="colorMain" href="tel:400-169-9900">400-169-9900</a> ,客服人员审核通过后将为您进行操作。</div>
+	<a class="btnMain" href="##">确认修改</a>
+</div>
+<!--//container end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5*0.3;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

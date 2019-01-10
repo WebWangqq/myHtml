@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>关于</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<style>
+.copyCon{font-size:.24rem;line-height:1.8;}
+</style>
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>关于</p>
+</div>
+<div id="container" style="margin-top:1.5rem;">
+	<div class="formWrap">
+		<img style="display:block;width:2.8rem;margin:0 auto 1.2rem" src="images/logo.png" />
+		<ul class="formInfo formInfoA">
+			<a href="connectUs.html"><li>联系我们<i class="arrowRight"></i></li></a>
+			<a href="appQRcode.html"><li>客户端二维码<i class="arrowRight"></i></li></a>
+			<a><li>版本更新<i class="arrowRight"></i></li></a>
+		</ul>
+	</div>
+	<div class="copyCon colorGray textCenter">
+		<p>营口沿海银行版权所有</p>
+		<p>津ICP备  13030780号  津120102002568</p>
+	</div>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	var mt=$(window).height()-$(".formWrap").height()-$(window).width()/7.5*3.3;
+	marginTop=(mt>100) ? mt :100;
+	marginBottom=(mt>100)? 0 :50
+	$(".copyCon").css({"margin-top":marginTop,"margin-bottom":marginBottom});
+})
+</script>
+</body>
+</html>

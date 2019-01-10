@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转出</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/set.css">
+</head>
+
+<body ontouchstart>
+<div id="container" style="margin-top:0">
+	<div class="tixianWrap">
+		<div class="info clearfix">
+			<div class="cardInfo">
+				<div class="text"><span>吉龙•汇财电子账户 </span></div>
+			</div>
+			<div class="arrowInfo"></div>
+			<div class="cardInfo">
+				<div class="text"><span>绑定卡</span><span>中国银行（5689）</span></div>
+			</div>
+		</div>
+	</div>
+	<div class="shiftToCardInfo" onclick="showSelectCardBox()">
+		<div class="bank clearfix">
+			<img class="logo" src="images/bankLogo/beijing.png">
+			<span class="name">中国银行</span>
+			<div class="limit colorGray"><span>单笔限额:5万</span><span>单日限额:5万</span></div>
+		</div>
+		<div class="cardNum"><strong>6222 **** **** 6053</strong></div>
+		<i class="arrowRight"></i>
+	</div>
+	<ul class="formInfo transferAmount">
+		<li>转账金额</li>
+		<li class="money">
+			<span class="symbol">￥</span>
+			<div class="info"><input id="money" class="field" type="text" placeholder="当前可用余额100.05元" /></div>
+			<span id="deletMoney">删除</span>
+		</li>
+		<li>
+			<label>当前可转出金额125，256.02元</label>
+			<div class="info textRight"><span id="allMoney" class="colorMain">全部转出</span></div>
+		</li>
+	</ul>
+	<div class="shuoming">
+		<div class="colorMain">说明</div>
+		<div class="colorGray">1.当日15:00前转出实时到账；</div>
+		<div class="colorGray">2.当日15:00后转出及当日充值金额转出，次日12:00前到账。</div>
+	</div>
+	<a class="btnMain" href="javascript:void(0)" onclick="showLight('successBox')">确认</a>
+</div>
+<!--//container end-->
+
+<!--//选择账户-->
+<div class="selectCardOverlay" onclick="hideSelectCardBox()"></div>
+<div class="selectCardBox">
+	<div class="title colorMain">
+		<span class="closeBtn" onclick="hideSelectCardBox()">关闭</span>
+		<p>选择账户</p>
+	</div>
+	<ul class="cardCon">
+		<li class="item current">
+			<img src="images/bankLogo/zhongguo.png">
+			<label>中国银行（7480）</label>
+			<p>单笔限额:5万   单日限额:5万 拷贝</p>
+		</li>
+		<li class="item">
+			<img src="images/bankLogo/zhongguo.png">
+			<label>中国银行（7480）</label>
+			<p>单笔限额:5万   单日限额:5万 拷贝</p>
+		</li>
+		<li>
+			<a class="newCard" href="openAccount.html">使用新卡<i class="arrowRight"></i></a>
+		</li>
+	</ul>
+</div>
+<!--//选择账户end-->
+
+<div class="successBox" id="successBox">
+	 <div class="text colorMain">转出成功！</div>
+	 <div class="text colorGray">预计2017-04-17  24点前到账</div>
+	 <a class="btn" href="javascript:void(0)" onclick="hideLight('successBox')">确定</a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+/*选择账户*/
+function showSelectCardBox(){
+	$('.selectCardOverlay').show();
+	$(".selectCardBox").removeClass('slideDown');
+	$(".selectCardBox").addClass('animated slideUp').fadeIn();
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hideSelectCardBox(){
+	$('.selectCardBox').removeClass('slideUp');
+	$('.selectCardBox').addClass('slideDown').fadeOut();
+	setTimeout(function () {
+		$('.selectCardOverlay').fadeOut();
+	}, 500);
+	$('body').unbind("touchmove");
+}
+$(".cardCon .item").click(function(){
+	$(this).addClass("current").siblings().removeClass("current")
+	hideSelectCardBox()
+})
+
+$(document).ready(function(){
+	$("#money").on("input",function(){
+		$(this).attr("placeholder","");
+		$(this).css("font-size",".5rem");
+		$("#deletMoney").show();
+	})
+	$("#money").blur(function(){
+		var num=parseFloat($(this).val());
+		console.log(isNaN(num))
+		if(isNaN(num)){
+			$(this).css("font-size",".26rem");
+			$(this).attr("placeholder","当前可用余额100.05元");
+		}
+	})
+	$("#allMoney").bind("touchend",function() {
+		$("#money").css("font-size",".5rem").val("100.05");
+	})
+	$("#deletMoney").click(function(){
+		$(this).hide();
+		$("#money").val("")
+	})
+})
+</script>
+</body>
+</html>

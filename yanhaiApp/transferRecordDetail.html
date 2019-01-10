@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转账记录查询</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/transferAccounts.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" class="greenBg">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);v">返回</a>
+	<p>转账记录查询</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="transferRecordNav">
+		<div class="clearfix">
+			<span class="left">币种：人民币</span>
+			<span class="right">手续费：0.00元</span>
+		</div>
+		<div class="money">
+			<span>-3000.00</span>
+			<small>元</small>
+		</div>
+	</div>
+	<!--//transferRecordNav end-->
+	<div class="transferRecordInfo">
+		<div class="con">
+			<div class="bankName">
+				<img src="images/bankLogo/gongshang.png">
+				<span class="colorGray">工商银行</span>
+			</div>
+			<div class="name">林雅静</div>
+			<div class="num colorGray"> 6225********4608</div>
+		</div>
+		<div class="con">
+			<div class="bankName">
+				<img src="images/bankLogo/yanhai.png">
+				<span class="colorGray">沿海银行</span>
+			</div>
+			<div class="name">林雅静</div>
+			<div class="num colorGray"> 6225********4608</div>
+		</div>
+	</div>
+	<ul class="formInfo">
+		<li>
+			<label>转账留言</label>
+			<div class="info">转账</div>
+		</li>
+		<li>
+			<label>转账渠道</label>
+			<div class="info">手机银行</div>
+		</li>
+		<li>
+			<label>转账类别</label>
+			<div class="info">跨行转账</div>
+		</li>
+		<li>
+			<label>转账方式</label>
+			<div class="info">短信验证码转账</div>
+		</li>
+	</ul>
+	<div class="progressQuery">
+		<div class="colorYellow">转账完成</div>
+		<div class="colorGray">2017-06-02 10:58:25</div>
+		<a class="progress" href="transferProgress.html">进度查询</a>
+		<i class="arrowRight"></i>
+	</div>
+	<ul class="formInfo formInfoA">
+		<a href="receipt.html"><li>电子回单查询<i class="arrowRight"></i></li></a>
+	</ul>
+	<a class="btnMain" href="remittance2.html">再转一笔</a>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+</body>
+</html>

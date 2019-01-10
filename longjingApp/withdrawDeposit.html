@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转出</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="myProperty.html">返回</a>
+	<p>转出</p>
+</div>
+<div id="container" style="margin-top:1rem">
+	<div class="tixianWrap">
+		<div class="info">
+			<div class="cardInfo colorYellow">
+				<div class="text"><span>吉龙•汇财电子账户 </span></div>
+			</div>
+			<div class="arrowInfo"></div>
+			<div class="cardInfo colorYellow">
+				<div class="text"><span>绑定卡</span><span>中国银行（5689）</span></div>
+			</div>
+		</div>
+	</div>
+	<ul class="formInfo">
+		<li>
+			<span class="icoMoney">￥</span>
+			<div class="info"><input class="field" type="text" placeholder="可赎回余额14570.89元" /></div>
+			<span class="colorYellow buy">全部转出</li>
+		</li>
+	</ul>
+	<div class="shuoming">
+		<div class="colorMain">说明</div>
+		<div class="colorGray">1.当日15:00前转出实时到账；</div>
+		<div class="colorGray">2.当日15:00后转出及当日充值金额转出，次日12:00前到账。</div>
+	</div>
+	<a class="btnMain" href="javascript:void(0)" onclick="showLight('successBox')">提&nbsp;&nbsp;现</a>
+</div>
+<!--//container end-->
+
+<div class="successBox" id="successBox">
+	 <div class="text colorMain">转出成功！</div>
+	 <div class="text colorGray">预计2017-04-17  24点前到账</div>
+	 <a class="btn" href="javascript:void(0)" onclick="hideLight('successBox')">确定</a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	//showLight("successBox")
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5*1;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

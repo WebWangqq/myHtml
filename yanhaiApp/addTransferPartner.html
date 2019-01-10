@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>添加转账伙伴</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/transferAccounts.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+	<a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+	<p>添加转账伙伴</p>
+</div>
+<div id="container" style="margin-top:.8rem;">
+	<div class="formWrap">
+		<ul class="formInfo">
+			<li>
+				<label>户名</label>
+				<div class="info"><input class="field" type="text" placeholder="请输入收款人户名" /></div>
+			</li>
+			<li>
+				<label>账号</label>
+				<div class="info"><input class="field" type="tel" placeholder="请输入收款人账号" maxlength="19" /></div>
+			</li>
+			<li>
+				<label>银行</label>
+				<div class="info selectInfo">
+					<span class="colorGray">请选择银行</span>
+					<select class="field select">
+						<option>中国银行</option>
+						<option>民生银行</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+		</ul>
+		<ul class="formInfo">
+			<li>
+				<label>开户地</label>
+				<div class="info selectInfo">
+					<span class="colorGray">可不选</span>
+					<select class="field select">
+						<option>北京</option>
+						<option>天津</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>分支行</label>
+				<div class="info selectInfo">
+					<span class="colorGray">可不选</span>
+					<select class="field select">
+						<option>河东支行</option>
+						<option>河西支行</option>
+					</select>
+				</div>
+				<i class="arrowRight"></i>
+			</li>
+			<li>
+				<label>短信通知</label>
+				<div class="info"><input class="field" type="tel" placeholder="请输入对方手机号" maxlength="11" /></div>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain" href="operateSuccess.html">确&nbsp;&nbsp;&nbsp;&nbsp;定</a>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){btnFixedBottom();})
+$(".selectInfo .select").change(function(){
+	$(this).parent(".selectInfo").find("span").removeClass("colorGray").text($(this).children('option:selected').val())
+})
+</script>
+</body>
+</html>

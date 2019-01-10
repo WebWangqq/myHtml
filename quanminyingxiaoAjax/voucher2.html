@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<div class="duihuanWrap">
+		<div class="title" id='prizeName'>洗车券</div>
+		<div class="title2">请输入客户手机号</div>
+		<div class="stub"></div>
+		<div class="content inputCon">
+			<div class="item">
+				<input id="telphone" class="field mustFill" type="tel" name="" placeholder="请输入手机号码"  maxlength="13" onkeyup="inputMobile(this)">
+			</div>
+			<div class="item">
+				<input id="yzm" class="field mustFill" type="tel" placeholder="请输入验证码" maxlength="6" disabled >
+				<span id="yzmBtn" class="colorMain" onclick="sendCode($(this))">获取验证码</span>
+			</div>
+		</div>
+	</div>
+	<div class="btnMain btnGray" onclick="next()">发放奖品</div>
+</div>
+
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var apiUrl= getApiUrl();
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var actid=localStorage.getItem('actid');
+var prizeId=localStorage.getItem("prizeId");
+var prizeName=localStorage.getItem("prizeName");
+
+/*发送验证码*/
+var countdown = 60;
+var timer = null;
+function run() {
+    countdown--;
+    if (countdown == 0) {
+        $("#yzmBtn").attr("disabled", false);
+        $("#yzmBtn").html('重新发送');
+        $("#yzmBtn").removeClass("colorGray");
+        countdown = 60;
+        window.clearInterval(timer);
+        timer = null;
+        $("#yzmBtn").attr("onclick", "sendCode($(this))");
+    } else {
+        $("#yzmBtn").html(countdown+'s后重新发送');
+    }
+}
+
+function runbanktime(string) {
+    string.attr("disabled", true);
+    string.addClass("colorGray");
+    string.html(countdown+'s后重新发送');
+    timer = window.setInterval("run();", 1000);
+    $("#yzmBtn").removeAttr("onclick");
+}
+/*发送验证码end*/
+
+
+var sendCode = function(string) {
+	$("#yzm").val("")
+	if (isMobile($("#telphone").val())) {
+		$.ajax({
+			type: "POST",
+			url: apiUrl+'Message/sendMessage',
+			data:ajaxData("{\"mobile\":\""+Trim($("#telphone").val())+"\",\"type\": \"prize\"}"),
+			contentType : "application/json",
+			dataType:'json',
+			success: function (msg) {
+				console.log(msg)
+				if(msg.data.status==1){
+					showTipBox('发送成功')
+			    	$("#yzm").attr("disabled", false)
+					$('#yzm').focus();
+					runbanktime(string);
+					yzmNum=msg.data.data.num
+			    }
+			    else{
+			    	showTipBox('发送失败')
+			    }
+			}
+		})
+	} else {
+		showTipBox("请输入正确手机号")
+	}
+}
+
+//发送奖品
+var fasongPrize=function(){
+	showLoadding();
+	$.ajax({
+        type: "POST",
+        url: apiUrl+'prize/insertExchangeRecord',
+        data:ajaxData("{\"activityId\":\""+actid+"\",\"prizeId\":\""+prizeId+"\", \"mobile\":\""+Trim($("#telphone").val())+"\"}"),
+        contentType : "application/json",
+        dataType:'json',
+        success: function (msg) {
+            hideLoadding();
+            console.log(msg)
+            if(msg.data.status==1){
+            	showTipBox('奖品发送成功')
+            }
+            else{
+            	showTipBox('奖品发送失败')
+            }
+        }
+    })
+}
+
+//验证短信
+var yanYzm=function(){
+	showLoadding();
+	$.ajax({
+		type: "POST",
+		url: apiUrl+'Message/checkVerNum',
+		data:ajaxData("{\"num\": "+yzmNum+",\"mobile\":\""+Trim($("#telphone").val())+"\",\"type\": \"prize\",\"verNum\": \""+$("#yzm").val()+"\"}"),
+		contentType : "application/json",
+		dataType:'json',
+		success: function (msg) {
+			hideLoadding();
+			if(msg.data.status==1){
+				fasongPrize();
+			}
+			else{
+				showTipBox(msg.data.message);
+			}
+		}
+	});
+}
+
+$(document).ready(function() {
+	if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+		$('#prizeName').text(prizeName)
+	}
+});
+$('#telphone').on('input',function(){
+	if($(this).val().length==13){
+		$('.title2').text('请输入客户验证码')
+	}
+	else{
+		$('.title2').text('请输入客户手机号')
+	}
+})
+var next=function(){
+	if (!isMobile($("#telphone").val())) {
+		showTipBox("请输入正确的手机号！");
+	} else if ($("#yzm").val() == "") {
+		showTipBox("请输入验证码！");
+	} else {
+		yanYzm();
+	}
+}
+
+
+</script>
+</body>
+</html>

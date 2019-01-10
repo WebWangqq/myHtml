@@ -1,0 +1,39 @@
+@charset "utf-8";
+/*银行要闻*/
+.bankNewsWrap .item{display:block;padding-top:.15rem;margin-bottom:.3rem;background-color:#fff;}
+.bankNewsWrap .name{position:relative;padding:.1rem .3rem;}
+.bankNewsWrap .item.new .name{padding-left:.5rem;}
+.bankNewsWrap .item.new .name:before{content:'';position:absolute;top:50%;left:.3rem;width:8px;height:8px;margin-top:-5px;background-color:#f7941d;border-radius:50%;}
+.bankNewsWrap .date{padding:0 .3rem .1rem;font-size:.24rem;color:#8e8e8e;}
+.bankNewsWrap .abstract{height:.75rem;padding:0 .3rem;font-size:.26rem;color:#8e8e8e;text-overflow: ellipsis;
+display: -webkit-box;
+-webkit-line-clamp: 2;
+-webkit-box-orient: vertical;
+overflow: hidden;}
+.bankNewsWrap .viewDetail{position:relative;display:block;height:.8rem;padding-left:.3rem;margin-top:.1rem;font-size:.26rem;line-height:.8rem;border-top:1px solid #dedede;}
+.bankNewsWrap .viewDetail:active{background-color:#e6e6e6}
+
+.bankNewsDetailWrap .name{padding:0.2rem;text-align:center;}
+.bankNewsDetailWrap .date{text-align:center;color:#8e8e8e;font-size:.24rem;}
+.bankNewsDetailWrap .con{padding:.25rem;color:#8e8e8e;line-height:1.8;}
+.bankNewsDetailWrap .con img{max-width:100%;}
+
+/*网点查询*/
+.branchNavWrap a{position:relative;display:block;height:.9rem;padding-left:1.1rem;margin-bottom:.3rem;line-height:.9rem;background-color:#fff;}
+.branchNavWrap a:before{content:'';position:absolute;top:0;left:.07rem;width:.9rem;height:.9rem;background:url(../images/icoBranch.png) no-repeat;background-size:.9rem auto;}
+.branchNavWrap a:nth-child(2):before{background-position:0 bottom;}
+.branchWrap a{display:block;background-color:#fff;}
+.branchNavWrap a:active,.branchWrap a:active{background-color:#e6e6e6}
+.branchWrap li{padding:.2rem .3rem;margin-bottom:.3rem;}
+.branchWrap li .name{padding-bottom:.1rem;}
+.branchWrap li .ico{position:relative;padding-left:.4rem;color:#8e8e8e;font-size:.26rem;line-height:.4rem;}
+.branchWrap li .ico:before{content:'';position:absolute;top:.05rem;left:0;width:.3rem;height:.3rem;background:url(../images/icoBranch1.png) no-repeat;background-size:.3rem .3rem;}
+.branchWrap li .ico.address:before{background-image:url(../images/icoBranch2.png)}
+.branchDetail ul{padding-left:.35rem;margin-bottom:.3rem;background-color:#fff;}
+.branchDetail ul li{position:relative;padding:.25rem 0.1rem .25rem 0;border-bottom:1px solid #eaeaea;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.branchDetail ul li:last-child{border-bottom:none;}
+.branchDetail ul li label{display:block;min-width:1.6rem;padding-right:.1rem;}
+.branchDetail ul li .info{position:relative;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.branchDetail ul li .link{position:absolute;top:50%;right:.25rem;width:1.2rem;height:.56rem;margin:-.28rem 0 0 0;line-height:.56rem;font-size:.26rem;}
+.branchDetail .map{height:4.25rem;margin:0 .35rem;}
+.branchDetail .map .mapImg{max-width:100%;}

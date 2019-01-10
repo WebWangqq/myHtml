@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/swiper.min.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap" class="indexWrap">
+	<div class="userInfo">
+		<img class="img" src="http://api.qujie365.com/upload/20180731183926900416.jpg">
+		<div class="info">
+			<div class="welcom">尊敬的李晓明，下午好</div>
+			<ul class="fenshuCon clearfix">
+				<li>
+					<strong>1</strong>
+					<span>总排名</span>
+				</li>
+				<li>
+					<strong>1323</strong>
+					<span>个人积分</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- userInfo end -->
+	<div class="banner">
+		<div class='swiper-container'>
+            <div class='swiper-wrapper'>
+                <div class='swiper-slide'>
+                    <a href='activity.html'><img src='images/temp/indexBanner.jpg'></a>
+                </div>
+                <div class='swiper-slide'>
+                    <a href='activity.html'><img src='images/temp/img1.jpg'></a>
+                </div>
+                <div class='swiper-slide'>
+                    <a href='activity.html'><img src='images/temp/img2.jpg'></a>
+                </div>
+            </div>
+            <div class='promotion-pagination'></div>
+        </div>
+	</div>
+	<ul class="list clearfix">
+		<li>
+			<a class="left item" href="marketingStaff.html">
+				<div class="con">
+					<div>员工营销</div>
+					<div>转发朋友圈的积分</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="right item" href="marketingFeedback.html">
+				<div class="con">
+					<div>营销回馈</div>
+					<div>查看客户转化率</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="left item" href="grad.html">
+				<div class="con">
+					<div>营销成绩</div>
+					<div>Top10成绩榜单</div>
+				</div>
+			</a>
+		</li>
+		<li>
+			<a class="right item" href="testCoupons.html">
+				<div class="con">
+					<div>验券中心</div>
+					<div>为现在客户发放礼品</div>
+				</div>
+			</a>
+		</li>
+	</ul>
+</div>
+<div id="footerBar">
+	<a class="current" href="index.html"><i></i><span>全员营销</span></a>
+	<a href="operationManual.html"><i></i><span>操作手册</span></a>
+	<a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+//$('body').on('touchmove', function(event) { event.preventDefault(); });
+var bannerSwiper = new Swiper('.banner .swiper-container', {
+    pagination: '.promotion-pagination',
+    paginationType :'bullets',
+    loop: true,
+    autoplay: 3000,
+    grabCursor: true, 
+    paginationClickable: true,
+    autoplayDisableOnInteraction:false
+});
+//showTipBox('验证失败')
+</script>
+</body>
+</html>

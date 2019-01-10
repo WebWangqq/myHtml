@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>登录</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/login.css">
+</head>
+
+<body ontouchstart>
+<div class="loginWrap">
+	<!--//loginHeader-->
+	<div class="welcome"><img src="images/loginTop.png" /></div>
+	<ul class="tab">
+		<li class="current">密码登录</li>
+		<li>手机验证登录</li>
+	</ul>
+	<!--//loginHeader end-->
+	<!--//密码登录-->
+	<div class="loginItem" style="display:block;">
+		<ul class="loginInfo">
+			<li><input class="field passwordInput" type="tel" maxlength="11" placeholder="手机号" /></li>
+			<li><input class="field passwordInput" type="password" placeholder="输入密码" /></li>
+		</ul>
+		<a id="passwordLogin" class="btnMain btnGray" href="index2.html">登&nbsp;&nbsp;录</a>
+		
+	</div>
+	<!--//密码登录 end-->
+
+	<!--//手机验证登录-->
+	<div class="loginItem">
+		<ul class="loginInfo">
+			<li><input class="field telInput" type="tel" maxlength="11" placeholder="手机号" /></li>
+			<li><input class="field telInput" type="text" placeholder="请输入序号为11的验证码" /><span class="yzm colorYellow">发送验证码</span></li>
+		</ul>
+		<a id="telLogin" class="btnMain btnGray" href="index2.html">登&nbsp;&nbsp;录</a>
+	</div>
+	<!--//手机验证登录 end-->
+
+	<div class="skipItem clearfix"><a class="left" href="register.html">注册</a><a class="right" href="resetPassword.html">忘了密码？</a></div>
+</div>
+<!--//loginWrap end-->
+
+<div class="loginBox" id="passwordLoginBox">
+	<div class="text colorMain">主人，由于您初次在本设备登录，为了<br/>您的资金安全，请您输入手机验证码</div>
+	<div class="info">
+		<input class="field" type="text" placeholder="请输入序号为11的验证码" />
+		<span class="yzm">发送验证码</span>
+		<!-- <span class="yzm btnGray">发送验证码</span> --><!--灰色按钮-->
+	</div>
+	<a class="btnMain btnLoginBox btnGray" href="#">确定</a>
+</div>
+
+<div class="loginBox" id="telLoginBox">
+	<div class="content">
+		<div class="text colorMain">主人，由于您初次在本设备登录，为了<br/>您的资金安全，请您输入登录密码</div>
+		<div class="info">
+			<input class="field" type="password" placeholder="请输入登录密码" />
+		</div>
+		<a class="btnMain btnLoginBox btnGray" href="#">确定</a>
+	</div>
+</div>
+
+<div class="loginBox" id="pictureYzm">
+	<div class="content">
+		<div class="text colorMain textCenter">请您输入图片中的验证码</div>
+		<div class="info clearfix">
+			<img class="pic" src='images/_temp/yzm.jpg' />
+			<input class="field" type="text" placeholder="请输入验证码" />
+		</div>
+		<a class="btnMain btnLoginBox btnGray" href="#">确定</a>
+	</div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(document).ready(function(){
+	$(".loginWrap").css("height",$(window).height());
+	//showLight("passwordLoginBox");
+	//showLight("telLoginBox");
+	//showLight("pictureYzm");
+	btnGrayPassword();//密码登录按钮颜色变化
+	btnGrayTel();//手机登录按钮颜色变化
+
+	btnGrayPasswordLoginBox();/*passwordLoginBox按钮变化*/
+	btnGrayTelLoginBox();/*telLoginBox按钮变化*/
+	btnGrayPictureYzm();/*pictureYzm按钮变化*/
+
+})
+$(".tab li").click(function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	$(".loginItem").hide();
+	$(".loginItem").eq($(this).index()).show();
+})
+
+/*密码登录按钮颜色变化*/
+function valFPassword(){
+	var val=!0;
+	$(".passwordInput").each(function(){
+		if(!$(this).val()) return val=!1
+	})
+	return val;
+}
+function btnGrayPassword(){
+	var p = !1;
+	valFPassword();
+	$(".passwordInput").on("input",function(){
+		p || (valFPassword() ?$("#passwordLogin").removeClass("btnGray"):$("#passwordLogin").addClass("btnGray"))
+	})
+}
+/*密码登录按钮颜色变化end*/
+
+/*手机验证登录按钮颜色变化*/
+function valFTel(){
+	var val=!0;
+	$(".telInput").each(function(){
+		if(!$(this).val()) return val=!1
+	})
+	return val;
+}
+function btnGrayTel(){
+	var p = !1;
+	valFTel();
+	$(".telInput").on("input",function(){
+		p || (valFTel() ?$("#telLogin").removeClass("btnGray"):$("#telLogin").addClass("btnGray"))
+	})
+}
+/*手机验证登录按钮颜色变化end*/
+
+
+/*passwordLoginBox按钮变化*/
+function btnGrayPasswordLoginBox() {
+	$("#passwordLoginBox .field").on("input",function(){
+		if($("#passwordLoginBox .field").val()!="") $("#passwordLoginBox .btnMain").removeClass("btnGray");
+		else $("#passwordLoginBox .btnMain").addClass("btnGray")
+	})
+}
+
+/*telLoginBox按钮变化*/
+function btnGrayTelLoginBox() {
+	$("#telLoginBox .field").on("input",function(){
+		if($("#telLoginBox .field").val()!="") $("#telLoginBox .btnMain").removeClass("btnGray");
+		else $("#telLoginBox .btnMain").addClass("btnGray")
+	})
+}
+
+/*telLoginBox按钮变化*/
+function btnGrayPictureYzm() {
+	$("#pictureYzm .field").on("input",function(){
+		if($("#pictureYzm .field").val()!="") $("#pictureYzm .btnMain").removeClass("btnGray");
+		else $("#pictureYzm .btnMain").addClass("btnGray")
+	})
+}
+</script>
+</body>
+</html>

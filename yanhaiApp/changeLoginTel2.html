@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>修改登录手机号</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="changeLoginTel.html">返回</a>
+    <p>修改登录手机号</p>
+</div>
+<div id="container">
+	<div style="height:1.8rem;">
+		<ul class="formInfo">
+			<li>
+				<label>新手机号</label>
+				<div class="info"><input id="telphone" class="field mustFill" type="tel" placeholder="请输入11位新手机号" maxlength="11" /></div>
+			</li>
+			<li>
+				<label>验证码</label>
+				<div class="info"><input class="field mustFill" type="tel" placeholder="" /></div>
+				<span id="yzm" class="yzm colorYellow colorGray">发送验证码</span>
+			</li>
+		</ul>
+	</div>
+	<a class="btnMain btnGray" href="changeLoginTelSuccess.html">提&nbsp;&nbsp;&nbsp;&nbsp;交</a>
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+function telphone(){
+	var phone=$("#telphone").val().replace(/\s+/g, "");//手机号码 
+	var isMobile=/^1[34578]\d{9}$/;
+	if(phone != "" && isMobile.test(phone) && phone.length==11){ 
+		$("#yzm").removeClass("colorGray");
+		timeFlag=true;
+	}else{
+		showTipBox("请输入正确手机号！");
+	}
+}
+/*点击验证码*/
+var wait=60;//秒数
+function waitF() {
+	if (wait == 0) {
+		timeFlag=true;
+		$("#yzm").html("重新发送").removeClass("colorGray");
+		wait = 60; 
+	}else { 
+		timeFlag=false;
+		$("#yzm").html("" + wait + "秒").addClass("colorGray"); 
+		wait--; 
+		setTimeout(function() { 
+			waitF();
+		},1000) 
+	}	
+} 
+function yzmF(){
+	if(!timeFlag) return false;
+	timeFlag=true;
+	waitF();
+}
+/*点击验证码end*/
+
+/*填手机号验证码颜色变化*/
+$("#telphone").blur(function(){
+	telphone();
+})
+//结束
+$("#yzm").bind("touchend",function(){
+	telphone();
+	yzmF();
+})
+</script>
+</body>
+</html>

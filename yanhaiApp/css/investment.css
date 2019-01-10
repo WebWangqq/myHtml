@@ -1,0 +1,218 @@
+@charset "utf-8";
+img{max-width:100%}
+.investmentNav{position:relative;font-size:0;}
+.investmentNav:after{content:'';position:absolute;top:50%;left:50%;width:0;height:.5rem;margin-top:-.25rem;border-left:1px solid #dedede;z-index:1}
+.investmentNav a{position:relative;z-index:2;display:inline-block;width:50%;height:1rem;text-align:center;line-height:1rem;font-size:.28rem;}
+.investmentNav a:active{background-color:#fff;}
+.investmentNav a img{display:inline-block;width:.75rem;margin:0 .25rem;vertical-align:middle;}
+.advertisement{margin-bottom:.3rem;}
+
+.productList{margin-bottom:.3rem;}
+.productList .title{position:relative;height:.9rem;padding:0 .6rem 0 .5rem;line-height:.9rem;background-color:#fff;border-bottom:1px solid #dedede;}
+.productList .title:before{content:'';position:absolute;top:50%;left:.24rem;width:0;height:.36rem;margin-top:-.18rem;font-size:.3rem;border-left:.05rem solid #4e8bed;}
+.productList .title a{font-size:.26rem;}
+.productList .item{display:block;font-size:.24rem;color:#8e8e8e;background-color:#fff;}
+.productList .item:active{background-color:#eaeaea;}
+.productList .item .name{margin-bottom:.1rem;font-size:.3rem;color:#333;}
+.productList .item .exclusiveType span{display:inline-block;padding:.03rem .15rem;color:#fff;font-size:.2rem;background-color:#ff801a;border-radius:2px;}
+
+.productList .big{font-size:.48rem;}
+.productList .small{font-size:.26rem;}
+/*存款产品*/
+.depositProductList .item{padding:.2rem;border-bottom:1px solid #dedede;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.depositProductList .item:last-child{border-bottom:none;}
+.depositProductList .item .interestRateCon{width:2.6rem;}
+.depositProductList .item .interestRateCon .price{margin-bottom:.15rem;font-size:.26rem;}
+.depositProductList .item .infoCon{box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.depositProductList .item .infoCon .tip{margin:.1rem 0;color:#333;}
+.depositProductList .item .infoCon .peculiarity span{padding:0 .2rem;border-right:1px solid #dedede}
+.depositProductList .item .infoCon .peculiarity span:nth-child(1){padding-left:0;}
+.depositProductList .item .infoCon .peculiarity span:last-child{border-right:none;}
+/*理财产品*/
+.financeProductList .item{padding:.1rem .2rem 0 .2rem;margin-bottom:.3rem;}
+.financeProductList .item .infoCon{padding:.1rem 0;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.financeProductList .item .infoCon .interestRateCon{width:1.7rem;}
+.financeProductList .item .infoCon .timeLimit{text-align:center;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.financeProductList .item .infoCon .investmentAmount{min-width:1.5rem;}
+.financeProductList .item .dateTime{height:.7rem;line-height:.7rem;color:#333;border-top:1px solid #dedede;}
+
+#zoneHeader{position:relative;}
+#zoneHeader .greenBg{position:absolute;background-color:rgba(0,0,0,0);}
+.zoneNavCon{margin-bottom:.3rem;background-color:#fff;}
+.zoneNavCon li{float:left;width:33.33%;}
+.zoneNavCon li a{display:block;width:100%;padding-top:.2rem;text-align:center;}
+.zoneNavCon li a:active{background-color:#eaeaea;}
+.zoneNavCon li a img{display:block;width:.98rem;margin:0 auto .2rem;}
+.zoneNavCon li a span{position:relative;display:inline-block;padding-bottom:.3rem;}
+.financeNavCon li{width:25%;}
+
+/*薪添富*/
+.xintianfuItem{padding-left:.35rem;margin-bottom:.3rem;background-color:#fff;}
+.xintianfuItem .title{position:relative;height:.9rem;padding-left:.5rem;line-height:.9rem;}
+.xintianfuItem .title:before{content:'';position:absolute;top:50%;left:-.1rem;width:.5rem;height:.5rem;margin-top:-.25rem;background:url(../images/investment/icoSign.png) no-repeat;background-size:.5rem auto;}
+.xintianfuItem li{position:relative;padding:.2rem 1.7rem .2rem 0;border-top:1px solid #dedede}
+.xintianfuItem li .info{line-height:.52rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.xintianfuItem li .info .cardNum{display:block;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.xintianfuItem li .info .cardType{display:block;width:1.9rem;color:#8e8e8e;font-size:.22rem;}
+.xintianfuItem li .btn{position:absolute;top:50%;right:.24rem;display:block;width:1.4rem;height:.52rem;margin-top:-.26rem;color:#6ca6fa;text-align:center;line-height:.52rem;border:1px solid #6ca6fa;border-radius:2px;}
+.xintianfuItem li .tip{font-size:.22rem}
+
+/*定活互转*/
+.depositSwitchNav{position:fixed;top:.8rem;left:0;width:100%;height:.85rem;font-size:0;background-color:#fff;border-top:1px solid #ededed;border-bottom:1px solid #ededed;z-index:9899;box-sizing: border-box;}
+.depositSwitchNav li{display:inline-block;width:50%;text-align:center;line-height:.85rem;font-size:.28rem;}
+.depositSwitchNav li a{position:relative;display:inline-block;height:.85rem;line-height:.85rem;color:#333;font-size:.32rem;}
+.depositSwitchNav li.current a{color:#6ca6fa;}
+.depositSwitchNav li.current a:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:0;border-bottom:.06rem solid #6ca6fa;}
+.depositSwitchNav li .select{position:relative;display:inline-block;padding-right:.5rem;font-size:.28rem;} 
+.transferAmount li{padding-right:.25rem;}
+.transferAmount .money{position:relative;height:1.3rem;line-height:1.3rem;}
+.transferAmount .money .info{padding-right:.2rem;}
+.transferAmount .money .symbol{font-size:.5rem;}
+.transferAmount .money .info .field{height:1.3rem;color:#6ca6fa;}
+.saveTransCheck .item{position:relative;display:block;padding:.25rem .6rem .25rem .35rem;margin-bottom:.3rem;color:#8e8e8e;font-size:.24rem;background-color:#fff;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.saveTransCheck .item:active{background-color:#eaeaea;}
+.saveTransCheck .item .depositTerm{width:2.6rem}
+.saveTransCheck .item .depositTerm .moneyType{margin-bottom:.2rem;font-size:.3rem;color:#333;}
+.saveTransCheck .item .info{box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.saveTransCheck .item .info .numCon{padding-top:.1rem;margin-bottom:.2rem;font-size:0;}
+.saveTransCheck .item .info .numCon label{display:inline-block;width:50%;font-size:.24rem;}
+
+.rankNav{position:fixed;top:1.65rem;left:0;width:100%;height:.85rem;padding:0 .25rem;background-color:#f9f9f9;z-index:9899;box-sizing: border-box;}
+.rankNav ul{font-size:0;text-align:left;}
+.rankNav ul li{display:inline-block;width:33.3%;color:#8e8e8e;line-height:.85rem;font-size:.28rem;}
+.rankNav ul li i{position:relative;display:inline-block;width:.4rem;height:.36rem;margin-left:.1rem;vertical-align:middle;}
+.rankNav ul li i:before,.rankNav ul li i:after{content:'';position:absolute;left:0;width:0;height:0;border-right: .1rem solid transparent;border-left: .1rem solid transparent;}
+.rankNav ul li i:before{top:0;border-bottom: .15rem solid #c7c7c7;}
+.rankNav ul li i:after{bottom:0;border-top: .15rem solid #c7c7c7;}
+.rankNav ul li.rankUp i:before{border-bottom-color:#6ca6fa;}
+.rankNav ul li.rankDown i:after{border-top-color:#6ca6fa;}
+.rankNav .icoFilter{position:absolute;top:0;right:0;display:block;width:.7rem;height:.85rem;background:url(../images/investment/icoFilter.png) center no-repeat;background-size:.36rem auto;text-indent:-999px;overflow:hidden;z-index:2;}
+
+#filterWrapOverlay{display:none; position:fixed; _position:absolute; left:0; top:0; width:100%; height:100%;background-color:rgba(0,0,0,0.3); z-index:9898;}
+.filterWrap{position:fixed;top:2.5rem;left:0;display:none;width:100%;border-top:1px solid #c4c4c4;background-color:#fff;z-index:9899;}
+.filterWrap .filterCon{overflow:hidden;}
+.filterWrap .item{color:#8e8e8e;border-bottom:1px solid #dedede}
+.filterWrap .item:last-child{border-bottom:none;}
+.filterWrap .item .title{height:.6rem;padding-left:4%;font-size:.26rem;line-height:.6rem;}
+.filterWrap .item .con{font-size:0;}
+.filterWrap .item .con li{display:inline-block;width:25.3%;height:.54rem;margin:0 4% .2rem;font-size:.22rem;text-align:center;line-height:.54rem;border:1px solid #c2c2c2;border-radius:2px;box-sizing:border-box;}
+.filterWrap .item .con li.current{color:#ff801a;border-color:#ff801a;}
+.filterWrap .btnCon{padding:.4rem 0;text-align:center;font-size:0;background-color:#fff;border-top:1px solid #dedede}
+.filterWrap .btnCon .btn{display: inline-block;width:1.64rem;height:.52rem;margin:0 .4rem;text-align:center;line-height:.52rem;color:#fff;font-size:.26rem;background-color:#6ca6fa;border-radius:2px;}
+.filterWrap .btnCon .btn.btnRest{background-color:#c2c2c2}
+
+/*产品详情*/
+.productDetailNav{padding-top:.1rem;margin-bottom:.3rem;color:#fff;font-size:.24rem;text-align:center;background-color:#6ca6fa;}
+.productDetailNav .name{font-size:.3rem;}
+.productDetailNav .interestRate{font-size:.46rem;}
+.productDetailNav .interestRate small{font-size:.26rem;}
+.productDetailNav .text{padding:.1rem 0;color:#d0e3ff;}
+.productDetailNav .explain{position:relative;padding:.2rem 0;font-size:0;border-top:1px solid #98c1fc;}
+.productDetailNav .explain:after{content:'';position:absolute;top:50%;left:33.33%;width:33.33%;height:.76rem;margin-top:-.38rem;border-left:1px solid #98c1fc;border-right:1px solid #98c1fc;}
+.productDetailNav .explain li{display:inline-block;width:33.33%;font-size:.24rem;} 
+.productDetailNav .explain li .big{font-size:.38rem;}
+.raiseCon{padding:.2rem .5rem .3rem .3rem;margin-bottom:.3rem;font-size:.24rem;background-color:#fff;}
+.raiseCon .specialty span{display:inline-block;width:1rem;height:.34rem;margin-right:.3rem;text-align:center;line-height:.34rem;color:#8e8e8e;font-size:.18rem;background-color:#d7d7d7;border-radius:2px;}
+.raiseCon .progressBar{position:relative;padding-top:.2rem;margin-top:.2rem;border-top:2px solid #d7d7d7;}
+.raiseCon .progressBar .bar{position:absolute;top:-2px;left:0;height:0;border-top:2px solid #ff801a;}
+.raiseCon .pleaseLogin{position:relative;padding-left:.4rem;margin-top:.3rem;}
+.raiseCon .pleaseLogin:before{content:'';position:absolute;top:0;left:0;width:.32rem;height:.32rem;background:url(../images/icoTip.png) no-repeat;background-size:.32rem auto;}
+.financeCycle{padding-left:.2rem;margin-bottom:.3rem;background-color:#fff;}
+.financeCycle .title{height:.8rem;line-height:.8rem;font-size:.3rem;border-bottom:1px solid #eaeaea;}
+.financeCycle .progressCon{padding:0 .5rem 0 .3rem;font-size:0;}
+.financeCycle .progressCon li{position:relative;display:inline-block;width:33.3%;color:#8e8e8e;font-size:.24rem;}
+.financeCycle .progressCon li:nth-child(2){text-align:center;}
+.financeCycle .progressCon li:nth-child(3){text-align:right;}
+.financeCycle .progressCon li:before{content:'';position:absolute;top:50%;left:0;width:100%;height:0;border-top:1px solid #cfcece;}
+.financeCycle .progressCon li:after{content:'';position:absolute;top:50%;width:10px;height:10px;margin-top:-5px;background-color:#cfcece;border-radius:50%;}
+.financeCycle .progressCon li:nth-child(1):after{left:-5px;}
+.financeCycle .progressCon li:nth-child(2):after{left:50%;margin-left:-5px;}
+.financeCycle .progressCon li:nth-child(3):after{right:-5px;}
+.financeCycle .progressCon li.current span{color:#6ca6fa}
+.financeCycle .progressCon li.current:before{border-color:#6ca6fa}
+.financeCycle .progressCon li.current:after{background-color:#6ca6fa}
+.financeCycle .progressCon li span{display:block;margin:.3rem 0;}
+.financeCycle .progressCon li:nth-child(1) span{margin-left:-.2rem;}
+.financeCycle .progressCon li:nth-child(3) span{margin-right:-.2rem;}
+.formInfoA.agreement a{padding-left:.2rem;}
+.productDetaiBuyCon{position:fixed;bottom:0;left:0;width:100%;height:.9rem;background-color:#fff;z-index: 9899;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.productDetaiBuyCon .icoCalculator{display:block;width:1.4rem;height:100%;background:url(../images/icoCalculator.png) center no-repeat;background-size:.6rem auto;border-top:1px solid #f3f3f3;box-sizing:border-box;}
+.productDetaiBuyCon .btnBuy{display:block;height:.9rem;text-align:center;line-height:.9rem;color:#fff;font-size:.34rem;background-color:#6ca6fa;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.buySuccessWrap {margin:0 .4rem;}
+.buySuccessWrap .buySuccessCon{padding:.2rem .3rem 0 .85rem;margin-bottom:.3rem;color:#8e8e8e;background-color:#fff;}
+.buySuccessWrap .buySuccessCon li{position:relative;padding:10px 0;border-bottom:1px dashed #dadada;box-sizing: border-box;}
+.buySuccessWrap .buySuccessCon li:nth-child(1){padding-top:0;}
+.buySuccessWrap .buySuccessCon li:last-child{border-bottom:none;}
+.buySuccessWrap .buySuccessCon li i{display:block;position:absolute;left:-.5rem;border-left:1px solid #c0c0c0;border-bottom:1px solid #c0c0c0}
+.buySuccessWrap .buySuccessCon li:nth-child(1) i{height:85%;bottom:-1px;}
+.buySuccessWrap .buySuccessCon li:nth-child(2) i{height:100%;top:0;}
+.buySuccessWrap .buySuccessCon li:nth-child(3) i{height:50%;top:0}
+.buySuccessWrap .buySuccessCon li i:before{content:'';position:absolute;left:-6px;width:10px;height:10px;background-color:#c0c0c0;border-radius:50%; }
+.buySuccessWrap .buySuccessCon li i:after{content:'';display:none;position:absolute;left:-11px;width:20px;height:20px;background-color:rgba(108,166,250,.42);border-radius:50%;}
+.buySuccessWrap .buySuccessCon li:nth-child(1) i:before{top:0;}
+.buySuccessWrap .buySuccessCon li:nth-child(1) i:after{top:-5px;}
+.buySuccessWrap .buySuccessCon li:nth-child(2) i:before{top:50%;margin-top:-5px;}
+.buySuccessWrap .buySuccessCon li:nth-child(2) i:after{top:50%;margin-top:-10px;}
+.buySuccessWrap .buySuccessCon li:last-child i:before{bottom:-1px}
+.buySuccessWrap .buySuccessCon li:last-child i:after{bottom:-6px;}
+.buySuccessWrap .buySuccessCon li.current{color:#6ca6fa}
+.buySuccessWrap .buySuccessCon li.current i{border-color:#6ca6fa}
+.buySuccessWrap .buySuccessCon li.current i:before{background-color:#6ca6fa;}
+.buySuccessWrap .buySuccessCon li.current i:after{display:block;}
+.buySuccessWrap .buySuccessBtnCon .btnMain{display:block;width:45%;margin:0;}
+
+.buySuccessWrap.transferProgressWrap{margin:0;}
+.buySuccessWrap.transferProgressWrap .buySuccessCon{padding-left:1rem;}
+.buySuccessWrap.transferProgressWrap .buySuccessCon li{border-bottom:none;}
+.buySuccessWrap.transferProgressWrap .buySuccessCon li p:nth-child(1){color:#333;}
+
+/*我的持仓*/
+.productDetailNav .interestRate span.money{position:relative;font-size:.5rem;
+-webkit-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+-moz-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+}
+.productDetailNav .text .all{position:relative;padding-right:.4rem;}
+.myOwnNav .current span{color:#6ca6fa}
+.myOwnNav .current span:after{content:'';position:absolute;bottom:0;left:0;width:100%;height:0;border-top:2px solid #6ca6fa;}
+.myOwnList .item{position:relative;display:block;padding:.3rem .7rem .3rem .25rem;margin-bottom:.3rem;background-color:#fff;}
+.myOwnList .item:active{background-color:#eaeaea;}
+.myOwnList .item .info,.myOwnList .item .cardCon{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.myOwnList .item .info{margin-bottom:.2rem;}
+.myOwnList .item .cardCon{color:#8e8e8e;font-size:.24rem;}
+.myOwnList .item .info .name,.myOwnList .item .cardCon .cardNum{padding-right:.2rem;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.muOwnFormInfo li{border-bottom:none;}
+.muOwnFormInfo li label{width:2.3rem;}
+.depositSwitchNav.timeCon{display:none;top:1.65rem;border-top:none;z-index:9901;}
+.depositSwitchNav.timeCon .field{display:inline-block;width:50%;margin-left:.1rem}
+/*datetime*/
+.android-ics .dwv{border-color:#6ca6fa;color:#333;}
+.android-ics .dwwl{margin:0 10px;}
+.android-ics .dw .dwwol{border-color:#6ca6fa;border-width:2px;}
+.android-ics.light .dwbc{height:50px;border-top:2px #6ca6fa solid;}
+.android-ics.light .dwbw .dwb{height:50px;line-height:50px;font-size:16px;border-color:#6ca6fa;border-width:2px;}
+.android-ics.light .dwbw .dwb:hover{background-color:#fff;color:#6ca6fa;}
+.android-ics .dw .dwb-a {background: #6ca6fa;}
+.dwb-n{display:none;}
+
+.transferRecord{background-color:#fff;border-top:1px solid #ebebeb;}
+.transferRecord .item{position:relative;display:block;padding:.15rem .3rem .15rem 1rem;color:#8e8e8e;font-size:.24rem;border-bottom:1px solid #ebebeb;}
+.transferRecord .item:active{background-color:#eaeaea;}
+.transferRecord .item .logo{position:absolute;top:50%;left:.25rem;display:block;width:.6rem;height:.6rem;margin-top:-.3rem;}
+.transferRecord .item .name{margin-bottom:.1rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.transferRecord .item .name .num{color:#333;font-size:.28rem;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.transferRecord .item .name .money{display:block;}
+
+/*明细查询*/
+.allMoney{padding:.2rem .35rem;background-color:#fff;border-top:1px solid #dedede}
+.allMoney li{float:left;width:50%;}
+.detailEnquiryList{border-top:1px solid #dedede;}
+.detailEnquiryList .item{position:relative;display:block;padding:.2rem .6rem .2rem .35rem;border-bottom:1px solid #dedede}
+.detailEnquiryList .item:active{background-color:#fff;}
+.detailEnquiryList .item .detail{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.detailEnquiryList .item .detail .name{padding-right:.4rem;text-align:justify; box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+
+
+/*收益计算器*/
+.incomeCalculator{position:fixed;bottom:0;left:0;width:100%;background-color:#fff;z-index:9901}
+.incomeCalculator .title{position:relative;}

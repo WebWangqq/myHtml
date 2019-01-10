@@ -1,0 +1,101 @@
+@charset "utf-8";
+.bankNav{margin-top:.4rem;font-size:0}
+.bankNav li{display:inline-block;width:33.3%;text-align:center;}
+.bankNav li a{display:block;width:100%;padding:.1rem 0;font-size:.28rem;}
+.bankNav li a:active{background-color:#fff;}
+.bankNav li img{display:block;width:.74rem;margin:0 auto .1rem;}
+
+/**/
+.cardWrap .bankCon{width:4.65rem;height:2.5rem;color:#fff;font-size:.18rem;margin:0 auto;background:url(../images/bank/cardBg1.jpg) no-repeat;background-size:100% 100%;border-radius:5px;}
+.cardWrap .bankCon .bankInfo{height:.4rem;padding:0 .15rem;line-height:.4rem;background-color:rgba(0,0,0,.2);border-top-left-radius:5px;border-top-right-radius:5px;}
+.cardWrap .bankCon .bankInfo .bankLogo{display:inline-block;width:.25rem;height:.25rem;vertical-align:middle;}
+.cardWrap .bankCon .moneyInfo{position:relative;margin:0 .1rem;padding:.2rem 0 .1rem;border-bottom:1px solid #fff;}
+.cardWrap .bankCon .moneyInfo .left{width:50%;}
+.cardWrap .bankCon .moneyInfo .left .money{font-size:.26rem;}
+.cardWrap .bankCon .accountManage{position:absolute;bottom:.1rem;right:0;width:1rem;height:.32rem;text-align:center;line-height:.32rem;color:#fff;border:1px solid #fff;border-radius:.32rem;}
+.cardWrap .bankCon .operateCon{margin:0 .15rem;padding-top:.1rem;}
+.cardWrap .bankCon .operateCon .btnCon{margin-top:.1rem;}
+.cardWrap .bankCon .operateCon .btnCon a{display:inline-block;width:1rem;height:.32rem;;margin-right:.1rem;text-align:center;line-height:.32rem;color:#fff;border:1px solid #fff;border-radius:.32rem;}
+.cardWrap .bankCon.oteher{background-image:url(../images/bank/cardBg2.jpg) }
+.cardWrap .bankCon.oteher .moneyInfo{padding-top:.4rem;padding-bottom:.1rem;}
+.cardWrap .bankCon.oteher .operateCon{position:relative;padding-top:.3rem;padding-bottom:.2rem}
+.cardWrap .bankCon.addBanckCon{height:2.25rem;padding-top:.25rem;background-color:#f9f9f9;background-image:none;}
+.cardWrap .addBanckCon .content{display:block;width:2.9rem;height:1.45rem;padding-left:.6rem;padding-top:.55rem;margin:0 auto;font-size:.28rem;background:#d6d6d6 url(../images/bank/icoAddCard.png) .2rem center no-repeat;background-size:.4rem auto; border-radius:5px;}
+
+.cardWrap .active{width:5.3rem;height:2.85rem;font-size:.22rem;}
+.cardWrap .active .bankInfo{height:.5rem;line-height:.5rem;}
+.cardWrap .active .bankInfo .bankLogo{width:.3rem;height:.3rem;}
+.cardWrap .active .moneyInfo{margin:0 .15rem;padding:.3rem 0 .15rem;}
+.cardWrap .active .moneyInfo .left .money{font-size:.3rem;}
+.cardWrap .active .accountManage{bottom:.15rem;width:1.1rem;height:.36rem;line-height:.36rem;border-radius:.36rem;}
+.cardWrap .active .operateCon .btnCon a{width:1.1rem;height:.36rem;;margin-right:.2rem;line-height:.36rem;border-radius:.36rem;}
+.cardWrap .oteher.active .moneyInfo{padding-top:.5rem;}
+.cardWrap .oteher.active .operateCon{padding-top:.3rem;padding-bottom:.2rem}
+.cardWrap .addBanckCon.active{height:2.43rem;padding-top:.42rem;}
+.cardWrap .addBanckCon.active .content{padding-left:.9rem;padding-top:.55rem;font-size:.32rem;background:#d6d6d6 url(../images/bank/icoAddCard.png) .25rem center no-repeat;background-size:.6rem auto; border-radius:5px;}
+
+
+
+/*账户管理*/
+.accountManagement .accountList{padding:0 .2rem;}
+.accountManagement .accountList .item{position:relative;display:block;padding:.3rem .15rem;margin-bottom:.3rem;background-color:#fff;border-radius:5px;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.accountManagement .accountList .item:active{background-color:#eaeaea;}
+.accountManagement .accountList .item .logo{display:block;width:.85rem;height: .85rem;margin-top:.05rem;margin-right:.2rem;}
+.accountManagement .accountList .item .info{font-size:.32rem;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.accountManagement .type{color:#8e8e8e;font-size:.24rem;}
+.accountManagement .accountList .item .default{position:absolute;top:.3rem;right:.2rem;display:block;height:.4rem;padding:0 .2rem;color:#fff;font-size:.24rem;line-height:.4rem;background-color:#ff801a;border-radius:.4rem;}
+.bankCardManage .item{position:relative;display:block;padding:.3rem .35rem;margin-bottom:.3rem;background-color:#fff;}
+.bankCardManage .stepCon{position:relative;padding-left:.8rem;}
+.bankCardManage .stepNum{position:absolute;top:50%;left:.35rem;display:inline-block;width:.34rem;height:.34rem;margin-top:-.17rem;text-align:center;line-height:.34rem;font-size:.22rem;background-color:#c0c0c0;border-radius:50%;}
+.bankCardManage .step1{padding:.2rem .35rem .2rem .8rem;}
+.bankCardManage .step3{position:relative;padding-left:.45rem;margin-bottom:.2rem;}
+.bankCardManage .step3 .stepNum{left:0}
+.bankCardManage a.item:active{background-color:#eaeaea;}
+.bankCardManage .bankInfo{position:relative;padding-left:1.05rem;}
+.bankCardManage .bankInfo .logo{position:absolute;top:50%;left:.3rem;display:block;width:.5rem;height:.5rem;margin-top:-.25rem;}
+.bankCardManage .bankInfo .name{margin-bottom:.1rem;}
+.bankCardManage .bankInfo .name .type{margin-left:.2rem;}
+.bankCardManage .item .setDefault{position:absolute;top:50%;right:.3rem;margin-top:-.14rem;}
+.myBindCardCon li{margin-bottom:.3rem;background-color:#fff;color:#8e8e8e;}
+.myBindCardCon li .cardInfo,.addBankCardInfo{position:relative;padding:.2rem .9rem;font-size:.24rem;}
+.addBankCardInfo{padding-right:.2rem;}
+.myBindCardCon li .cardInfo .logo,.addBankCardInfo .logo{position:absolute;top:50%;left:.2rem;display:block;width:.6rem;height:.6rem;margin-top:-.35rem}
+.myBindCardCon li .cardInfo .name,.addBankCardInfo .name{color:#333;font-size:.34rem;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.addBankCardInfo .name .bankNum{display:block;box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+.addBankCardInfo .name .support{display:block;font-size:.24rem;}
+.myBindCardCon li .operate{font-size:0;border-top:1px solid #dedede;}
+.myBindCardCon li .operate a{display:inline-block;width:50%;height:.8rem;color:#8e8e8e;font-size:.32rem;text-align:center;line-height:.8rem;box-sizing:border-box;}
+.myBindCardCon li .operate a:nth-child(1){border-right:1px solid #dedede}
+.myBindCardCon li .operate a:active{background-color:#eaeaea;}
+
+/*收支*/
+.incomeAndExpensesNav .swiper-slide{width:5rem;height:2.9rem;padding:0 .15rem;margin:0 .2rem;color:#fff;font-size:.32rem;background-color:#8994A3;border-radius:5px;}
+.incomeAndExpensesNav .swiper-slide.bgColor2{background-color:#FD887A;}
+.incomeAndExpensesNav .swiper-slide.bgColor3{background-color:#f6b078;}
+.incomeAndExpensesNav .swiper-slide.bgColor4{background-color:#5d64b4;}
+.incomeAndExpensesNav .swiper-slide .title{height:.9rem;line-height:.9rem;}
+.incomeAndExpensesNav .swiper-slide .dateCon{height:1.1rem;padding-top:.2rem;}
+.incomeAndExpensesNav .swiper-slide .dateCon .left{width:50%;}
+.incomeAndExpensesNav .swiper-slide .unit{line-height:.7rem;text-align:right;border-top:1px solid #fff;}
+.incomeAndExpensesText{padding:.3rem .35rem .25rem;text-align:justify;}
+.incomeAndExpensesText .title{padding:.1rem 0}
+.incomeAndExpensesList{background-color:#fff;border-top:1px solid #f0f0f0;}
+.incomeAndExpensesList li{padding:.2rem .35rem;border-bottom:1px solid #f0f0f0}
+.incomeAndExpensesList li .detail{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;display:box;display:-moz-box;display:-webkit-box;}
+.incomeAndExpensesList li .detail .name{padding-right:.4rem;text-align:justify; box-flex:1; -moz-box-flex:1; -webkit-box-flex:1;}
+
+
+.myAccountNav{padding:.3rem 0 .2rem;background-color:#6ca6fa;color:#fff;font-size:.24rem;}
+.myAccountNav .money{font-size:.52rem;
+-webkit-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+-moz-text-shadow:1px 2px 2px rgba(63, 120, 246, .75);
+text-shadow:1px 2px 2px rgba(63, 120, 246, .75);}
+.myAccountNav .info{margin-top:.4rem;font-size:0;}
+.myAccountNav .info .item{display:inline-block;width:50%;text-align:center;font-size:.24rem;color:#fff;}
+.myAccountInfo{margin-bottom:.3rem;background-color:#fff;}
+.myAccountInfo a{display:block;border-bottom:none;}
+.myAccountInfo li{position:relative;padding:.25rem .7rem;border-bottom:1px solid #eaeaea;}
+.myAccountInfo li .ico{position:absolute;top:50%;left:.1rem;display:block;width:.6rem;height:.6rem;margin-top:-.3rem;}
+.myAccountInfo li .money{position:absolute;top:50%;right:.65rem;display:block;margin-top:-.2rem;line-height:.4rem;}
+.myAccountInfo.noBorder li{border-bottom:none;}
+.myAccountInfo.noBorder li.title{background-color:#f9f9f9}

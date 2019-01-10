@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>营口沿海银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/swiper-3.3.1.min.css">
+<link type="text/css" rel="stylesheet" href="css/index.css">
+</head>
+
+<body ontouchstart style="padding-bottom:.9rem;">
+<div id="navBar">
+	<a class="icoPerson img" href="javascript:void(0)">个人中心</a>
+	<p>吉龙•汇财</p>
+	<a class="icoMore" href="##">more</a>
+</div>
+
+
+<!--//leftNavItem-->
+<div id="leftOverlay"></div>
+<div id="leftNavItem">
+	<div class="content">
+		<div>
+			<div class="userInfo">
+				<div class="userInfoTop">
+					<img class="mascot" src="images/indexmascot.png" />
+					<div class="con">您还没有龙井<br/>银行二类账户</div>
+					<a class="btnOpen" href="authentication.html">去开户</a>
+				</div>
+				<div class="lastTime">最近登录：2017-05-29 15:08:56</div>
+			</div>
+			<ul class="nav">
+				<li><a href="userInfo.html"><img src="images/leftNav/ico3.png" /><span>个人信息</span><i class="arrowRight"></i></a></li>
+				<li><a href="securityCenter.html"><img src="images/leftNav/ico4.png" /><span>安全中心</span><i class="arrowRight"></i></a></li>
+				<li><a href="FAQ.html"><img src="images/leftNav/ico6.png" /><span>帮助FAQ</span><i class="arrowRight"></i></a></li>
+				<li><a href="aboutUs.html"><img src="images/leftNav/ico7.png" /><span>关于我们</span><i class="arrowRight"></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<a class="btnMain btnExit" href="##">安全退出</a>
+</div>
+<!--//leftNavItem end-->
+
+<div id="container">
+	<!--//未登录-->
+	<div class="indexTop noLogin">
+		<div class="item">
+			<div class="info">
+				<img class="logo" src="images/indexTopImg.png" />
+				<p>监管银行机构代码：91210802567550142F</p>
+				<a class="btn" href="authentication.html">开户/登录</a>
+			</div>
+		</div>
+	</div>
+	<!--//未登录end-->
+	<div class="navItem">
+		<a href="shiftTo.html"><img src="images/indexNav2.png" /><span>资金转入</span></a>
+		<a href="bankNews.html"><img src="images/indexNav3.png" /><span>金融要闻</span></a>
+		<a href="branch.html"><img src="images/indexNav4.png" /><span>网点查询</span></a>
+		<a href="editApplication.html"><img src="images/indexNav8.png" /><span>添加功能</span></a>
+	</div>
+	<!--//navItem end-->
+	
+	<!--advertisement-->
+	<div class="swiper-container advertisement">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="images/indexAd1.jpg"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="images/indexAd1.jpg"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="images/indexAd1.jpg"></a>
+            </div>
+            <div class="swiper-slide">
+                <a href="javascript:void(0)"><img src="images/indexAd1.jpg"></a>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="promotion-pagination"></div>
+    </div>
+    <!--advertisement end-->
+
+	<!--fastVenturing-->
+	<div class="fastVenturing">
+		<div class="title">精选产品</div>
+		<div class="con swiper-container">
+            <div class="swiper-wrapper">
+                <a class="swiper-slide" href="productDetail.html">
+                    <div class="name">稳赢1号(20170156)期</div>
+					<div class="rate colorYellow">5.44%</div>
+					<div class="info"><span>168天</span><span>|</span><span>1000元起购</span></div>
+                </a>
+                <a class="swiper-slide" href="productDetail.html">
+                    <div class="name">稳赢1号(20170156)期</div>
+					<div class="rate colorYellow">5.44%</div>
+					<div class="info"><span>168天</span><span>|</span><span>1000元起购</span></div>
+                </a>
+                <a class="swiper-slide" href="javascript:void(0)">
+                    <div class="waite colorYellow">敬请期待...</div>
+                </a>
+            </div>
+        </div>
+        <!--//con end-->
+	</div>
+	<!--//fastVenturing end-->
+
+
+</div>
+<!--//container end-->
+<ul id="footerBar">
+	<a href="index.html"><li class="current"><i></i>首页</li></a>
+	<a href="InvestmentHall.html"><li><i></i>投资</li></a>
+	<a href="bankInfo.html"><li><i></i>银行信息</li></a>
+	<a href="more.html"><li><i></i>更多</li></a>
+</ul>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript" src="js/swiper-3.3.1.min.js"></script>
+<script>
+$(".eye").click(function(){
+	if($(this).hasClass("open")){
+		$(this).removeClass("open");
+		$(this).siblings(".star").css("display","inline-block");
+		$(this).siblings(".money").css("display","none");
+		$(".tab .star").css("display","block");
+		$(".tab .money").css("display","none")
+	}
+	else{
+		$(this).addClass("open");
+		$(this).siblings(".star").css("display","none");
+		$(this).siblings(".money").css("display","inline-block");
+		$(".tab .star").css("display","none");
+		$(".tab .money").css("display","block")
+	}
+})
+var advertisement = new Swiper('.advertisement', {
+	pagination: '.promotion-pagination',
+	loop: true,
+	autoplay: 3000,
+	grabCursor: true, 
+	paginationClickable: true,
+	autoplayDisableOnInteraction:false
+});
+var swiper = new Swiper('.fastVenturing .con', {
+    slidesPerView: 'auto'
+});
+</script>
+</body>
+</html>

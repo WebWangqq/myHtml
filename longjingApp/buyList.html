@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>购买列表</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/InvestmentHall.css">
+</head>
+
+<body>
+<div id="navBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>购买列表</p>
+</div>
+<div id="container" style="margin-top:1rem;">
+    <div class="list middleLongTerm">
+        <!--//募集中-->
+        <a class="item raise" href="productDetail.html">
+            <div class="name">金祥云2016069期理财</div>
+            <div class="info">
+                <div class="yield">
+                    <p class="colorYellow"><span class="big">8</span><small>.30%</small></p>
+                    <p>七日年化收益率</p>
+                </div>
+                <div class="time">
+                    <p>1000元起购</p>
+                    <p>安全稳健</p>
+                </div>
+                <div class="percentage">
+                    <canvas id="myCanvas0" width="110" height="110"></canvas>
+                    <div class="num"><span>75</span>%</div>
+                </div>
+            </div>
+        </a>
+        <!--//募集中end-->
+        
+        
+        <!--//进行中-->
+        <a class="item underway" href="productDetail.html">
+            <div class="name">金祥云2016069期理财</div>
+            <div class="info">
+                <div class="yield">
+                    <p class="colorYellow"><span class="big">8</span><small>.30%</small></p>
+                    <p>七日年化收益率</p>
+                </div>
+                <div class="time">
+                    <p>1000元起购</p>
+                    <p>安全稳健</p>
+                </div>
+                <div class="percentage">
+                    <canvas id="myCanvas1" width="110" height="110"></canvas>
+                    <div class="num"><span>100</span>%</div>
+                </div>
+            </div>
+        </a>
+        <!--//进行中end-->
+        
+        <!--//募集结束-->
+        <a class="item end" href="productDetail.html">
+            <div class="name">金祥云2016069期理财</div>
+            <div class="info">
+                <div class="yield">
+                    <p class="colorYellow"><span class="big">8</span><small>.30%</small></p>
+                    <p>七日年化收益率</p>
+                </div>
+                <div class="time">
+                    <p>1000元起购</p>
+                    <p>安全稳健</p>
+                </div>
+                <div class="percentage">
+                    <canvas id="myCanvas2" width="110" height="110"></canvas>
+                    <div class="num"><span>100</span>%</div>
+                </div>
+            </div>
+        </a>
+        <!--//募集结束end-->
+
+        <!--//已完成-->
+        <a class="item finish" href="productDetail.html">
+            <div class="name">金祥云2016069期理财</div>
+            <div class="info">
+                <div class="yield">
+                    <p class="colorYellow"><span class="big">8</span><small>.30%</small></p>
+                    <p>七日年化收益率</p>
+                </div>
+                <div class="time">
+                    <p>1000元起购</p>
+                    <p>安全稳健</p>
+                </div>
+                <div class="percentage">
+                    <canvas id="myCanvas3" width="110" height="110"></canvas>
+                    <div class="num"><span>100</span>%</div>
+                </div>
+            </div>
+        </a>
+        <!--//已完成end-->
+    </div>
+    <!--//list end-->
+    <div class="noDataList">
+        <img src="images/noWelfare.jpg" />
+        <div>您目前还没有任何数据哟~</div>
+    </div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+//进度条
+$(".percentage").each(function(i) {
+    var num=$(this).find("span").text();
+    var hudu=(Math.PI*2)*(num/100)-0.5*Math.PI;
+    var c=document.getElementById("myCanvas"+i);
+    var ctx=c.getContext("2d");
+    if(num=="100"){
+        ctx.beginPath();
+        ctx.strokeStyle="#e1e1e1";
+        ctx.lineWidth=6;
+        ctx.arc(55,55,49,0,Math.PI*2,false);
+        ctx.stroke();
+    }
+    else{
+        ctx.beginPath();
+        ctx.strokeStyle="#def5ea";
+        ctx.lineWidth=6;
+        ctx.arc(55,55,49,0,Math.PI*2,false);
+        ctx.stroke();
+
+        ctx.restore();
+        gradient=ctx.createLinearGradient(0,0,110,0);
+            gradient.addColorStop("0","#76e97f");
+            gradient.addColorStop("1.0","#31c27c");
+        ctx.strokeStyle=gradient;
+        if(num!=0){
+             ctx.lineCap="round";//线条结束端点样式
+        }
+        ctx.beginPath();
+        ctx.arc(55,55,49,-0.5*Math.PI,hudu,false);
+        ctx.stroke();
+    }
+    
+});
+</script>
+</body>
+</html>

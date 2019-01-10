@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>全员营销系统</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/iosSelect.css">
+<link type="text/css" rel="stylesheet" href="css/grad.css">
+</head>
+
+<body ontouchstart>
+<div id="wrap">
+    <div class="topInfo">
+        <div class="navTitleCon">
+            <div class="navTitle selectName">
+                <span id="selectActivity" data-id='0' data-value='全部活动'>全部活动</span>
+            </div>
+        </div>
+        <ul>
+            <li>
+                <div id="userName">-</div>
+                <div>个人成绩</div>
+            </li>
+            <li>
+                <div id='paiming'>-</div>
+                <div>总排名</div>
+            </li>
+            <li>
+                <div id='score'>-</div>
+                <div>个人积分</div>
+            </li>
+        </ul>
+        <a class="btnMain" href="mygrad.html">查看详情</a>
+    </div>
+    <!-- topInfo end -->
+
+    <div class="listCon">
+        <div class="navTitleCon"><div class="navTitle">TOP10排行榜</div></div>
+        <ul class="levelCon gradCon">
+            <!-- <li>
+                <span class="level">1</span>
+                <img class="img" src="http://api.qujie365.com/upload/20180731183926900416.jpg">
+                <div class="info">
+                    <div class="con">
+                        <div class="name">张斌</div>
+                        <div class="branch">南开区支行</div>
+                    </div>
+                </div>
+                <div class="num">1582阅读量</div>
+            </li> -->
+            <!-- <div class="noData">暂无排行榜</div> -->
+        </ul>
+    </div>
+    <div class="hasfooterBar"></div>
+</div>
+
+<div id="footerBar">
+    <a class="current" href="index.html"><i></i><span>全员营销</span></a>
+    <a href="operationManual.html"><i></i><span>操作手册</span></a>
+    <a href="myCenter.html"><i></i><span>个人中心</span></a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/iosSelect.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+var apiUrl= getApiUrl();
+var bhnsuserid = localStorage.getItem("bhnsuserid");
+var userName = localStorage.getItem("userName");//名字
+var paiming = localStorage.getItem("paiming");//排名
+var myscore = localStorage.getItem("myscore");//积分
+var token=localStorage.getItem("token");
+$(document).ready(function() {
+    $('#userName').text(userName);
+    $('#paiming').text(paiming);
+    $('#score').text(myscore);
+    if (bhnsuserid == null || bhnsuserid == "" || bhnsuserid == "undefined") {
+        location.href = "login.html";
+    } else {
+        loadRank(0);
+        loadActiData();
+    }
+});
+
+function loadActiData(){
+    $.ajax({
+        type: "POST",
+        url: apiUrl+'Activity/getActivityList',
+        data:ajaxData("{\"displayPosition\": 0,\"token\": \""+token+"\"}"),
+        contentType : "application/json",
+        dataType:'json',
+        success: function (msg) {
+            hideLoadding();
+            console.log(msg)
+            if(msg.data.status==1){
+                var activityData=[{id:0,value:'全部活动'}];
+                var activitys=msg.data.data;
+
+                for(var i=0;i<activitys.length;i++){
+                   activitys[i].value=activitys[i].theme
+                   activityData.push(activitys[i])
+                }
+                var selectActivityDom = document.querySelector('#selectActivity');
+                selectActivityDom.addEventListener('click', function() {
+                    var activityId = selectActivityDom.dataset['id'];
+                    var EduSelect = new IosSelect(1,
+                        [activityData], {
+                            title: '请选择活动',
+                            itemHeight: 40,
+                            itemShowCount: 5,
+                            oneLevelId: activityId,
+                            callback: function(selectOneObj) {
+                                selectActivityDom.innerHTML = selectOneObj.value;
+                                selectActivityDom.dataset['id'] = selectOneObj.id;
+                                selectActivityDom.dataset['value'] = selectOneObj.value;
+                                loadRank(selectOneObj.id)
+                            }
+                        });
+                });
+            }
+        }
+    });
+}
+function loadRank(actid){
+    showLoadding()
+    $.ajax({
+        type: "POST",
+        url: apiUrl+'Share/personalActivityList',
+        data:ajaxData( "{\"staffId\": "+bhnsuserid+",\"activityId\":\""+actid+"\",\"token\": \"login\"}"),
+        contentType : "application/json",
+        dataType:'json',
+        success: function (msg) {
+            hideLoadding();
+            console.log(msg)
+            if(msg.data.status==1){
+                var listData=msg.data.data;
+                var html='';
+                if(listData.length>0){
+                     $.each(listData,function(i,item){
+                        html+='<li><span class="level">'+(i+1)+'</span><img class="img" src="'+item.profilePicture+'"><div class="info"><div class="con"><div class="name">'+item.name+'</div><div class="branch">'+item.orgName+'</div></div></div>'
+                        if(actid==0){
+                            html+='<div class="num">'+item.totalScore+'积分</div></li>'
+                        }
+                        else {
+                            html+='<div class="num">'+item.readCount+'阅读量</div></li>'
+                        }
+                    })
+                }
+                else {
+                     html='<div class="noData">暂无排行榜</div>'
+                }
+                $('.gradCon').html(html)
+                $(".gradCon .img").each(function(index) {
+                    $(this).one("error", function(e){
+                         $(this).attr("src", "images/touxiang@2x.png");
+                    });
+                });
+            }
+        }
+    })
+}
+</script>
+</body>
+</html>

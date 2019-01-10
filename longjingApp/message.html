@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>留言反馈</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/more.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="more.html">返回</a>
+	<p>留言反馈</p>
+</div>
+<div id="container">
+	<div class="messageWrap">
+		<textarea class="shadow textarea" placeholder="请详细描述您的问题或意见，我们将及时跟进解决。"></textarea>
+		<input class="shadow" type="text" placeholder="手机号/邮箱（选填，方便我们联系您）" />
+	</div>
+	<a class="btnMain" href="##">提  交</a>
+</div>
+<!--//container end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>活期转定期</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/investment.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar" class="noShadow">
+	<a class="goBack" href="depositZone.html">返回</a>
+	<p>活期转定期</p>
+</div>
+<div id="container" style="margin-top:1.95rem;">
+	<ul class="depositSwitchNav">
+		<li class="current"><a href="depositSwitch.html">活期转定期</a></li>
+		<li><a href="depositSwitch2.html">定期转活期</a></li>
+	</ul>
+	<!--//depositSwitchNav end-->
+	<ul class="formInfo">
+		<li style="padding-right:.7rem;">
+			<label>付款账号</label>
+			<div class="info" id="cardNum">6225********4608</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li>
+			<label>币种</label>
+			<div class="info">人民币</div>
+		</li>
+		<li style="padding-right:.7rem;">
+			<label>存期</label>
+			<div class="info" id="period">三个月</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li style="padding-right:.7rem;">
+			<label>自动续存</label>
+			<div class="info" id="renew">到期后，本息一起续存</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li>
+			<label>利率</label>
+			<div class="info">1.35% </div>
+		</li>
+	</ul>
+	<ul class="formInfo transferAmount">
+		<li>转账金额</li>
+		<li class="money">
+			<span class="symbol">￥</span>
+			<div class="info"><input id="money" class="field" type="text" placeholder="当前可用余额100.05元" /></div>
+			<span class="colorYellow" id="allMoney">全部</span>
+		</li>
+		<li>
+			<label>预期收益</label>
+			<div class="info textRight">￥<span class="colorMain">0.17</span></div>
+		</li>
+	</ul>
+	<ul class="formInfo">
+		<li>
+			<label>推荐柜员号</label>
+			<div class="info"><input class="field" type="tel" placeholder="请输入推荐柜员号（选填）" /></div>
+		</li>
+	</ul>
+	<a class="btnMain" href="javascript:void(0)" onclick="showPay()">确&nbsp;&nbsp;&nbsp;&nbsp;认</a>
+</div>
+<!--//container end-->
+
+<!-- /*付款账号*/ -->
+<div class="selectBox" id="cardNumBox">
+	<ul class="selectCon">
+		<li class="current">6225********4608</li>
+		<li>6225********4601</li>
+		<li>6225********4602</li>
+	</ul>
+</div>
+<!-- /*付款账号end*/ -->
+
+<!-- /*存期*/ -->
+<div class="selectBox" id="periodBox">
+	<ul class="selectCon">
+		<li class="current">三个月</li>
+		<li>六个月</li>
+		<li>一年</li>
+	</ul>
+</div>
+<!-- /*存期end*/ -->
+<!-- /*自动续存end*/ -->
+<div class="selectBox" id="renewBox">
+	<ul class="selectCon">
+		<li class="current">到期后，本息一起续存</li>
+		<li>到期后，存本取息</li>
+		<li>到期后，存息取本</li>
+	</ul>
+</div>
+<!-- /*自动续存end*/ -->
+
+<!--//温馨提示-->
+<div class="warmPromptBox" id="warmPromptBox">
+	<div class="content">
+		<div class="title colorMain">温馨提示</div>
+		<div class="textCon">整存整取储蓄存款起存金额为人民币50元</div>
+		<div class="btnCon">
+			<a href="javascript:void(0)" onclick="hideLight('warmPromptBox');">确定</a>
+		</div>
+	</div>
+</div>
+<!--//温馨提示end-->
+
+
+<!--输入交易密码-->
+<div id="passwordLight" onclick="hidePay()"></div>
+<div class="editPassword" id="editPassword">
+	<div class="passwordItem">
+		<div class="title"><i class="closeBtn" onclick="hidePay();"></i>请输入交易密码</div>
+		<div class="text">将转出活期金额至整存整取定期<span class="colorYellow">￥50.00</span></div>
+		<ul class="keyBox clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="passwordVal">
+	</div>
+	<!--键盘-->
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+	<!--键盘end-->
+</div>
+<!--输入交易密码end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$("#money").on("input",function(){
+	$(this).attr("placeholder","");
+	$(this).css("font-size",".5rem");
+})
+$("#money").blur(function(){
+	var num=parseFloat($(this).val());
+	if(isNaN(num)){
+		$(this).css("font-size",".28rem");
+		$(this).attr("placeholder","当前可用余额100.05元");
+	}
+	if(num<50){
+		showLight('warmPromptBox')
+	}
+})
+$("#allMoney").bind("touchend",function() {
+	$("#money").css("font-size",".5rem").val("100.05");
+})
+$("#overlay").bind("touchend",function(){
+	setTimeout(function(){$('#overlay').hide()},200);
+	$(".selectBox").hide();
+	$('body').unbind("touchmove");
+})
+/*付款账号*/
+$("#cardNum").bind("touchend",function(){
+	showLight("cardNumBox");
+})
+$("#cardNumBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("cardNumBox");
+	$("#cardNum").text($(this).text())
+})
+/*存期*/
+$("#period").bind("touchend",function(){
+	showLight("periodBox");
+})
+$("#periodBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("periodBox");
+	$("#period").text($(this).text())
+})
+/*自动续存*/
+$("#renew").bind("touchend",function(){
+	showLight("renewBox");
+})
+$("#renewBox li").bind("touchend",function(){
+	$(this).addClass("current").siblings().removeClass("current");
+	hideLight("renewBox");
+	$("#renew").text($(this).text())
+})
+
+//显示支付密码
+function showPay(){
+	$(".keyBox li").removeClass("done");
+	$("#passwordVal").val("");
+	$("#passwordLight").show();
+	$("#editPassword").show();
+	$(".editPassword .keyBoard").animate({"bottom":"0"})
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+}
+function hidePay(){
+	$("#passwordLight").hide();
+	$("#editPassword").hide();
+	$(".editPassword .keyBoard").animate({"bottom":"-6rem"});
+	$('body').unbind("touchmove");
+}
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#passwordVal").val().length < 6) {
+		$("#num" + $("#passwordVal").val().length).addClass("done");
+		$("#passwordVal").val($("#passwordVal").val() + $(this).text());
+		if ($("#passwordVal").val().length == 6) {
+			console.log($("#passwordVal").val());
+			setTimeout(function(){hidePay();},200);
+			setTimeout(function(){window.location.href="depositSwitchSuccess.html"},1000)
+		}
+	}
+	
+})
+//删除
+$("#delete").bind("touchend",function(){
+	if ($("#passwordVal").val().length > 0) {
+		$("#num" + ($("#passwordVal").val().length - 1)).removeClass("done");
+		$("#passwordVal").val($("#passwordVal").val().substr(0, $("#passwordVal").val().length - 1));
+	}
+})
+</script>
+</body>
+</html>

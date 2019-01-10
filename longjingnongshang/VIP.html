@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title></title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/VIP.css">
+</head>
+<body ontouchstart>
+
+<div class="indexWrap" style="padding-bottom:.9rem;">
+	<div class="topWrap">
+		<div class="headerCon">
+			<p>VIP专区</p>
+			<span class="setBtn">设置</span>
+			<div class="setConOverlay"></div>
+			<div class="setCon">
+				<a href="userInfo.html"><span>个人信息</span></a>
+				<a href="bankCard.html"><span>我的银行卡</span></a>
+				<a href="securityCenter.html"><span>安全中心</span></a>
+			</div>
+		</div>
+		<div class="loginCon noLogin">
+			<p>尊敬的用户，下午好</p>
+			<p><a class="textUnder" href="certification.html">点击立即开户>></a></p>
+		</div>
+		<div class="loginCon" style="display:none;">
+			<p>林女士，下午好</p>
+			<p>您上次登录时间：2018.02.06  17:01:26</p>
+		</div>
+		<div class="moneyCon clearfix">
+			<div class="left item">
+				<div class="con">
+					<p>已投资产</p>
+					<p>--</p>
+					<p><a href="transactionDetail.html">交易明细</a></p>
+				</div>
+			</div>
+			<div class="right item">
+				<div class="con">
+					<p>可用余额</p>
+					<p>25,562.23</p>
+					<p><a href="shiftTo.html">充值</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="itemCon">
+		<div class="title">推荐产品</div>
+		<!--//没有产品-->
+		<img style="display:none;" src="images/noProduct.jpg" />
+		<!--//没有产品 end-->
+		<a href="productDetail.html" class="productCon">
+			<div class="name">稳赢1号第2018026期</div>
+			<div class="rate">4.75%</div>
+			<div class="colorGray">七日年化收益率</div>
+			<div class="trait colorMain"><span>365天</span><span>100万元起存</span><span>收益稳健</span></div>
+		</a>
+	</div>
+	<div class="itemCon">
+		<div class="title">生活服务</div>
+		<a class="banner"><img src="images/VIPbanner.jpg"></a>
+	</div>
+</div>
+
+<div id="footerBar">
+    <a href="index.html"><i></i>首页</a>
+    <a href="service.html"><i></i>服务</a>
+    <a class="current" href="VIP.html"><i></i>VIP专区</a>
+    <a href="my.html"><i></i>我的</a>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(".setBtn").click(function(){
+	if($(".setCon").is(":visible")){
+		$(".setConOverlay").hide();
+		$(".setCon").hide();
+	}
+	else{
+		$(".setConOverlay").show();
+		$(".setCon").show()
+	}
+})
+$(".setConOverlay").bind("touchstart",function(){
+	$(this).hide();
+	$(".setCon").hide();
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>开户</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/realNameAuthentication.css">
+<link type="text/css" rel="stylesheet" href="css/keyBoard.css">
+</head>
+
+<body ontouchstart>
+<div id="container" style="margin-top:0;">	
+	<div class="resetCellPhoneWrap">
+		<ul class="progressItem">
+			<li class="colorMain">实名认证</li>
+			<li class="colorMain"><i></i><i></i><i></i><i></i><i></i>绑定银行卡</li>
+			<li class="colorMain"><i></i><i></i><i></i><i></i><i></i>验证手机</li>
+		</ul>
+		<div class="readItem">请您阅读<a  class="colorMain aUnderline" onclick="showAgreementBox('openAccountAgreement');">《吉龙•汇财平台开户协议》</a>的相关规定</div>
+		<div class="yzmNumCon">
+			<div class="message">
+				<p>新的短信消息</p>
+				<p>您收到的验证码××××××</p>
+			</div>
+			<div class="num colorMain">
+				<p>请输入您收到的验证码</p>
+				<p id="messageyzm"></p>
+			</div>
+		</div>
+	</div>
+	<div class="yzmCon" id="num" onclick="showKeyBoard();">
+		<ul class="yzm colorMain clearfix">
+	        <li id="num0"></li>
+	        <li id="num1"></li>
+	        <li id="num2"></li>
+	        <li id="num3"></li>
+	        <li id="num4"></li>
+	        <li id="num5"></li>
+	    </ul>
+	    <input type="hidden" id="yzmVal">
+	</div>
+</div>
+<!--//container end-->
+
+<!--//协议-->
+<div class="agreementBox" id="openAccountAgreement">
+	<div class="title colorMain">开户协议</div>
+	<div class="textCon">
+		<div class="con">
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请龙井银行个人网上银行的客户（以下简称“甲方”）、龙井银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<div class="okBtn colorMain" href="javascript:void(0)" onclick="hideLight('openAccountAgreement')">确定</div>
+</div>
+<!--//协议end-->
+
+
+<!--键盘-->
+<div id="editNumLight" onclick="hideKeyBoard()"></div>
+<div class="keyBoardCon">
+	<div class="operate colorMain clearfix"><span class="left" onclick="hideKeyBoard();">取消</span><span id="okBtn" class="right">确定</span></div>
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+</div>
+<!--键盘end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+
+<script type="text/javascript">
+
+function scrollToEnd(){//滚动到底部
+    var h = $(document).height()-$(window).height();
+    $(document).scrollTop(h); 
+}
+//显示键盘
+function showKeyBoard(){
+	$("#editNumLight").show();
+	$('body').css("padding-bottom","6.2rem");
+	scrollToEnd();
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+	$(".keyBoardCon").animate({"bottom":"0"});
+}
+//隐藏键盘
+function hideKeyBoard(){
+	$("#editNumLight").hide();
+	$("#messageyzm").text("");
+	$('body').unbind("touchmove");
+	$(".keyBoardCon").animate({"bottom":"-6.2rem"});
+	$('body').css("padding-bottom","0");
+	$(document).scrollTop(0);
+}
+
+
+
+$("#okBtn").click(function(){
+	if ($("#yzmVal").val().length == 6){
+		setTimeout(function(){window.location.href="setPayPassword.html";},500)
+	}
+	else{
+		showTipBox("请输入六位验证码！")
+	}
+})
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if ($("#yzmVal").val().length < 6) {
+		$("#num" + $("#yzmVal").val().length).text($(this).text());
+		$("#yzmVal").val($("#yzmVal").val() + $(this).text());
+		$("#messageyzm").text($("#yzmVal").val());
+		if ($("#yzmVal").val().length == 6) {
+			console.log($("#yzmVal").val());
+			if($("#yzmVal").val()=="123456"){
+				setTimeout(function(){window.location.href="setPayPassword.html";},500)
+			}
+			else{
+				showTipBox("验证码错误,请重新输入");
+				$("#yzmVal").val("");
+				$("#messageyzm").text("")
+				for(var i=0;i<6;i++){
+					$("#num"+i).text("")
+				}
+			}
+			
+		}
+	}
+})
+//删除
+$("#delete").bind("touchstart",function(){
+	if ($("#yzmVal").val().length > 0) {
+		$("#num" + ($("#yzmVal").val().length - 1)).text("");
+		$("#yzmVal").val($("#yzmVal").val().substr(0, $("#yzmVal").val().length - 1));
+		$("#messageyzm").text($("#yzmVal").val());
+	}
+})
+</script>
+</body>
+</html>

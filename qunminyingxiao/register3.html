@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>吉林龙井农商银行</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/login.css">
+</head>
+
+<body ontouchstart>
+<div id="wrap">
+	<img class="logo" src="images/temp/logo.jpg">
+	<img class="logo2" src="images/logoImg.png">
+	<ul class="formInfo">
+		<li>
+			<div class="info">
+				<div class="field" id="branchName">空港支行</div>
+				<select id="select">
+					<option selected>空港支行</option>
+					<option>空港支行1</option>
+					<option>空港支行2空港支行2空港支行2空港支行2空港支行2空港支行2空港支行2</option>
+				</select>
+			</div>
+			<i class="arrowBtoom"></i>
+		</li>
+		<li>
+			<div class="info"><input id="userName" class="field mustFill" type="text" placeholder="姓名" /></div>
+		</li>
+		<li>
+			<div class="info"><input id="userId" class="field mustFill" type="text" placeholder="工号" /></div>
+		</li>
+	</ul>
+	<a class="btnMain btnGray" onclick="finnish()">完成</a>
+	<div class="loginTip"><a href="login.html">已有账号</a></div>
+</div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$('#select').change(function(event) {
+	$('#branchName').text($(this).val())
+});
+function finnish () {
+	if($("#userName").val()=='') {
+		showTipBox("请输入姓名");
+	}
+	else if($('#userId').val()==''){
+		showTipBox("请输入工号");
+	}
+	else{
+		showTipBox('注册成功')
+		setTimeout(function(){
+			window.location.href='index.html'
+		}, 2000)
+	}
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>开户</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+<link type="text/css" rel="stylesheet" href="css/realNameAuthentication.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+    <a class="goBack" href="index.html">返回</a>
+    <p>开户</p>
+</div>
+<div id="container" class="bindBankCard">
+	<ul class="progressItem">
+		<li class="colorRed">实名认证</li>
+		<li class="colorRed"><i></i><i></i><i></i><i></i><i></i>绑定银行卡</li>
+		<li><i></i><i></i><i></i><i></i><i></i>验证手机</li>
+	</ul>
+	<div class="readItem">请您阅读<a  class="colorYellow aUnderline" onclick="showAgreementBox('registrationAgreement');">《吉龙•汇财平台开户协议》</a>的相关规定</div>
+	<div class="cardCon">
+		<p>请绑定您名下的任意一张借记卡</p>
+		<p>卡号</p>
+		<p>**** **** **** ****</p>
+		<a href="bankList.html">查看支持的银行</a>
+	</div>
+	<div class="cardNumCon">
+		<div class="num colorRed" id="num"></div>
+	</div>
+</div>
+<!--//container end-->
+
+<!--//agreementBox-->
+<div class="agreementBox" id="registrationAgreement">
+	<div class="content">
+		<div class="textCon">
+			<h2>吉龙•汇财平台开户协议</h2>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<a class="closeBtn" href="javascript:void(0)" onclick="hideLight('registrationAgreement')">关闭</a>
+</div>
+<!--//agreementBox end-->
+
+<!--键盘-->
+<div class="keyBoardCon">
+	<div class="operate clearfix"><span id="cancelBtn" class="left">取消</span><span id="okBtn" class="right">确定</span></div>
+	<ul class="keyBoard clearfix" id="keyBoard">
+		<li><span>1</span></li>
+		<li><span>2</span></li>
+		<li><span>3</span></li>
+		<li><span>4</span></li>
+		<li><span>5</span></li>
+		<li><span>6</span></li>
+		<li><span>7</span></li>
+		<li><span>8</span></li>
+		<li><span>9</span></li>
+		<li class="none"><span>&nbsp;</span></li>
+		<li><span>0</span></li>
+		<li id="delete" class="none"><span>删除</span></li>
+	</ul>
+</div>
+<!--键盘end-->
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+function scrollToEnd(){//滚动到底部
+    var h = $(document).height()-$(window).height();
+    $(document).scrollTop(h); 
+}
+$("#num").click(function(){
+	$('body').css("padding-bottom","7.4rem");
+	scrollToEnd();
+	$('body').on('touchmove', function (event) { event.preventDefault(); });
+	$(".keyBoardCon").animate({"bottom":"0"});
+})
+
+$("#cancelBtn").click(function(){
+	$("#num").text("");
+	$('body').unbind("touchmove");
+	$(".keyBoardCon").animate({"bottom":"-7.4rem"});
+	$('body').css("padding-bottom","0");
+	$(document).scrollTop(0); 
+})
+$("#okBtn").click(function(){
+	if($("#num").text().length == 19){
+		setTimeout(function(){window.location.href="verifyPhoneNum.html";},500)
+		return false;
+	}
+	else{
+		showTipBox("请输入16位银行卡号！")
+	}
+})
+//0-9按键
+$("#keyBoard li:not(.none)").bind("touchend",function(){
+	if($("#num").text().length<19){
+		var sub = $("#num").text();
+		if(sub.length == 4 || sub.length == 9|| sub.length == 14){
+			 sub += " ";
+		}
+		sub += $(this).find('span').text();
+		$("#num").text(sub);
+	}
+	if($("#num").text().length == 19){
+		console.log($("#num").text());
+		setTimeout(function(){window.location.href="verifyPhoneNum.html";},500)
+		return false;
+	}
+})
+//删除
+$("#delete").bind("click",function(){
+	var sub = $("#num").text();
+	if(sub.length > 0){
+		if(sub.length==6 || sub.length==11 || sub.length==16){
+			sub = sub.substring(0,sub.length-2);
+		}
+		else{
+			sub = sub.substring(0,sub.length-1);
+		}
+		
+		$("#num").text(sub)
+	}
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name='apple-touch-fullscreen' content='yes'>
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>抢红包</title>
+<link type="text/css" rel="stylesheet" href="../../css/layout.css">
+<link type="text/css" rel="stylesheet" href="index.css">
+</head>
+
+<body ontouchstart>
+
+<div id="wrap">
+	<img class="img1" src="images/img1.png">
+	<img class="img2" src="images/img2.png">
+	<div class="content">
+		<div class="awardCon">
+			<div class="title">恭喜您获得</div>
+			<div class="name">￥8.88</div>
+			<div class="type">现金券</div>
+		</div>
+		<!-- <div class="awardCon no">
+			<div class="title">很遗憾</div>
+			<div class="name">红包与你擦肩而过</div>
+		</div> -->
+		<div class="rulesCon">
+			<div class="title">活动规则</div>
+			<p><span class="num">1</span>本次活动每个ID<span class="colorWhite">仅限一次</span>参与机会;</p>
+			<p><span class="num">2</span>点击<span class="colorWhite">“立即领取”</span>即可参与抢现金红包活动;</p>
+			<p><span class="num">3</span>此活动最终解释权归本公司所有。</p>
+		</div>
+	</div>
+	<div class="btnCon"><div class="btn">立即领取</div></div>
+	<img class="jinbi1" src="images/jinbi.png">
+	<img class="jinbi2" src="images/jinbi.png">
+	<img class="jinbi3" src="images/jinbi.png">
+	<img class="jinbi4" src="images/jinbi.png">
+	<img class="money1" src="images/money.png">
+	<img class="money2" src="images/money.png">
+</div>
+
+
+<script type="text/javascript" src="../../js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="../../js/base.js"></script>
+<script type="text/javascript" src="../../js/iscroll.js"></script>
+<script>
+function resize() {
+    var wWidth = document.body.clientWidth;
+    var Fsize = wWidth / 7.5 < 100 ? wWidth / 7.5 : 100;
+    document.querySelector('html').style.fontSize = Fsize + 'px';
+};
+resize();
+window.onresize = resize;
+
+$('.btn').click(function(event) {
+	$('.awardCon').animate({opacity:"1",top:"-1.9rem"},1000);
+	$('.jinbi1,.jinbi2,.jinbi3,.jinbi4,.money1,.money2').hide()
+});
+</script>
+</body>
+</html>

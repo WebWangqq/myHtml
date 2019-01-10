@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>我的转账伙伴</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/transferAccounts.css">
+</head>
+
+<body ontouchstart>
+<div id="headerBar">
+    <a class="goBack" href="javascript:void(0)" onClick="javascript :history.back(-1);">返回</a>
+    <p>我的转账伙伴</p>
+</div>
+<div id="container">
+	<div class="selectForm">
+		<input class="field" type="text" placeholder="搜索银行名/账号/户名/手机号" name="">
+	</div>
+	<ul class="myTransferPartnerNav">
+		<li class="current">往账收款人</li>
+		<li>来账付款人</li>
+	</ul>
+	<a class="addNew" href="addTransferPartner.html">添加新的转账伙伴</a>
+	<div class="transferAccountsListCon">
+		<div class="cardTitle">林雅静(4)<i class="arrowRight arrowBottom"></i></div>
+		<ul class="cardList">
+			<li><img class="logo" src="images/bankLogo/zhongguo.png" /><span>中国银行</span><span>尾号3565</span></li>
+			<li><img class="logo" src="images/bankLogo/jiaotong.png" /><span>交通银行</span><span>尾号3565</span></li>
+			<li><img class="logo" src="images/bankLogo/nongye.png" /><span>中国农业银行</span><span>尾号3565</span></li>
+			<li><img class="logo" src="images/bankLogo/shanghai.png" /><span>上海银行</span><span>尾号3565</span></li>
+		</ul>
+		<div class="initialNav">C</div>
+		<div class="transferAccountsList">
+			<a class="item" href="transferPartner.html">
+				<img class="logo" src="images/bankLogo/yanhai.png" />
+				<div class="name person"><span>林雅静</span></div>
+				<div class="bank"><span>中国银行</span><span>尾号3565</span></div>
+			</a>
+			<a class="item" href="transferPartner.html">
+				<img class="logo" src="images/bankLogo/yanhai.png" />
+				<div class="name company"><span>佰银金服(天津)有限公司</span></div>
+				<div class="bank"><span>中国银行</span><span>尾号3565</span></div>
+			</a>
+			<a class="item" href="transferPartner.html">
+				<img class="logo" src="images/bankLogo/yanhai.png" />
+				<div class="name person"><span>林雅静</span></div>
+				<div class="bank"><span>中国银行</span><span>尾号3565</span></div>
+			</li>
+			<a class="item" href="transferPartner.html">
+				<img class="logo" src="images/bankLogo/yanhai.png" />
+				<div class="name company"><span>佰银金服(天津)有限公司</span></div>
+				<div class="bank"><span>中国银行</span><span>尾号3565</span></div>
+			</a>
+		</div>
+	</div>
+
+</div>
+<!--//container end-->
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script>
+$(".cardTitle").click(function(){
+	if($(this).find(".arrowRight").hasClass("arrowTop")){
+		$(this).find(".arrowRight").removeClass("arrowTop").addClass("arrowBottom");
+		$(this).next(".cardList").hide();
+	}
+	else{
+		$(this).find(".arrowRight").removeClass("arrowBottom").addClass("arrowTop");
+		$(this).next(".cardList").show();
+	}
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>转入</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+</head>
+
+<body ontouchstart>
+<div id="navBar">
+	<a class="goBack" href="##">返回</a>
+	<p>转入</p>
+</div>
+<div id="container" style="margin-top:1rem;">
+	<ul class="formInfo">
+		<li>
+			<label>转入金额</label>
+			<div class="info"><input class="field" type="text" placeholder="请输入您要买入的金额" /></div>
+		</li>
+	</ul>
+	<ul class="formInfo">
+		<li>
+			<label>银行卡</label>
+			<div class="info" id="cardNum" onclick="showLight('payMethodBox')">6222 0203 5823 698</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li class="bank">
+			<label>所属银行</label>
+			<div class="info">
+				<div><img class="bankLogo" src="images/bankLogo/zhongguo.png" /><span>中国银行</span></div>
+				<div class="text colorGray">单笔限额：5万&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;单日限额：5万</div>
+			</div>
+		</li>
+		<li>
+			<label>预留手机号</label>
+			<div class="info"><input class="field" type="tel" placeholder="请输入预留手机号" /></div>
+		</li>
+		<li>
+			<label>验证码</label>
+			<div class="info"><input class="field" type="text" placeholder="请输入序号为11的验证码" /></div>
+			<span class="yzm colorYellow">发送验证码</span>
+		</li>
+	</ul>
+	<div class="agreement agree">同意<a class="colorYellow" onclick="showAgreementBox('withholding');">《充值代扣委托协议》</a></div>
+	<a class="btnMain btnGray" href="##">去充值</a>
+</div>
+<!--//container end-->
+
+<!--//充值代扣委托协议-->
+<div class="agreementBox" id="withholding">
+	<div class="content">
+		<div class="textCon">
+			<h2>充值代扣委托协议</h2>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+			<p>为明确双方权利义务，规范双方业务行为，申请营口沿海银行个人网上银行的客户（以下简称“甲方”）、营口沿海银行股份有限公司（含所属各分支机构，以下简称“乙方”），本着自愿、平等、互惠、互利的愿则，就个人网上银行服务的相关事宜达成本协议。</p>
+		</div>
+	</div>
+	<a class="closeBtn" href="javascript:void(0)" onclick="hideLight('withholding')">关闭</a>
+</div>
+<!--//充值代扣委托协议end-->
+
+<div class="payBox" id="payMethodBox">
+	<h2 class="title"><i class="arrowLeft" onclick="hideLight('payMethodBox')"></i>选择支付方式</h2>
+	<ul class="infoItem">
+		<li>
+			<div class="logo"><img src="images/bankLogo/zhongguo.png" /></div>
+			<div class="cardInfo">中国银行  储蓄卡（7680)</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li>
+			<div class="logo"><img src="images/bankLogo/zhongguo.png" /></div>
+			<div class="cardInfo">中国银行  储蓄卡（7680)</div>
+			<i class="arrowRight"></i>
+		</li>
+		<li class="wallet">
+			<div class="logo"><img src="images/myPropertyIco1.png" /></div>
+			<div class="cardInfo colorGray">钱包（剩余￥1000.00）<br/>余额不足，剩余1000.00</div>
+		</li>
+		<a href="pay2.html">
+		<li class="last">
+			<div class="logo"></div>
+			<div class="cardInfo">使用新卡支付</div>
+			<i class="arrowRight"></i>
+		</li>
+		</a>
+	</ul>
+</div>
+
+
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript" src="js/iscroll.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	var mt=$(window).height()-$("#container").height()-$(window).width()/7.5*1;
+	marginTop=(mt>50) ? mt : 50;
+	$(".btnMain").css("margin-top",marginTop);
+})
+</script>
+</body>
+</html>

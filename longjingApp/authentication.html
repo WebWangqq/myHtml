@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html style="font-size:50px;">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>实名认证</title>
+<link type="text/css" rel="stylesheet" href="css/layout.css">
+<link type="text/css" rel="stylesheet" href="css/capacity.css">
+</head>
+
+<body style="background-color:#fff;">
+<div id="navBar">
+    <a class="goBack" href="##">返回</a>
+    <p>实名认证</p>
+</div>
+<div id="container">
+	<div class="successWrap" style="padding-top:1rem;">
+		<div class="topItem">
+			<img class="img" src="images/ljrz.jpg" />
+			<div class="colorYellow textCenter" style="font-size:.34rem;">为确保您的账户安全，请先实名认证</div>
+			<a class="btnMain btnBorder colorMain" style="margin-top:.5rem;" href="authenticationScanIdCard.html">立即实名认证</a>
+		</div>
+	</div>
+</div>
+<!--//container end-->
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="js/base.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	showTipBox("您还未开户，请先开户")
+})
+</script>
+</body>
+</html>
